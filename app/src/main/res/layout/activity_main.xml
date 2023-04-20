@@ -6,13 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/button_questionnaire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:drawablePadding="4dp"
+        android:drawableTint="#ff0000"
+        android:text="@string/questionnaire"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="291dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_tracking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="4dp"
+        android:drawableTint="#ff0000"
+        android:text="@string/tracking"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="339dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_archive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="4dp"
+        android:drawableTint="#ff0000"
+        android:text="@string/archive"
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="387dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="4dp"
+        android:drawableTint="#ff0000"
+        android:text="@string/settings"
+        tools:layout_editor_absoluteX="170dp"
+        tools:layout_editor_absoluteY="435dp"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

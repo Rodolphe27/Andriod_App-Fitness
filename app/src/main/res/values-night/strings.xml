@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">A07</string>
-    <string name="questionnaire">Questionnaire</string>
+    <string name="questionnaire">Questionaire</string>
     <string name="tracking">Tracking</string>
     <string name="settings">Settings</string>
     <string name="archive">Archive</string>
