@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/navigationView"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- 4 vertical buttons are commented out by Minhua L, as we have the navigation bar thanks to Ludo -->
+<!--        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/navigationView"
+            app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/button_questionnaire"
@@ -39,17 +46,9 @@
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
-            android:text="@string/settings" />
+            android:text="@string/settings" />-->
 
-    </LinearLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_500"
-        app:layout_constraintBottom_toBottomOf="parent">
-
+        <!-- the navi bar-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -63,7 +62,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/questionnaire"
-                android:src="@drawable/ic_questionnaire" />
+                android:src="@drawable/ic_questionnaire"
+                android:onClick="openQuestionnaire"/>
 
             <ImageButton
                 android:id="@+id/buttonTracking"
@@ -72,7 +72,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/tracking"
-                android:src="@drawable/ic_tracking" />
+                android:src="@drawable/ic_tracking"
+                android:onClick="openTracking"/>
 
             <ImageButton
                 android:id="@+id/buttonArchive"
@@ -81,7 +82,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/archive"
-                android:src="@drawable/ic_archive" />
+                android:src="@drawable/ic_archive"
+                android:onClick="openArchive"/>
 
             <ImageButton
                 android:id="@+id/buttonSettings"
@@ -90,7 +92,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/settings"
-                android:src="@drawable/ic_settings" />
+                android:src="@drawable/ic_settings"
+                android:onClick="openSettings"/>
 
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>

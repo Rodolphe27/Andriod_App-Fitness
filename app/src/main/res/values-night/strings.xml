@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toast_archive_main">open archive</string>
+    <string name="toast_tracking_main">open tracking</string>
+    <string name="toast_settings_main">open settings</string>
+</resources>
