@@ -5,10 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonQuestionnaire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="150dp"
+        android:text="@string/questionnaire"
+        android:onClick="openQuestionnaire"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:background="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -20,14 +46,14 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/buttonQuestionnaire"
+                android:id="@+id/buttonHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
-                android:contentDescription="@string/questionnaire"
-                android:src="@drawable/ic_questionnaire"
-                android:onClick="openQuestionnaire"/>
+                android:contentDescription="@string/home"
+                android:onClick="openMainActivity"
+                android:src="@drawable/ic_home" />
 
             <ImageButton
                 android:id="@+id/buttonTracking"
@@ -36,8 +62,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/tracking"
-                android:src="@drawable/ic_tracking"
-                android:onClick="openTracking"/>
+                android:onClick="openTracking"
+                android:src="@drawable/ic_tracking" />
 
             <ImageButton
                 android:id="@+id/buttonArchive"
@@ -46,8 +72,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/archive"
-                android:src="@drawable/ic_archive"
-                android:onClick="openArchive"/>
+                android:onClick="openArchive"
+                android:src="@drawable/ic_archive" />
 
             <ImageButton
                 android:id="@+id/buttonSettings"
@@ -56,21 +82,10 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/settings"
-                android:src="@drawable/ic_settings"
-                android:onClick="openSettings"/>
+                android:onClick="openSettings"
+                android:src="@drawable/ic_settings" />
 
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="Main"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

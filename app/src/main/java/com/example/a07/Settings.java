@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,6 +19,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 import java.util.Locale;
 
 public class Settings extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private boolean languageSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,24 +54,27 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         fontsizeSpinner.setAdapter(fontsizeAdapter);
         fontsizeSpinner.setOnItemSelectedListener(this);
 
-        darkmodeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // Enable dark mode
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                } else {
-                    // Disable dark mode
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }
-                getDelegate().applyDayNight();
+        darkmodeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Enable dark mode
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                // Disable dark mode
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
+            getDelegate().applyDayNight();
         });
     }
 
     // Implement the onItemSelected method to do something when an item is selected
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (!languageSelected) {
+            // Don't apply the language when the activity is first loaded
+            languageSelected = true;
+            return;
+        }
+
         String selectedItem = parent.getItemAtPosition(position).toString();
 
         // Change app language based on selection
@@ -107,10 +110,11 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
-    public void openQuestionnaire(View view) {
-        Toast toast = Toast.makeText(this, R.string.toast_questionnaire_main, Toast.LENGTH_SHORT);    //toast a text when open
+    public void openMainActivity(View view) {
+        Toast toast = Toast.makeText(this, R.string.toast_home_main, Toast.LENGTH_SHORT);    //toast a text when open
         toast.show();
-        Intent intent = new Intent(this, Questionnaire.class);      //intent created to open a new page (activity)
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  //intent created to open a new page (activity)
         startActivity(intent);
     }
 
@@ -118,6 +122,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Toast toast = Toast.makeText(this, R.string.toast_settings_main, Toast.LENGTH_SHORT);    //toast a text when open
         toast.show();
         Intent intent = new Intent(this, Settings.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
@@ -125,6 +130,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Toast toast = Toast.makeText(this, R.string.toast_tracking_main, Toast.LENGTH_SHORT);    //toast a text when open
         toast.show();
         Intent intent = new Intent(this, SportTracking.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
@@ -132,6 +138,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Toast toast = Toast.makeText(this, R.string.toast_archive_main, Toast.LENGTH_SHORT);    //toast a text when open
         toast.show();
         Intent intent = new Intent(this, Archive.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 }

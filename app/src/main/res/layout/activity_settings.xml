@@ -88,14 +88,14 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/buttonQuestionnaire"
+                android:id="@+id/buttonHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
-                android:contentDescription="@string/questionnaire"
-                android:onClick="openQuestionnaire"
-                android:src="@drawable/ic_questionnaire" />
+                android:contentDescription="@string/home"
+                android:onClick="openMainActivity"
+                android:src="@drawable/ic_home" />
 
             <ImageButton
                 android:id="@+id/buttonTracking"

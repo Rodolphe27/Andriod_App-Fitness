@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">A07</string>
+    <string name="home">Home</string>
     <string name="questionnaire">Questionnaire</string>
     <string name="tracking">Tracking</string>
     <string name="settings">Settings</string>
@@ -9,6 +10,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="toast_home_main">open Home</string>
     <string name="toast_questionnaire_main">open Questionnaire</string>
     <string name="toast_archive_main">open Archive</string>
     <string name="toast_tracking_main">open Tracking</string>
