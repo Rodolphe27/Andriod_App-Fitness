@@ -8,4 +8,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="toast_archive_main">open archive</string>
+    <string name="toast_tracking_main">open tracking</string>
+    <string name="toast_settings_main">open settings</string>
 </resources>
