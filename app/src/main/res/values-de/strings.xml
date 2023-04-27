@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">A07</string>
+    <string name="home">Home</string>
+    <string name="questionnaire">Fragebogen</string>
+    <string name="tracking">Tracking</string>
+    <string name="settings">Einstellungen</string>
+    <string name="archive">Archiv</string>
+    <string name="title_activity_settings">Einstellungen</string>
+    <string name="title_home">Startseite</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Benachrichtigungen</string>
+    <string name="toast_home_main">Home geöffnet</string>
+    <string name="toast_questionnaire_main">Fragebogen geöffnet</string>
+    <string name="toast_archive_main">Archiv geöffnet</string>
+    <string name="toast_tracking_main">Tracking geöffnet</string>
+    <string name="toast_settings_main">Einstellungen geöffnet</string>
+    <string name="darkmodeSwitch">Darkmode</string>
+    <string name="gpsSwitch">GPS</string>
+
+    <string-array name="language_array">
+        <item>Englisch</item>
+        <item>Deutsch</item>
+        <item>Französisch</item>
+        <item>Italienisch</item>
+        <item>Spanisch</item>
+        <item>Portugiesisch</item>
+        <item>Chinesisch</item>
+        <item>Japanisch</item>
+        <item>Russisch</item>
+    </string-array>
+    <string-array name="color_array">
+        <item>Lila</item>
+        <item>Rot</item>
+        <item>Grün</item>
+        <item>Blau</item>
+        <item>Gelb</item>
+        <item>Schwarz</item>
+        <item>Weiß</item>
+        <item>Grau</item>
+        <item>Orange</item>
+    </string-array>
+    <string-array name="fontsize_array">
+        <item>Klein</item>
+        <item>Mittel</item>
+        <item>Groß</item>
+    </string-array>
+</resources>
