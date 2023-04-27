@@ -8,7 +8,38 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="toast_archive_main">open archive</string>
-    <string name="toast_tracking_main">open tracking</string>
-    <string name="toast_settings_main">open settings</string>
+    <string name="toast_questionnaire_main">open Questionnaire</string>
+    <string name="toast_archive_main">open Archive</string>
+    <string name="toast_tracking_main">open Tracking</string>
+    <string name="toast_settings_main">open Settings</string>
+    <string name="darkmodeSwitch">Darkmode</string>
+    <string name="gpsSwitch">GPS</string>
+
+    <string-array name="language_array">
+        <item>English</item>
+        <item>German</item>
+        <item>French</item>
+        <item>Italian</item>
+        <item>Spanish</item>
+        <item>Portuguese</item>
+        <item>Chinese</item>
+        <item>Japanese</item>
+        <item>Russian</item>
+    </string-array>
+    <string-array name="color_array">
+        <item>Purple</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>Black</item>
+        <item>White</item>
+        <item>Gray</item>
+        <item>Orange</item>
+    </string-array>
+    <string-array name="fontsize_array">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
 </resources>

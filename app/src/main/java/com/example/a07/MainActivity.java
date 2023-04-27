@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openQuestionnaire(View view) {
-        Toast toast = Toast.makeText(this, R.string.toast_archive_main, Toast.LENGTH_SHORT);    //toast a text when open
+        Toast toast = Toast.makeText(this, R.string.toast_questionnaire_main, Toast.LENGTH_SHORT);    //toast a text when open
         toast.show();
         Intent intent = new Intent(this, Questionnaire.class);      //intent created to open a new page (activity)
         startActivity(intent);
