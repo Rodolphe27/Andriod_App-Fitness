@@ -11,44 +11,7 @@
         android:background="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- 4 vertical buttons are commented out by Minhua L, as we have the navigation bar thanks to Ludo -->
-<!--        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/navigationView"
-            app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/button_questionnaire"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:drawablePadding="4dp"
-            android:text="@string/questionnaire" />
-
-        <Button
-            android:id="@+id/button_tracking"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:drawablePadding="4dp"
-            android:text="@string/tracking" />
-
-        <Button
-            android:id="@+id/button_archive"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:drawablePadding="4dp"
-            android:text="@string/archive" />
-
-        <Button
-            android:id="@+id/button_settings"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:drawablePadding="4dp"
-            android:text="@string/settings" />-->
-
-        <!-- the navi bar-->
+        <!-- nav bar-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
