@@ -8,10 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.Locale;
 
@@ -25,6 +29,9 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner languageSpinner = findViewById(R.id.languageSpinner);
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         Spinner fontsizeSpinner = findViewById(R.id.fontsizeSpinner);
+
+        SwitchMaterial darkmodeSwitch = findViewById(R.id.darkmodeSwitch);
+        darkmodeSwitch.setChecked(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -46,6 +53,20 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         fontsizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fontsizeSpinner.setAdapter(fontsizeAdapter);
         fontsizeSpinner.setOnItemSelectedListener(this);
+
+        darkmodeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // Enable dark mode
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    // Disable dark mode
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+                getDelegate().applyDayNight();
+            }
+        });
     }
 
     // Implement the onItemSelected method to do something when an item is selected
