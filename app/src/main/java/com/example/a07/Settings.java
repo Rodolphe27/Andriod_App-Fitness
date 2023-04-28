@@ -57,15 +57,8 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         fontsizeSpinner.setAdapter(fontsizeAdapter);
         fontsizeSpinner.setOnItemSelectedListener(this);
 
-        // Retrieve the saved dark mode setting
-        boolean isDarkModeEnabled = sharedPreferences.getBoolean("dark_mode", false);
-        if (isDarkModeEnabled) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            darkmodeSwitch.setChecked(true);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            darkmodeSwitch.setChecked(false);
-        }
+        // set the dark mode switch to the saved value
+        darkmodeSwitch.setChecked(sharedPreferences.getBoolean("dark_mode", false));
 
 //        // Retrieve the saved language Todo - doesn't work yet
 //        String language = sharedPreferences.getString("language", ""); // Retrieve the saved language
@@ -142,38 +135,19 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
-    // Method to open the main activity
-    public void openMainActivity(View view) {
-        Toast toast = Toast.makeText(this, R.string.toast_home_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  //intent created to open a new page (activity)
-        startActivity(intent);
+    // Methods to switch activity
+    public void switchActivity(View view) {
+        String tag = view.getTag().toString();
+        try {
+            Class<?> activityClass = Class.forName(getPackageName() + "." + tag);
+            openActivity(activityClass);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    // Method to open the settings activity
-    public void openSettings(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_settings_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, Settings.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
-    // Method to open the tracking activity
-    public void openTracking(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_tracking_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, SportTracking.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
-    // Method to open the archive activity
-    public void openArchive(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_archive_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, Archive.class);
+    public void openActivity(Class<?> activityClass) {
+        Intent intent = new Intent(this, activityClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

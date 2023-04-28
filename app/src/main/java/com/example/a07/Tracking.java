@@ -6,12 +6,12 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Questionnaire extends AppCompatActivity {
+public class Tracking extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questionnaire);
+        setContentView(R.layout.activity_sport_tracking);
     }
 
     // Methods to switch activity

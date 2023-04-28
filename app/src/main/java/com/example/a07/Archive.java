@@ -1,11 +1,10 @@
 package com.example.a07;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Archive extends AppCompatActivity {
 
@@ -15,34 +14,19 @@ public class Archive extends AppCompatActivity {
         setContentView(R.layout.activity_archive);
     }
 
-    public void openMainActivity(View view) {
-        Toast toast = Toast.makeText(this, R.string.toast_home_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+    // Methods to switch activity
+    public void switchActivity(View view) {
+        String tag = view.getTag().toString();
+        try {
+            Class<?> activityClass = Class.forName(getPackageName() + "." + tag);
+            openActivity(activityClass);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void openSettings(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_settings_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, Settings.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
-    public void openTracking(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_tracking_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, SportTracking.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
-    public void openArchive(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_archive_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, Archive.class);
+    public void openActivity(Class<?> activityClass) {
+        Intent intent = new Intent(this, activityClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
