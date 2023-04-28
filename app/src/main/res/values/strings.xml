@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">A07</string>
+    <string name="greeting">Hello User\nHow are you feeling today?\nReady for sport?</string>
     <string name="home">Home</string>
     <string name="questionnaire">Questionnaire</string>
     <string name="tracking">Tracking</string>
