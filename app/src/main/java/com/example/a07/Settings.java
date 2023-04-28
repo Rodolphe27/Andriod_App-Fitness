@@ -22,19 +22,21 @@ import java.util.Locale;
 
 public class Settings extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private boolean languageSelected = false;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
         Spinner languageSpinner = findViewById(R.id.languageSpinner);
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         Spinner fontsizeSpinner = findViewById(R.id.fontsizeSpinner);
         SwitchMaterial darkmodeSwitch = findViewById(R.id.darkmodeSwitch);
+
+        sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -55,7 +57,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         fontsizeSpinner.setAdapter(fontsizeAdapter);
         fontsizeSpinner.setOnItemSelectedListener(this);
 
-        // Retrieve the saved dark mode setting Todo doesn't work yet - switch state does only get applied after the settings activity is loaded
+        // Retrieve the saved dark mode setting
         boolean isDarkModeEnabled = sharedPreferences.getBoolean("dark_mode", false);
         if (isDarkModeEnabled) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -65,7 +67,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
             darkmodeSwitch.setChecked(false);
         }
 
-//        // Retrieve the saved language Todo doesn't work yet
+//        // Retrieve the saved language Todo - doesn't work yet
 //        String language = sharedPreferences.getString("language", ""); // Retrieve the saved language
 //        if (!language.isEmpty()) {                                           // If a language is saved, set the language
 //            if (language.equals("German")) {                                 // If the language is German, set the locale to German
@@ -98,9 +100,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
     // Method to do something when an item is selected
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        SharedPreferences sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
         if (!languageSelected) {
             // Don't apply the language when the activity is first loaded
             languageSelected = true;
