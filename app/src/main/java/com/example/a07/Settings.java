@@ -1,7 +1,9 @@
 package com.example.a07;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -20,6 +22,8 @@ import java.util.Locale;
 
 public class Settings extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private boolean languageSelected = false;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +33,16 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner languageSpinner = findViewById(R.id.languageSpinner);
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         Spinner fontsizeSpinner = findViewById(R.id.fontsizeSpinner);
-
         SwitchMaterial darkmodeSwitch = findViewById(R.id.darkmodeSwitch);
-        darkmodeSwitch.setChecked(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES);
+
+        sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.language_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        languageSpinner.setAdapter(adapter);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);         // Specify the layout to use when the list of choices appears
+        languageSpinner.setAdapter(adapter);                                                    // Apply the adapter to the spinner
         languageSpinner.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> colorAdapter = ArrayAdapter.createFromResource(this,
@@ -54,6 +57,23 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         fontsizeSpinner.setAdapter(fontsizeAdapter);
         fontsizeSpinner.setOnItemSelectedListener(this);
 
+        // set the dark mode switch to the saved value
+        darkmodeSwitch.setChecked(sharedPreferences.getBoolean("dark_mode", false));
+
+//        // Retrieve the saved language Todo - doesn't work yet
+//        String language = sharedPreferences.getString("language", ""); // Retrieve the saved language
+//        if (!language.isEmpty()) {                                           // If a language is saved, set the language
+//            if (language.equals("German")) {                                 // If the language is German, set the locale to German
+//                setLocale(this, "de");
+//            } else if (language.equals("English")) {
+//                setLocale(this, "en");
+//            }
+//            else {
+//                Toast.makeText(this, "This would set the language to: " + language, Toast.LENGTH_SHORT).show();
+//            }
+//        }
+
+        // Set the dark mode switch listener
         darkmodeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 // Enable dark mode
@@ -63,10 +83,14 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
             getDelegate().applyDayNight();
+
+            // Save the dark mode setting
+            editor.putBoolean("dark_mode", isChecked);
+            editor.apply();
         });
     }
 
-    // Implement the onItemSelected method to do something when an item is selected
+    // Method to do something when an item is selected
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if (!languageSelected) {
@@ -74,24 +98,24 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
             languageSelected = true;
             return;
         }
-
         String selectedItem = parent.getItemAtPosition(position).toString();
 
         // Change app language based on selection
         if (parent.getId() == R.id.languageSpinner) {
             if (selectedItem.equals("German")){
                 setLocale(this, "de");
-                Toast.makeText(this, "Die Sprache wurde auf: " + selectedItem + " geändert", Toast.LENGTH_SHORT).show();
                 recreate();
             }
             else if (selectedItem.equals("Englisch")){
                 setLocale(this, "en");
-                Toast.makeText(this, "The language has been changed to: " + selectedItem, Toast.LENGTH_SHORT).show();
                 recreate();
             }
             else {
                 Toast.makeText(this, "This would set the language to: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
+            // Save the dark mode setting
+            editor.putString("language", selectedItem);
+            editor.apply();
         }
     }
 
@@ -101,6 +125,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Toast.makeText(this, "No item selected", Toast.LENGTH_SHORT).show();
     }
 
+    // Method to set the language
     public void setLocale (Activity activity, String languageCode) {
         Locale locale = new Locale(languageCode);
         Locale.setDefault(locale);
@@ -110,34 +135,19 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
-    public void openMainActivity(View view) {
-        Toast toast = Toast.makeText(this, R.string.toast_home_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  //intent created to open a new page (activity)
-        startActivity(intent);
+    // Methods to switch activity
+    public void switchActivity(View view) {
+        String tag = view.getTag().toString();
+        try {
+            Class<?> activityClass = Class.forName(getPackageName() + "." + tag);
+            openActivity(activityClass);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void openSettings(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_settings_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, Settings.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
-    public void openTracking(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_tracking_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, SportTracking.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
-    public void openArchive(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_archive_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, Archive.class);
+    public void openActivity(Class<?> activityClass) {
+        Intent intent = new Intent(this, activityClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

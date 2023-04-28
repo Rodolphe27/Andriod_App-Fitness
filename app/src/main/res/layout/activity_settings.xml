@@ -94,7 +94,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/home"
-                android:onClick="openMainActivity"
+                android:tag="MainActivity"
+                android:onClick="switchActivity"
                 android:src="@drawable/ic_home" />
 
             <ImageButton
@@ -104,7 +105,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/tracking"
-                android:onClick="openTracking"
+                android:tag="Tracking"
+                android:onClick="switchActivity"
                 android:src="@drawable/ic_tracking" />
 
             <ImageButton
@@ -114,7 +116,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/archive"
-                android:onClick="openArchive"
+                android:tag="Archive"
+                android:onClick="switchActivity"
                 android:src="@drawable/ic_archive" />
 
             <ImageButton
@@ -124,7 +127,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/settings"
-                android:onClick="openSettings"
+                android:tag="Settings"
+                android:onClick="switchActivity"
                 android:src="@drawable/ic_settings" />
 
         </LinearLayout>

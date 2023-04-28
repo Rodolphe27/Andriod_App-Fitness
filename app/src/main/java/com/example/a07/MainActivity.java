@@ -1,11 +1,13 @@
 package com.example.a07;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,44 +15,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // set darkmode according to the saved setting
+        SharedPreferences sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
+        boolean isDarkModeEnabled = sharedPreferences.getBoolean("dark_mode", false);
+        if (isDarkModeEnabled) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
-    public void openMainActivity(View view) {
-        Toast toast = Toast.makeText(this, R.string.toast_home_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-    public void openQuestionnaire(View view) {
-        Toast toast = Toast.makeText(this, R.string.toast_questionnaire_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, Questionnaire.class); //intent created to open a new page (activity)
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+    // Method to switch to a different activity based on the tag attribute of the clicked view
+    public void switchActivity(View view) {
+        String tag = view.getTag().toString();  // get the tag attribute of the clicked view as a string
+        try {
+            Class<?> activityClass = Class.forName(getPackageName() + "." + tag);       // construct the class name of the activity to be opened
+            openActivity(activityClass);        // call openActivity with class of the activity to be opened
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();                // handle exceptions
+        }
     }
 
-    public void openSettings(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_settings_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, Settings.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
-    public void openTracking(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_tracking_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, SportTracking.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
-    public void openArchive(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_archive_main, Toast.LENGTH_SHORT);    //toast a text when open
-        toast.show();
-        Intent intent = new Intent(this, Archive.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+    // Method to open an activity based on its class
+    public void openActivity(Class<?> activityClass) {
+        Intent intent = new Intent(this, activityClass);    // create an intent to open the activity
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);                // set the flag to clear the activity stack
+        startActivity(intent);                                          // start the activity
     }
 }

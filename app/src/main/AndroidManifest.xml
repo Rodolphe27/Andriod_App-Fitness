@@ -18,7 +18,7 @@
             android:name=".Questionnaire"
             android:exported="false" />
         <activity
-            android:name=".SportTracking"
+            android:name=".Tracking"
             android:exported="false" />
         <activity
             android:name=".Settings"
