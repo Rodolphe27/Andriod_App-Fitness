@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">A07</string>
+    <string name="greeting">您好, 用户. 你今天感觉怎么样?\n做好运动的准备了吗?</string>
+    <string name="home">家</string>
+    <string name="questionnaire">问卷</string>
+    <string name="tracking">追踪</string>
+    <string name="settings">设置</string>
+    <string name="archive">保管箱</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="title_home">家</string>
+    <string name="title_dashboard">仪表板</string>
+    <string name="title_notifications">通知</string>
+    <string name="toast_home_main">开槽</string>
+    <string name="toast_questionnaire_main">展开问卷调查</string>
+    <string name="toast_archive_main">打开保管箱</string>
+    <string name="toast_tracking_main">跟踪打开</string>
+    <string name="toast_settings_main">打开设置</string>
+    <string name="darkmodeSwitch">黑暗模式</string>
+    <string name="gpsSwitch">GPS</string>
+
+    <string-array name="language_array">
+        <item>英语</item>
+        <item>德语</item>
+        <item>法语</item>
+        <item>意大利语</item>
+        <item>西班牙语</item>
+        <item>葡萄牙语</item>
+        <item>中文</item>
+        <item>日语</item>
+        <item>俄语</item>
+    </string-array>
+    <string-array name="color_array">
+        <item>紫色</item>
+        <item>红色</item>
+        <item>绿色</item>
+        <item>蓝色</item>
+        <item>黄色</item>
+        <item>黑色</item>
+        <item>白色</item>
+        <item>灰色</item>
+        <item>橙色</item>
+    </string-array>
+    <string-array name="fontsize_array">
+        <item>大</item>
+        <item>中</item>
+        <item>小</item>
+    </string-array>
+</resources>
