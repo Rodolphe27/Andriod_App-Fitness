@@ -32,12 +32,12 @@
     </string-array>
     <string-array name="color_array">
         <item>Púrpura</item>
-        <elemento>Rojo</elemento>
+        <item>Rojo</item>
         <item>Verde</item>
         <item>Azul</item>
-        <elemento>Amarillo</elemento>
-        <elemento>Negro</elemento>
-        <elemento>Blanco</elemento>
+        <item>Amarillo</item>
+        <item>Negro</item>
+        <item>Blanco</item>
         <item>Gris</item>
         <item>Naranja</item>
     </string-array>
