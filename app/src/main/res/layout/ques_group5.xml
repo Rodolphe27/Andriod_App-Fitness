@@ -37,6 +37,7 @@
 
     <!-- if the user chooses "others, the user should be able to choose who"-->
     <LinearLayout
+        android:id="@+id/ques12_others_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

@@ -40,11 +40,11 @@
         <!-- 13 ~ 16  -->
         <include layout="@layout/ques_group6"/>
 
-        <!--Question Category 6-->
+        <!--Question Category 7-->
         <!-- 17, 18  -->
         <include layout="@layout/ques_group7"/>
 
-        <!--Question Category 6-->
+        <!--Question Category 8-->
         <!-- 19, 20  -->
         <include layout="@layout/ques_group8"/>
 
