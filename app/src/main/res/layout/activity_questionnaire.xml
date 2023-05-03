@@ -15,10 +15,11 @@
 
         <!--Question Category 1-->
         <!-- 1 ~ 6  -->
-        <include layout="@layout/ques_group1"/>
 
         <!--Question Category 2-->
         <!-- 7 , 8  -->
+        <include layout="@layout/ques_group1" />
+
         <include layout="@layout/ques_group2"/>
 
 

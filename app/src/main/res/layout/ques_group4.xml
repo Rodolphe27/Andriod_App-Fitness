@@ -35,6 +35,36 @@
             android:spinnerMode="dropdown" />
     </LinearLayout>
 
+    <!-- if the user chooses "others, the user should be able to choose who"-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="you have chosen others: please define who"
+            android:textColor="@color/light_blue"
+            />
+        <EditText
+            android:id="@+id/ques11_others_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="who are others?"
+            android:inputType="text"
+            android:background="@drawable/editbox_structure_selector"/>
+        <Button
+            android:id="@+id/ques11_others_confirm_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="confirm"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/gray"/>
+    </LinearLayout>
+
     
 
 </LinearLayout>
