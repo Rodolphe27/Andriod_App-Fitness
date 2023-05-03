@@ -38,6 +38,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <!--language spinner-->
             <Spinner
                 android:id="@+id/languageSpinner"
                 android:layout_width="match_parent"
@@ -68,6 +69,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <Button
+                android:id="@+id/btn_setNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Set notification time"/>
+
         </LinearLayout>
 
     </ScrollView>
@@ -94,9 +101,10 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/home"
-                android:tag="MainActivity"
+                android:minHeight="48dp"
                 android:onClick="switchActivity"
-                android:src="@drawable/ic_home" />
+                android:src="@drawable/ic_home"
+                android:tag="MainActivity" />
 
             <ImageButton
                 android:id="@+id/buttonTracking"
@@ -105,9 +113,10 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/tracking"
-                android:tag="Tracking"
+                android:minHeight="48dp"
                 android:onClick="switchActivity"
-                android:src="@drawable/ic_tracking" />
+                android:src="@drawable/ic_tracking"
+                android:tag="Tracking" />
 
             <ImageButton
                 android:id="@+id/buttonArchive"
@@ -116,9 +125,10 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/archive"
-                android:tag="Archive"
+                android:minHeight="48dp"
                 android:onClick="switchActivity"
-                android:src="@drawable/ic_archive" />
+                android:src="@drawable/ic_archive"
+                android:tag="Archive" />
 
             <ImageButton
                 android:id="@+id/buttonSettings"
@@ -127,9 +137,10 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/settings"
-                android:tag="Settings"
+                android:minHeight="48dp"
                 android:onClick="switchActivity"
-                android:src="@drawable/ic_settings" />
+                android:src="@drawable/ic_settings"
+                android:tag="Settings" />
 
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
