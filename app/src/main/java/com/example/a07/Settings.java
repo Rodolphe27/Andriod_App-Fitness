@@ -1,6 +1,8 @@
 package com.example.a07;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,7 +12,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +40,18 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner fontsizeSpinner = findViewById(R.id.fontsizeSpinner);
         SwitchMaterial darkmodeSwitch = findViewById(R.id.darkmodeSwitch);
 
+        //active button to notification time setting page
+        Button toNotification = findViewById(R.id.btn_setNotification);
+        findViewById(R.id.btn_setNotification).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(Settings.this, SettingsNotificationTime.class);
+                startActivity(intent);
+            }
+        });
+
+
         sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
@@ -43,6 +60,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 R.array.language_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);         // Specify the layout to use when the list of choices appears
         languageSpinner.setAdapter(adapter);                                                    // Apply the adapter to the spinner
+        languageSpinner.setSelection(0);
         languageSpinner.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> colorAdapter = ArrayAdapter.createFromResource(this,
@@ -151,4 +169,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
+
+
+
 }
