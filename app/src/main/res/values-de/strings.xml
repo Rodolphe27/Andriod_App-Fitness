@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">A07</string>
+    <string name="app_name">Fit Mood</string>
     <string name="greeting">Hallo User\nWie geht es dir heute?\nBereit für etwas Sport?</string>
     <string name="home">Home</string>
     <string name="questionnaire">Fragebogen</string>
     <string name="tracking">Tracking</string>
     <string name="settings">Einstellungen</string>
     <string name="archive">Archiv</string>
-    <string name="title_activity_settings">Einstellungen</string>
-    <string name="title_home">Startseite</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Benachrichtigungen</string>
-    <string name="toast_home_main">Home geöffnet</string>
-    <string name="toast_questionnaire_main">Fragebogen geöffnet</string>
-    <string name="toast_archive_main">Archiv geöffnet</string>
-    <string name="toast_tracking_main">Tracking geöffnet</string>
-    <string name="toast_settings_main">Einstellungen geöffnet</string>
+
+
     <string name="darkmodeSwitch">Darkmode</string>
     <string name="gpsSwitch">GPS</string>
+    <string name="fit_mood">Fit Mood</string>
+    <string name="no_item_selected">No item selected</string>
 
     <string-array name="language_array">
         <item>Englisch</item>
@@ -46,4 +41,10 @@
         <item>Mittel</item>
         <item>Groß</item>
     </string-array>
+    <string name="this_would_set_the_language_to">Dies würde die Sprache auf Folgendes einstellen:</string>
+    <string name="select_the_time_for_notifications">Wählen Sie die Uhrzeit für Benachrichtigungen aus:</string>
+    <string name="confirm">Bestätigen</string>
+    <string name="the_selected_time">Die ausgewählte Uhrzeit:</string>
+    <string name="return_settings">Zurück zu den Einstellungen</string>
+    <string name="set_notification_time">Benachrichtigungszeit einstellen</string>
 </resources>
