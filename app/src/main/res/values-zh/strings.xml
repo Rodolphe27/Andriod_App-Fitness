@@ -17,4 +17,32 @@
     <string name="the_selected_time">已选择的时间：</string>
     <string name="return_settings">返回设置页</string>
     <string name="set_notification_time">设置通知发送时间</string>
+
+    <string-array name="language_array">
+        <item>英语</item>
+        <item>德语</item>
+        <item>法语</item>
+        <item>意大利语</item>
+        <item>西班牙语</item>
+        <item>葡萄牙语</item>
+        <item>中文</item>
+        <item>日语</item>
+        <item>俄语</item>
+    </string-array>
+    <string-array name="color_array">
+        <item>紫色</item>
+        <item>红色</item>
+        <item>绿色</item>
+        <item>蓝色</item>
+        <item>黄色</item>
+        <item>黑色</item>
+        <item>白色</item>
+        <item>灰色</item>
+        <item>橙色</item>
+    </string-array>
+    <string-array name="fontsize_array">
+        <item>大</item>
+        <item>中</item>
+        <item>小</item>
+    </string-array>
 </resources>
