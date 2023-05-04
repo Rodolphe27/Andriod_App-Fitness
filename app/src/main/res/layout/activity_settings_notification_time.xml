@@ -87,7 +87,7 @@
             android:id="@+id/btn_returnSettings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Return settings"/>
+            android:text="@string/return_settings"/>
 
 
     </LinearLayout>

@@ -42,7 +42,9 @@
         <item>Groß</item>
     </string-array>
     <string name="this_would_set_the_language_to">Dies würde die Sprache auf Folgendes einstellen:</string>
-    <string name="select_the_time_for_notifications">Select the time for notifications:</string>
-    <string name="confirm">confirm</string>
-    <string name="the_selected_time">The selected time:</string>
+    <string name="select_the_time_for_notifications">Wählen Sie die Uhrzeit für Benachrichtigungen aus:</string>
+    <string name="confirm">Bestätigen</string>
+    <string name="the_selected_time">Die ausgewählte Uhrzeit:</string>
+    <string name="return_settings">Zurück zu den Einstellungen</string>
+    <string name="set_notification_time">Benachrichtigungszeit einstellen</string>
 </resources>

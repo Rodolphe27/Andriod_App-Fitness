@@ -69,11 +69,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <!--the button to the notification time selected page-->
             <Button
                 android:id="@+id/btn_setNotification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Set notification time"/>
+                android:text="@string/set_notification_time"/>
 
         </LinearLayout>
 

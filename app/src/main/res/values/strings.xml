@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Fit Mood</string>
-    <string name="greeting">Hello User\nHow are you feeling today?\nReady for sport?</string>
+    <string name="greeting">Hello User How are you feeling today? Ready for sport?</string>
     <string name="home">Home</string>
     <string name="questionnaire">Questionnaire</string>
     <string name="tracking">Tracking</string>
@@ -15,8 +15,10 @@
     <string name="no_item_selected">No item selected</string>
     <string name="this_would_set_the_language_to">"This would set the language to: "</string>
     <string name="select_the_time_for_notifications">Select the time for notifications:</string>
-    <string name="confirm">confirm</string>
+    <string name="confirm">Confirm</string>
     <string name="the_selected_time">The selected time:</string>
+    <string name="return_settings">Return to settings</string>
+    <string name="set_notification_time">Set notification time</string>
 
     <string-array name="language_array">
         <item>English</item>
