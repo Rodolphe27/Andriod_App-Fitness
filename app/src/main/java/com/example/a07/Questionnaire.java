@@ -174,6 +174,44 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
         });
 
 
+        // group6
+        ques13_seekBar = findViewById(R.id.ques13_seekbar);
+        ques13_seekBar.setOnSeekBarChangeListener(this);
+
+        ques14_seekBar = findViewById(R.id.ques14_seekbar);
+        ques14_seekBar.setOnSeekBarChangeListener(this);
+
+        ques15_seekBar = findViewById(R.id.ques15_seekbar);
+        ques15_seekBar.setOnSeekBarChangeListener(this);
+
+        ques16_seekBar = findViewById(R.id.ques16_seekbar);
+        ques16_seekBar.setOnSeekBarChangeListener(this);
+
+        // group7
+
+        ques17_seekBar = findViewById(R.id.ques17_seekbar);
+        ques17_seekBar.setOnSeekBarChangeListener(this);
+
+        ques18_seekBar = findViewById(R.id.ques18_seekbar);
+        ques18_seekBar.setOnSeekBarChangeListener(this);
+
+        // group8
+        ques19_seekBar = findViewById(R.id.ques19_seekbar);
+        ques19_seekBar.setOnSeekBarChangeListener(this);
+
+        ques20_seekBar = findViewById(R.id.ques20_seekbar);
+        ques20_seekBar.setOnSeekBarChangeListener(this);
+
+
+        // finish button
+        findViewById(R.id.btn_ques_finish).setOnClickListener(this);
+
+
+        // back to main page
+        findViewById(R.id.btn_ques_backToMain).setOnClickListener(this);
+        findViewById(R.id.btn_icon_back).setOnClickListener(this);
+
+
     }
 
 
@@ -237,6 +275,46 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
                 editor.putInt("ques10", progress10);
                 editor.commit();
                 break;
+            case R.id.ques13_seekbar:
+                int progress13 = seekBar.getProgress();
+                editor.putInt("ques13", progress13);
+                editor.commit();
+                break;
+            case R.id.ques14_seekbar:
+                int progress14 = seekBar.getProgress();
+                editor.putInt("ques14", progress14);
+                editor.commit();
+                break;
+            case R.id.ques15_seekbar:
+                int progress15 = seekBar.getProgress();
+                editor.putInt("ques15", progress15);
+                editor.commit();
+                break;
+            case R.id.ques16_seekbar:
+                int progress16 = seekBar.getProgress();
+                editor.putInt("ques16", progress16);
+                editor.commit();
+                break;
+            case R.id.ques17_seekbar:
+                int progress17 = seekBar.getProgress();
+                editor.putInt("ques17", progress17);
+                editor.commit();
+                break;
+            case R.id.ques18_seekbar:
+                int progress18 = seekBar.getProgress();
+                editor.putInt("ques18", progress18);
+                editor.commit();
+                break;
+            case R.id.ques19_seekbar:
+                int progress19 = seekBar.getProgress();
+                editor.putInt("ques19", progress19);
+                editor.commit();
+                break;
+            case R.id.ques20_seekbar:
+                int progress20 = seekBar.getProgress();
+                editor.putInt("ques20", progress20);
+                editor.commit();
+                break;
         }
 
     }
@@ -290,8 +368,18 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
                     // hide the EditText and button
                     findViewById(R.id.ques12_others_layout).setVisibility(View.GONE);
                 break;
+            case R.id.btn_ques_finish:
+                Intent intent_ques_jump_to_confirm = new Intent(this, Questionaire_confirm.class);
+                intent_ques_jump_to_confirm.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent_ques_jump_to_confirm);
+                break;
+            case R.id.btn_ques_backToMain:
+            case R.id.btn_icon_back:
+                Intent intent_ques_backMain = new Intent(this, MainActivity.class);
+                intent_ques_backMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent_ques_backMain);
+                break;
         }
-
     }
 
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Questionaire_confirm"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_drop_ques"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="wrap_content"
+            android:text="modify"/>
+        <Button
+            android:id="@+id/btn_save_ques"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="wrap_content"
+            android:text="Save Ques"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_query_all_ques"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="wrap_content"
+            android:text="query all"/>
+        <Button
+            android:id="@+id/btn_clear_table"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="wrap_content"
+            android:text="delete all recordes"/>
+    </LinearLayout>
+</LinearLayout>
