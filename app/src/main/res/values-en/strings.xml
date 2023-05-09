@@ -8,8 +8,6 @@
     <string name="settings">Settings</string>
     <string name="archive">Archive</string>
 
-    <string name="darkmodeSwitch">Darkmode</string>
-    <string name="gpsSwitch">GPS</string>
     <string name="fit_mood">Fit Mood</string>
     <string name="no_item_selected">No item selected</string>
     <string name="this_would_set_the_language_to">"This would set the language to: "</string>
