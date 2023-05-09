@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Questionnaire">
+    tools:context=".Questionnaire"
+    android:orientation="vertical"
+    >
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/questionnaire"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigationView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/purple_500"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:orientation="vertical">
 
-        <!-- nav bar-->
+        <ImageView
+            android:id="@+id/btn_icon_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="5dp"
+            android:src="@drawable/icon_back"
+            />
+
+        <!--Question Category 1-->
+        <!-- 1 ~ 6  -->
+
+        <!--Question Category 2-->
+        <!-- 7 , 8  -->
+
+        <include layout="@layout/ques_group1" />
+
+        <include layout="@layout/ques_group2"/>
+
+
+        <!--Question Category 3-->
+        <!-- 9 , 10  -->
+        <include layout="@layout/ques_group3"/>
+
+
+        <!--Question Category 4-->
+        <!-- 11  -->
+        <include layout="@layout/ques_group4"/>
+
+        <!--Question Category 5-->
+        <!-- 12  -->
+        <include layout="@layout/ques_group5"/>
+
+        <!--Question Category 6-->
+        <!-- 13 ~ 16  -->
+        <include layout="@layout/ques_group6"/>
+
+        <!--Question Category 7-->
+        <!-- 17, 18  -->
+        <include layout="@layout/ques_group7"/>
+
+        <!--Question Category 8-->
+        <!-- 19, 20  -->
+        <include layout="@layout/ques_group8"/>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/buttonHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            >
+            <Button
+                android:id="@+id/btn_ques_backToMain"
+                android:layout_width="0dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/purple_500"
-                android:contentDescription="@string/home"
-                android:tag="MainActivity"
-                android:onClick="switchActivity"
-                android:src="@drawable/ic_home" />
-
-            <ImageButton
-                android:id="@+id/buttonTracking"
-                android:layout_width="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:layout_height="wrap_content"
+                android:text="Back to Main"/>
+            <Button
+                android:id="@+id/btn_ques_finish"
+                android:layout_width="0dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/purple_500"
-                android:contentDescription="@string/tracking"
-                android:tag="Tracking"
-                android:onClick="switchActivity"
-                android:src="@drawable/ic_tracking" />
-
-            <ImageButton
-                android:id="@+id/buttonArchive"
-                android:layout_width="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="@color/purple_500"
-                android:contentDescription="@string/archive"
-                android:tag="Archive"
-                android:onClick="switchActivity"
-                android:src="@drawable/ic_archive" />
-
-            <ImageButton
-                android:id="@+id/buttonSettings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="@color/purple_500"
-                android:contentDescription="@string/settings"
-                android:tag="Settings"
-                android:onClick="switchActivity"
-                android:src="@drawable/ic_settings" />
-
+                android:text="Finish"/>
         </LinearLayout>
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>
