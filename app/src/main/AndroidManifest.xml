@@ -16,6 +16,9 @@
             android:name=".Questionaire_confirm"
             android:exported="false" />
         <activity
+            android:name=".SettingsNotificationTime"
+            android:exported="false" />
+        <activity
             android:name=".Archive"
             android:exported="false" />
         <activity
