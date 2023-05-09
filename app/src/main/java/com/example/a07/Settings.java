@@ -35,17 +35,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         Spinner fontSizeSpinner = findViewById(R.id.fontSizeSpinner);
         SwitchMaterial darkModeSwitch = findViewById(R.id.darkModeSwitch);
-
-        //active button to notification time setting page
         Button toNotification = findViewById(R.id.btn_setNotification);
-        findViewById(R.id.btn_setNotification).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(Settings.this, SettingsNotificationTime.class);
-                startActivity(intent);
-            }
-        });
 
         sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -86,8 +76,17 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
 //            }
 //        }
 
+        // Set the notification button listener
+        toNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity(SettingsNotificationTime.class);
+            }
+        });
+
         // Set the dark mode switch listener
         darkModeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            getDelegate().applyDayNight();
             if (isChecked) {
                 // Enable dark mode
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -95,7 +94,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 // Disable dark mode
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
-            getDelegate().applyDayNight();
 
             // Save the dark mode setting
             editor.putBoolean("dark_mode", isChecked);
