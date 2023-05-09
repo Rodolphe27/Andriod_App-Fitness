@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">A07</string>
+    <string name="greeting">Здравствуйте, пользователь\nКак вы сегодня себя чувствуете?\nГотовы к спорту?</string>
+    <string name="home">Главная</string>
+    <string name="questionnaire">Анкета</string>
+    <string name="tracking">Отслеживание</string>
+    <string name="settings">Настройки</string>
+    <string name="archive">Архивировать</string>
+    <string name="title_activity_settings">Настройки</string>
+    <string name="title_home">Главная</string>
+    <string name="title_dashboard">Панель управления</string>
+    <string name="title_notifications">Уведомления</string>
+    <string name="toast_home_main">Главная открыта</string>
+    <string name="toast_questionnaire_main">Анкета открыта</string>
+    <string name="toast_archive_main">Архивы открыты</string>
+    <string name="toast_tracking_main">отслеживание открыто</string>
+    <string name="toast_settings_main">Настройки открыты</string>
+    <string name="darkmodeSwitch">Темный режим</string>
+    <string name="gpsSwitch">GPS</string>
+
+    <string-array name="language_array">
+        <item>Английский</item>
+        <item>Немецкий</item>
+        <item>Французский</item>
+        <item>Итальянский</item>
+        <item>Испанский</item>
+        <item>Португальский</item>
+        <item>Китайский</item>
+        <item>Японский</item>
+        <item>Русский</item>
+    </string-array>
+    <string-array name="color_array">
+        <item>Фиолетовый</item>
+        <item>Красный</item>
+        <item>Зеленый</item>
+        <item>Синий</item>
+        <item>Желтый</item>
+        <item>Черный</item>
+        <item>Белый</item>
+        <item>Серый</item>
+        <item>Оранжевый</item>
+    </string-array>
+    <string-array name="fontsize_array">
+        <item>Маленький</item>
+        <item>Средний</item>
+        <item>Большой</item>
+    </string-array>
+</resources>
