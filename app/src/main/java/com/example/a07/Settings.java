@@ -1,8 +1,6 @@
 package com.example.a07;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,8 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,20 +33,9 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
 
         Spinner languageSpinner = findViewById(R.id.languageSpinner);
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
-        Spinner fontsizeSpinner = findViewById(R.id.fontsizeSpinner);
-        SwitchMaterial darkmodeSwitch = findViewById(R.id.darkmodeSwitch);
-
-        //active button to notification time setting page
+        Spinner fontSizeSpinner = findViewById(R.id.fontSizeSpinner);
+        SwitchMaterial darkModeSwitch = findViewById(R.id.darkModeSwitch);
         Button toNotification = findViewById(R.id.btn_setNotification);
-        findViewById(R.id.btn_setNotification).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(Settings.this, SettingsNotificationTime.class);
-                startActivity(intent);
-            }
-        });
-
 
         sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -69,14 +54,14 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         colorSpinner.setAdapter(colorAdapter);
         colorSpinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<CharSequence> fontsizeAdapter = ArrayAdapter.createFromResource(this,
+        ArrayAdapter<CharSequence> fontSizeAdapter = ArrayAdapter.createFromResource(this,
                 R.array.fontsize_array, android.R.layout.simple_spinner_item);
-        fontsizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        fontsizeSpinner.setAdapter(fontsizeAdapter);
-        fontsizeSpinner.setOnItemSelectedListener(this);
+        fontSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fontSizeSpinner.setAdapter(fontSizeAdapter);
+        fontSizeSpinner.setOnItemSelectedListener(this);
 
         // set the dark mode switch to the saved value
-        darkmodeSwitch.setChecked(sharedPreferences.getBoolean("dark_mode", false));
+        darkModeSwitch.setChecked(sharedPreferences.getBoolean("dark_mode", false));
 
 //        // Retrieve the saved language Todo - doesn't work yet
 //        String language = sharedPreferences.getString("language", ""); // Retrieve the saved language
@@ -91,8 +76,17 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
 //            }
 //        }
 
+        // Set the notification button listener
+        toNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity(SettingsNotificationTime.class);
+            }
+        });
+
         // Set the dark mode switch listener
-        darkmodeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        darkModeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            getDelegate().applyDayNight();
             if (isChecked) {
                 // Enable dark mode
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -100,7 +94,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 // Disable dark mode
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
-            getDelegate().applyDayNight();
 
             // Save the dark mode setting
             editor.putBoolean("dark_mode", isChecked);
@@ -169,7 +162,4 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
-
-
-
 }
