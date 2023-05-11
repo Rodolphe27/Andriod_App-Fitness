@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fit Mood</string>
+    <string name="greeting">你好用户！你今天感觉怎么样？准备好做点运动了吗？</string>
+    <string name="home">主页</string>
+    <string name="questionnaire">问卷</string>
+    <string name="tracking">记录运动</string>
+    <string name="settings">设置</string>
+    <string name="archive">运动档案</string>
+    <string name="darkmodeSwitch">黑暗模式</string>
+    <string name="gpsSwitch">GPS导航</string>
+    <string name="fit_mood">Fit Mood</string>
+    <string name="no_item_selected">没有进行选择</string>
+    <string name="this_would_set_the_language_to">这将会把语言设置为：</string>
+    <string name="select_the_time_for_notifications">选择发送通知的时间：</string>
+    <string name="confirm">确认</string>
+    <string name="the_selected_time">已选择的时间：</string>
+    <string name="return_settings">返回设置页</string>
+    <string name="set_notification_time">设置通知发送时间</string>
+
+    <string-array name="language_array">
+        <item>英语</item>
+        <item>德语</item>
+        <item>法语</item>
+        <item>意大利语</item>
+        <item>西班牙语</item>
+        <item>葡萄牙语</item>
+        <item>中文</item>
+        <item>日语</item>
+        <item>俄语</item>
+    </string-array>
+    <string-array name="color_array">
+        <item>紫色</item>
+        <item>红色</item>
+        <item>绿色</item>
+        <item>蓝色</item>
+        <item>黄色</item>
+        <item>黑色</item>
+        <item>白色</item>
+        <item>灰色</item>
+        <item>橙色</item>
+    </string-array>
+    <string-array name="fontsize_array">
+        <item>大</item>
+        <item>中</item>
+        <item>小</item>
+    </string-array>
+</resources>

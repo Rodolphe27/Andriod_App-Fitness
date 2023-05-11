@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Settings">
 
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -18,26 +17,30 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!--darkmode switch-->
             <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/darkmodeSwitch"
+                android:id="@+id/darkModeSwitch"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/darkmodeSwitch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <!--gps switch-->
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/gpsSwitch"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/gpsSwitch"
+                app:layout_constraintTop_toBottomOf="@id/darkModeSwitch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <!--language spinner-->
             <Spinner
                 android:id="@+id/languageSpinner"
                 android:layout_width="match_parent"
@@ -48,6 +51,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
+            <!--color spinner-->
             <Spinner
                 android:id="@+id/colorSpinner"
                 android:layout_width="match_parent"
@@ -58,8 +62,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <!--fontsize spinner-->
             <Spinner
-                android:id="@+id/fontsizeSpinner"
+                android:id="@+id/fontSizeSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
@@ -68,8 +73,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <!--notification button-->
+            <Button
+                android:id="@+id/btn_setNotification"
+                android:backgroundTint="@color/purple_500"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/set_notification_time"
+                app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
-
     </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -94,9 +111,10 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/home"
-                android:tag="MainActivity"
+                android:minHeight="48dp"
                 android:onClick="switchActivity"
-                android:src="@drawable/ic_home" />
+                android:src="@drawable/ic_home"
+                android:tag="MainActivity" />
 
             <ImageButton
                 android:id="@+id/buttonTracking"
@@ -105,9 +123,10 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/tracking"
-                android:tag="Tracking"
+                android:minHeight="48dp"
                 android:onClick="switchActivity"
-                android:src="@drawable/ic_tracking" />
+                android:src="@drawable/ic_tracking"
+                android:tag="Tracking" />
 
             <ImageButton
                 android:id="@+id/buttonArchive"
@@ -116,9 +135,10 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/archive"
-                android:tag="Archive"
+                android:minHeight="48dp"
                 android:onClick="switchActivity"
-                android:src="@drawable/ic_archive" />
+                android:src="@drawable/ic_archive"
+                android:tag="Archive" />
 
             <ImageButton
                 android:id="@+id/buttonSettings"
@@ -127,10 +147,10 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/purple_500"
                 android:contentDescription="@string/settings"
-                android:tag="Settings"
+                android:minHeight="48dp"
                 android:onClick="switchActivity"
-                android:src="@drawable/ic_settings" />
-
+                android:src="@drawable/ic_settings"
+                android:tag="Settings" />
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">A07</string>
+    <string name="greeting">Olá usuário\nComo você está se sentindo hoje?\nPronto para o esporte?</string>
+    <string name="home">Casa</string>
+    <string name="questionnaire">Questionário</string>
+    <string name="tracking">Acompanhamento</string>
+    <string name="settings">Configurações</string>
+    <string name="archive">Arquivo</string>
+    <string name="title_activity_settings">Configurações</string>
+    <string name="title_home">Casa</string>
+    <string name="title_dashboard">Painel</string>
+    <string name="title_notifications">Notificações</string>
+    <string name="toast_home_main">casa aberta</string>
+    <string name="toast_questionnaire_main">Questionário aberto</string>
+    <string name="toast_archive_main">Arquivos abertos</string>
+    <string name="toast_tracking_main">rastreamento aberto</string>
+    <string name="toast_settings_main">Configurações abertas</string>
+    <string name="darkmodeSwitch">Darkmode</string>
+    <string name="gpsSwitch">GPS</string>
+
+    <string-array name="language_array">
+        <item>Inglês</item>
+        <item>Alemão</item>
+        <item>Francês</item>
+        <item>Italiano</item>
+        <item>Espanhol</item>
+        <item>Português</item>
+        <item>Chinês</item>
+        <item>Japonês</item>
+        <item>Russo</item>
+    </string-array>
+    <string-array name="color_array">
+        <item>Roxo</item>
+        <item>Vermelho</item>
+        <item>Verde</item>
+        <item>Azul</item>
+        <item>Amarelo</item>
+        <item>Preto</item>
+        <item>Branco</item>
+        <item>Cinza</item>
+        <item>Laranja</item>
+    </string-array>
+    <string-array name="fontsize_array">
+        <item>Pequeno</item>
+        <item>Médio</item>
+        <item>Grande</item>
+    </string-array>
+</resources>
