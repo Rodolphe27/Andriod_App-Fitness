@@ -34,11 +34,12 @@ public class SettingsNotificationTime extends AppCompatActivity implements View.
         findViewById(R.id.btn_timeOk2).setOnClickListener(this);
         findViewById(R.id.btn_timeOK3).setOnClickListener(this);
 
-        findViewById(R.id.btn_returnSettings).setOnClickListener(new View.OnClickListener() {
+        returnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(SettingsNotificationTime.this, Settings.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
