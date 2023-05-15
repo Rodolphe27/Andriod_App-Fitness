@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sportTest02">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--todo: add a pic for the sport-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvCurrentDateDialog"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/the_date_of_today"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvShowCurrentDate"
+            android:gravity="center"
+            android:textSize="32sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_your_sport_activity"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <!--done: set spinner for the sport arts -->
+        <Spinner
+            android:id="@+id/spinnerSportType"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:spinnerMode="dropdown"
+            android:entries="@array/sportTypeArray"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/track_the_sport_duration"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- done: set textView for sport duration recorded by stopWatch-->
+<!--        <TextView-->
+<!--            android:id="@+id/tvTimeByStopWatch"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="48sp"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:layout_marginTop="10dp"/>-->
+        <Chronometer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/chronometerSport"
+            android:textSize="32sp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <Button
+                android:id="@+id/btnSportStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/purple_500"
+                android:text="@string/start"
+                android:textColor="@android:color/white"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/btnSportPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/purple_500"
+                android:text="@string/pause"
+                android:textColor="@android:color/white"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/stop"
+                android:id="@+id/btnSportStop"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/purple_500"
+                android:textColor="@android:color/white"
+                tools:ignore="ButtonStyle"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_the_finish_activity"
+            android:textColor="@color/black"
+            android:id="@+id/tvAddFinishSport"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/btnAddSport"
+            android:text="@string/add"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"/>
+        <!--place the button in the center-->
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

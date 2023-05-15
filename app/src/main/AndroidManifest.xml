@@ -13,6 +13,9 @@
         android:theme="@style/Theme.A07"
         tools:targetApi="31">
         <activity
+            android:name=".sportTest02"
+            android:exported="false" />
+        <activity
             android:name=".Questionaire_confirm"
             android:exported="false" />
         <activity
@@ -32,7 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".IntroductoryActivity"
             android:exported="true">
