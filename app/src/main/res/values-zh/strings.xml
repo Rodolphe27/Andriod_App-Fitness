@@ -17,6 +17,14 @@
     <string name="the_selected_time">已选择的时间：</string>
     <string name="return_settings">返回设置页</string>
     <string name="set_notification_time">设置通知发送时间</string>
+    <string name="choose_your_sport_activity">Choose your sport activity</string>
+    <string name="stop">STOP</string>
+    <string name="start">START</string>
+    <string name="add_the_finish_activity">Add the finish activity</string>
+    <string name="add">ADD</string>
+    <string name="track_the_sport_duration">Track the sport duration</string>
+    <string name="the_date_of_today">The date of today:</string>
+    <string name="pause">PAUSE</string>
 
     <string-array name="language_array">
         <item>英语</item>
@@ -45,4 +53,5 @@
         <item>中</item>
         <item>小</item>
     </string-array>
+
 </resources>

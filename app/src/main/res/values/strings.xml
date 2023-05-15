@@ -19,6 +19,14 @@
     <string name="the_selected_time">The selected time:</string>
     <string name="return_settings">Return to settings</string>
     <string name="set_notification_time">Set notification time</string>
+    <string name="choose_your_sport_activity">Choose your sport activity</string>
+    <string name="stop">STOP</string>
+    <string name="start">START</string>
+    <string name="add_the_finish_activity">Add the finish activity</string>
+    <string name="add">ADD</string>
+    <string name="track_the_sport_duration">Track the sport duration</string>
+    <string name="the_date_of_today">The date of today:</string>
+    <string name="pause">PAUSE</string>
 
     <string-array name="language_array">
         <item>English</item>
@@ -46,5 +54,17 @@
         <item>Small</item>
         <item>Medium</item>
         <item>Large</item>
+    </string-array>
+
+    <!--  string-array for sport type choosing spinner -->
+    <string-array name="sportTypeArray">
+        <item>Wandering</item>
+        <item>Jogging</item>
+        <item>Swimming</item>
+        <item>Ball sports</item>
+        <item>Weight training</item>
+        <item>Yoga</item>
+        <item>Climbing/Bouldering</item>
+        <item>Others</item>
     </string-array>
 </resources>

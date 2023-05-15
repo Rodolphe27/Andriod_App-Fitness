@@ -16,6 +16,9 @@
             android:name=".Sport"
             android:exported="false" />
         <activity
+            android:name=".sportTest02"
+            android:exported="false" />
+        <activity
             android:name=".Questionaire_confirm"
             android:exported="false" />
         <activity

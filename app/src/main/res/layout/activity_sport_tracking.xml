@@ -5,12 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Tracking">
-
+  
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="1dp">
+  
+        <!--notification button-->
+        <Button
+            android:id="@+id/btnSportPage"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="change to sport page" />
 
         <LinearLayout
             android:layout_width="match_parent"

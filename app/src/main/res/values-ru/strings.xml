@@ -7,17 +7,16 @@
     <string name="tracking">Отслеживание</string>
     <string name="settings">Настройки</string>
     <string name="archive">Архивировать</string>
-    <string name="title_activity_settings">Настройки</string>
-    <string name="title_home">Главная</string>
-    <string name="title_dashboard">Панель управления</string>
-    <string name="title_notifications">Уведомления</string>
-    <string name="toast_home_main">Главная открыта</string>
-    <string name="toast_questionnaire_main">Анкета открыта</string>
-    <string name="toast_archive_main">Архивы открыты</string>
-    <string name="toast_tracking_main">отслеживание открыто</string>
-    <string name="toast_settings_main">Настройки открыты</string>
     <string name="darkmodeSwitch">Темный режим</string>
     <string name="gpsSwitch">GPS</string>
+    <string name="choose_your_sport_activity">Choose your sport activity</string>
+    <string name="stop">STOP</string>
+    <string name="start">START</string>
+    <string name="add_the_finish_activity">Add the finish activity</string>
+    <string name="add">ADD</string>
+    <string name="track_the_sport_duration">Track the sport duration</string>
+    <string name="the_date_of_today">The date of today:</string>
+    <string name="pause">PAUSE</string>
 
     <string-array name="language_array">
         <item>Английский</item>
