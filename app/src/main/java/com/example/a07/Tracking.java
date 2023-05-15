@@ -2,30 +2,78 @@ package com.example.a07;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Tracking extends AppCompatActivity {
+import com.example.a07.dao.SportDao;
+import com.example.a07.entity.QuestionaireEntity;
+import com.example.a07.entity.SportEntity;
+import com.example.a07.utils.SharedPreferencesUtil;
+import com.example.a07.utils.Utils;
+
+import java.util.List;
+
+public class Tracking extends AppCompatActivity implements View.OnClickListener {
+
+    private SportDao sportDao;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sport_tracking);
-
+        findViewById(R.id.btn_sport_queryAll).setOnClickListener(this);
+        findViewById(R.id.btn_reset_firstopen).setOnClickListener(this);
+        // get sportDao
+        sportDao = MyApplication.getInstance().getSportDatabase().sportDao();
+      
+      
         //set listener for btn changing to sport tracking page 1
         findViewById(R.id.btnSportPage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(Tracking.this, sportTest02.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
     }
+
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.btn_sport_queryAll:
+                Log.d("divider", "############################");
+                try {
+                    int recordsNr = 0;
+                    List<SportEntity> list = sportDao.queryAll();
+                    for (SportEntity item : list) {
+                        recordsNr++;
+                        Log.d("query_all_tag", item.toString());
+                    }
+                    Utils.showToast(this, "recordsNr = " + recordsNr);
+                }catch (Exception e) {
+                    Utils.showToast(this, e.getMessage());
+                }
+                break;
+            case R.id.btn_reset_firstopen:
+                SharedPreferencesUtil.getInstance(this).writeBoolean("first", true);
+                Utils.showToast(this, "reset first open to true");
+                break;
+        }
+    }
+
+
+
+
+
+
+
 
     // Methods to switch activity
     public void switchActivity(View view) {
