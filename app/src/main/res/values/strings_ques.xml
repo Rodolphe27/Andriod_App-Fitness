@@ -6,16 +6,4 @@
     <string name="ques1_left">unsatisfied</string>
     <string name="ques1_right">satisfied</string>
 
-    <!-- sport spinner strings-->
-    <string-array name="sport_array">
-        <item>Walking</item>
-        <item>Running</item>
-        <item>Swimming</item>
-        <item>Ball sports</item>
-        <item>Dancing</item>
-        <item>Martial Arts</item>
-        <item>Weight Training</item>
-        <item>Yoga</item>
-        <item>Other</item>
-    </string-array>
 </resources>
