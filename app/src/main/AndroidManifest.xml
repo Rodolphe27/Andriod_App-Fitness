@@ -13,12 +13,6 @@
         android:theme="@style/Theme.A07"
         tools:targetApi="31">
         <activity
-            android:name=".Sport"
-            android:exported="false" />
-        <activity
-            android:name=".sportTest02"
-            android:exported="false" />
-        <activity
             android:name=".Questionaire_confirm"
             android:exported="false" />
         <activity

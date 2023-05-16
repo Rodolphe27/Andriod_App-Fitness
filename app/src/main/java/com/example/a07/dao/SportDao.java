@@ -13,7 +13,7 @@ import java.util.List;
 public interface SportDao {
 
     @Insert
-    void insert(SportEntity... quesEntity);
+    void insert(SportEntity... sportEntity);
 
 
     // query All Questionaires(Default:   table name = entity name)
