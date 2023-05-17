@@ -1,6 +1,7 @@
 package com.example.a07.dao;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -25,4 +26,6 @@ public interface SportDao {
     @Query("DELETE FROM SportEntity")
     void deleteAll();
 
+    @Delete
+    void deleteItem(SportEntity... item);
 }
