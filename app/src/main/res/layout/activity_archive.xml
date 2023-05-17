@@ -29,19 +29,10 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="3"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="name"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="date"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -57,7 +48,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="mood"
                     android:textColor="@color/black"
@@ -67,14 +58,16 @@
 
 
             <!-- here is the  list data -->
+
+
+            <!-- here is activity history operation-->
+
             <ListView
-                android:id="@+id/listView_cart"
+                android:id="@+id/listView_sport"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
-
-            <!-- here is activity history operation-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,7 +93,7 @@
                     android:textSize="17sp" />
 
                 <TextView
-                    android:id="@+id/tv_total_price"
+                    android:id="@+id/tv_total_sport_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
@@ -109,16 +102,19 @@
                     android:textSize="25sp" />
 
                 <Button
-                    android:id="@+id/btn_pay"
+                    android:id="@+id/btn_go_to_analyze"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="pay"
+                    android:text="analyze"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
             </LinearLayout>
 
         </LinearLayout>
+
+
+        <!--  show if there is no sport records yet -->
 
         <LinearLayout
             android:id="@+id/ll_empty"
@@ -134,16 +130,16 @@
                 android:layout_marginTop="100dp"
                 android:layout_marginBottom="100dp"
                 android:gravity="center"
-                android:text="cart is empty"
+                android:text="NO SPORT"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <Button
-                android:id="@+id/btn_shopping_channel"
+                android:id="@+id/btn_do_a_sport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="go shopping"
+                android:text="start a sport"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
         </LinearLayout>
