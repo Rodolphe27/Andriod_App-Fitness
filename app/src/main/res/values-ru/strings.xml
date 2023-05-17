@@ -16,7 +16,6 @@
     <string name="add">ADD</string>
     <string name="track_the_sport_duration">Track the sport duration</string>
     <string name="the_date_of_today">The date of today:</string>
-    <string name="pause">PAUSE</string>
 
     <string-array name="language_array">
         <item>Английский</item>
