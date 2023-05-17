@@ -5,18 +5,181 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Tracking">
+  
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp">
+  
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/tracking"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--here is some testing button, to be deleted-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/btn_sport_queryAll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="test: Query All"/>
+                <Button
+                    android:id="@+id/btn_reset_firstopen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="test: reset firstopen"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--todo: add a pic for the sport-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvCurrentDateDialog"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/the_date_of_today"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvShowCurrentDate"
+                    android:gravity="center"
+                    android:textSize="32sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_your_sport_activity"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"/>
+
+                <!--done: set spinner for the sport arts -->
+                <Spinner
+                    android:id="@+id/spinnerSportType"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:spinnerMode="dropdown"
+                    android:entries="@array/sportTypeArray"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/track_the_sport_duration"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"/>
+
+                    `<!-- done: set textView for sport duration recorded by stopWatch-->`
+                <!--        <TextView-->
+                <!--            android:id="@+id/tvTimeByStopWatch"-->
+                <!--            android:layout_width="match_parent"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:textSize="48sp"-->
+                <!--            android:gravity="center"-->
+                <!--            android:layout_marginLeft="20dp"-->
+                <!--            android:layout_marginRight="20dp"-->
+                <!--            android:layout_marginTop="10dp"/>-->
+                <Chronometer
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chronometerSport"
+                    android:textSize="32sp"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+
+                    <Button
+                        android:id="@+id/btnSportStart"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:background="@color/purple_500"
+                        android:text="@string/start"
+                        android:textColor="@android:color/white"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:text="@string/stop"
+                        android:id="@+id/btnSportStop"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:background="@color/purple_500"
+                        android:textColor="@android:color/white"
+                        tools:ignore="ButtonStyle"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tvAddFinishSport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_the_finish_activity"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+
+                <Button
+                    android:id="@+id/btnAddSport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add"
+                    android:textColor="@color/white"
+                    android:background="@color/purple_500"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"/>
+                <!--place the button in the center-->
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"

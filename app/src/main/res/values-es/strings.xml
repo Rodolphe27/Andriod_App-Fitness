@@ -7,17 +7,15 @@
     <string name="tracking">Seguimiento</string>
     <string name="settings">Configuración</string>
     <string name="archive">Archivo</string>
-    <string name="title_activity_settings">Configuración</string>
-    <string name="title_home">Inicio</string>
-    <string name="title_dashboard">Tablero</string>
-    <string name="title_notifications">Notificaciones</string>
-    <string name="toast_home_main">casa abierta</string>
-    <string name="toast_questionnaire_main">Cuestionario abierto</string>
-    <string name="toast_archive_main">archivos abiertos</string>
-    <string name="toast_tracking_main">seguimiento abierto</string>
-    <string name="toast_settings_main">Configuración abiertos</string>
     <string name="darkmodeSwitch">Modo oscuro</string>
     <string name="gpsSwitch">GPS</string>
+    <string name="choose_your_sport_activity">Choose your sport activity</string>
+    <string name="stop">STOP</string>
+    <string name="start">START</string>
+    <string name="add_the_finish_activity">Add the finish activity</string>
+    <string name="add">ADD</string>
+    <string name="track_the_sport_duration">Track the sport duration</string>
+    <string name="the_date_of_today">The date of today:</string>
 
     <string-array name="language_array">
         <item>Inglés</item>

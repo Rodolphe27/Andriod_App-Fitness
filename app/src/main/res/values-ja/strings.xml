@@ -7,17 +7,15 @@
     <string name="tracking">追跡</string>
     <string name="settings">設定</string>
     <string name="archive">保管箱</string>
-    <string name="title_activity_settings">設定</string>
-    <string name="title_home">ホーム</string>
-    <string name="title_dashboard">ダッシュボード</string>
-    <string name="title_notifications">お知らせ</string>
-    <string name="toast_home_main">溝開き</string>
-    <string name="toast_questionnaire_main">設問開き</string>
-    <string name="toast_archive_main">ロッカー開き</string>
-    <string name="toast_tracking_main">追跡開き</string>
-    <string name="toast_settings_main">設定開き</string>
     <string name="darkmodeSwitch">ダークモード</string>
     <string name="gpsSwitch">GPS</string>
+    <string name="choose_your_sport_activity">Choose your sport activity</string>
+    <string name="stop">STOP</string>
+    <string name="start">START</string>
+    <string name="add_the_finish_activity">Add the finish activity</string>
+    <string name="add">ADD</string>
+    <string name="track_the_sport_duration">Track the sport duration</string>
+    <string name="the_date_of_today">The date of today:</string>
 
     <string-array name="language_array">
         <item>英語</item>

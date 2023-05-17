@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Settings">
 
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -18,23 +17,26 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!--darkmode switch-->
             <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/darkmodeSwitch"
+                android:id="@+id/darkModeSwitch"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/darkmodeSwitch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <!--gps switch-->
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/gpsSwitch"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/gpsSwitch"
+                app:layout_constraintTop_toBottomOf="@id/darkModeSwitch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -49,6 +51,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
+            <!--color spinner-->
             <Spinner
                 android:id="@+id/colorSpinner"
                 android:layout_width="match_parent"
@@ -59,8 +62,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <!--fontsize spinner-->
             <Spinner
-                android:id="@+id/fontsizeSpinner"
+                android:id="@+id/fontSizeSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
@@ -69,15 +73,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <!--the button to the notification time selected page-->
+            <!--notification button-->
             <Button
                 android:id="@+id/btn_setNotification"
+                android:backgroundTint="@color/purple_500"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/set_notification_time"/>
-
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/set_notification_time"
+                app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
-
     </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -142,7 +151,6 @@
                 android:onClick="switchActivity"
                 android:src="@drawable/ic_settings"
                 android:tag="Settings" />
-
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

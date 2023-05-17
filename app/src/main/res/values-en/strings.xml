@@ -8,8 +8,6 @@
     <string name="settings">Settings</string>
     <string name="archive">Archive</string>
 
-    <string name="darkmodeSwitch">Darkmode</string>
-    <string name="gpsSwitch">GPS</string>
     <string name="fit_mood">Fit Mood</string>
     <string name="no_item_selected">No item selected</string>
     <string name="this_would_set_the_language_to">"This would set the language to: "</string>
@@ -19,17 +17,15 @@
     <string name="confirm">Confirm</string>
     <string name="set_notification_time">Set notification time</string>
 
-    <string name="title_activity_settings">Settings</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="toast_home_main">open Home</string>
-    <string name="toast_questionnaire_main">open Questionnaire</string>
-    <string name="toast_archive_main">open Archive</string>
-    <string name="toast_tracking_main">open Tracking</string>
-    <string name="toast_settings_main">open Settings</string>
     <string name="darkmodeSwitch">Darkmode</string>
     <string name="gpsSwitch">GPS</string>
+    <string name="choose_your_sport_activity">Choose your sport activity</string>
+    <string name="stop">STOP</string>
+    <string name="start">START</string>
+    <string name="add_the_finish_activity">Add a finished activity from the past</string>
+    <string name="add">ADD</string>
+    <string name="track_the_sport_duration">Track the sport duration</string>
+    <string name="the_date_of_today">The date of today:</string>
 
     <string-array name="language_array">
         <item>English</item>
