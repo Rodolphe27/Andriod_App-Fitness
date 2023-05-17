@@ -98,7 +98,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"/>
 
-                <!-- done: set textView for sport duration recorded by stopWatch-->
+                    `<!-- done: set textView for sport duration recorded by stopWatch-->`
                 <!--        <TextView-->
                 <!--            android:id="@+id/tvTimeByStopWatch"-->
                 <!--            android:layout_width="match_parent"-->
@@ -132,20 +132,9 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginHorizontal="30dp"
                         android:background="@color/purple_500"
                         android:text="@string/start"
-                        android:textColor="@android:color/white"
-                        tools:ignore="ButtonStyle" />
-
-                    <Button
-                        android:id="@+id/btnSportPause"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
-                        android:background="@color/purple_500"
-                        android:text="@string/pause"
                         android:textColor="@android:color/white"
                         tools:ignore="ButtonStyle" />
 
@@ -155,7 +144,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginHorizontal="30dp"
                         android:background="@color/purple_500"
                         android:textColor="@android:color/white"
                         tools:ignore="ButtonStyle"/>
@@ -164,20 +153,20 @@
 
 
                 <TextView
+                    android:id="@+id/tvAddFinishSport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/add_the_finish_activity"
                     android:textColor="@color/black"
-                    android:id="@+id/tvAddFinishSport"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"/>
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
                     android:id="@+id/btnAddSport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/add"
                     android:textColor="@color/white"
                     android:background="@color/purple_500"
