@@ -10,7 +10,8 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,9 +37,9 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/gpsSwitch"
-                app:layout_constraintTop_toBottomOf="@id/darkModeSwitch"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/darkModeSwitch" />
 
             <!--language spinner-->
             <Spinner
@@ -47,9 +48,9 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintTop_toBottomOf="@id/gpsSwitch"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gpsSwitch" />
 
             <!--color spinner-->
             <Spinner
@@ -58,9 +59,9 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintTop_toBottomOf="@id/languageSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/languageSpinner" />
 
             <!--fontsize spinner-->
             <Spinner
@@ -69,23 +70,36 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintTop_toBottomOf="@id/colorSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/colorSpinner" />
 
             <!--notification button-->
             <Button
                 android:id="@+id/btn_setNotification"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/purple_500"
                 android:text="@string/set_notification_time"
-                app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner"
+                android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner" />
+
+            <Button
+                android:id="@+id/btn_sensorData"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/purple_500"
+                android:text="@string/sensor_data"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner" />
         </LinearLayout>
     </ScrollView>
 

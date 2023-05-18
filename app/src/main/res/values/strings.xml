@@ -19,6 +19,7 @@
     <string name="the_selected_time">The selected time:</string>
     <string name="return_settings">Return to settings</string>
     <string name="set_notification_time">Set notification time</string>
+    <string name="sensor_data">Sensor Data</string>
 
     <string-array name="language_array">
         <item>English</item>
