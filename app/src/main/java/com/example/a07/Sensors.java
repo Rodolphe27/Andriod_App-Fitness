@@ -2,11 +2,14 @@ package com.example.a07;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Sensors extends AppCompatActivity {
@@ -24,8 +27,9 @@ public class Sensors extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
+        Button backToSetting = findViewById(R.id.btn_Tosetting);
 
-        textViewStepCounter = findViewById(R.id.StepCounter);
+        textViewStepCounter = findViewById(R.id.txt_stepCounter);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
@@ -55,9 +59,20 @@ public class Sensors extends AppCompatActivity {
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
             }
         };
+        backToSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(Sensors.this, Settings.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+
 
         sensorManager.registerListener(stepDetector, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
+
 
     @Override
     protected void onResume() {
@@ -70,4 +85,5 @@ public class Sensors extends AppCompatActivity {
         super.onPause();
         sensorManager.unregisterListener(stepDetector);
     }
+
 }

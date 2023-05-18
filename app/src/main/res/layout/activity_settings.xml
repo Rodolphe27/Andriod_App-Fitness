@@ -76,7 +76,7 @@
 
             <!--notification button-->
             <Button
-                android:id="@+id/btn_setNotification"
+                android:id="@+id/btn_save"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
@@ -89,17 +89,10 @@
                 app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner" />
 
             <Button
-                android:id="@+id/btn_sensorData"
+                android:id="@+id/toSensors"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:text="@string/sensor_data"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner" />
+                android:layout_height="wrap_content"
+                android:text="@string/sensor_data" />
         </LinearLayout>
     </ScrollView>
 

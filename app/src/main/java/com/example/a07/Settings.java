@@ -35,7 +35,8 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         Spinner fontSizeSpinner = findViewById(R.id.fontSizeSpinner);
         SwitchMaterial darkModeSwitch = findViewById(R.id.darkModeSwitch);
-        Button toNotification = findViewById(R.id.btn_setNotification);
+        Button toNotification = findViewById(R.id.btn_save);
+        Button toSensors= findViewById(R.id.toSensors);
 
         sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -81,6 +82,11 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
             @Override
             public void onClick(View view) {
                 openActivity(SettingsNotificationTime.class);
+            }
+        });
+        toSensors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {openActivity(Sensors.class);
             }
         });
 
