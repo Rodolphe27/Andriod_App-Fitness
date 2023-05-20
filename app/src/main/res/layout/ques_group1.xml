@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="unsatisfied"
+            android:text="@string/ques1_left"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="start"/>
 
@@ -46,7 +46,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="satisfied"
+            android:text="@string/ques1_right"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="end"/>
     </LinearLayout>
