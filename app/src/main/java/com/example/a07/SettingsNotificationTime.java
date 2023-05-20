@@ -1,7 +1,5 @@
 package com.example.a07;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
 
 public class SettingsNotificationTime extends AppCompatActivity implements View.OnClickListener {
     private TimePicker timePicker;
@@ -57,17 +59,17 @@ public class SettingsNotificationTime extends AppCompatActivity implements View.
     public void onClick(View view) {
         int id = view.getId();
         if (id  == R.id.btn_timeOK1){
-            String desc = String.format("%d:%d",timePicker.getHour(), timePicker.getMinute());
+            String desc = String.format(Locale.getDefault(), "%d:%d",timePicker.getHour(), timePicker.getMinute());
             timePicker_result1.setText(desc);
             saveTime(desc, 1);
         }
         if (id  == R.id.btn_timeOk2){
-            String desc = String.format("%d:%d",timePicker.getHour(), timePicker.getMinute());
+            String desc = String.format(Locale.getDefault(), "%d:%d",timePicker.getHour(), timePicker.getMinute());
             timePicker_result2.setText(desc);
             saveTime(desc, 2);
         }
         if (id  == R.id.btn_timeOK3){
-            String desc = String.format("%d:%d",timePicker.getHour(), timePicker.getMinute());
+            String desc = String.format(Locale.getDefault(), "%d:%d",timePicker.getHour(), timePicker.getMinute());
             timePicker_result3.setText(desc);
             saveTime(desc, 3);
         }

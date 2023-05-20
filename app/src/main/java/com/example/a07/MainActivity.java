@@ -1,14 +1,11 @@
 package com.example.a07;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 public class MainActivity extends AppCompatActivity {
     IntroductoryActivity SA = (IntroductoryActivity) IntroductoryActivity.SplashActivity;
@@ -18,22 +15,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SA.finish();
         setContentView(R.layout.activity_main);
-
-        // set darkmode according to the saved setting
-        SharedPreferences sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
-        boolean isDarkModeEnabled = sharedPreferences.getBoolean("dark_mode", false);
-        if (isDarkModeEnabled) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }
     }
 
     private long backKeyPressedTime = 0;
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-
         if (System.currentTimeMillis() > backKeyPressedTime + 2500) {
             backKeyPressedTime = System.currentTimeMillis();
             Toast toast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_LONG);

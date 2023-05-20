@@ -15,9 +15,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
-import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.Locale;
 
@@ -34,7 +31,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner languageSpinner = findViewById(R.id.languageSpinner);
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         Spinner fontSizeSpinner = findViewById(R.id.fontSizeSpinner);
-        SwitchMaterial darkModeSwitch = findViewById(R.id.darkModeSwitch);
         Button toNotification = findViewById(R.id.btn_setNotification);
 
         sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
@@ -60,9 +56,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         fontSizeSpinner.setAdapter(fontSizeAdapter);
         fontSizeSpinner.setOnItemSelectedListener(this);
 
-        // set the dark mode switch to the saved value
-        darkModeSwitch.setChecked(sharedPreferences.getBoolean("dark_mode", false));
-
 //        // Retrieve the saved language Todo - doesn't work yet
 //        String language = sharedPreferences.getString("language", ""); // Retrieve the saved language
 //        if (!language.isEmpty()) {                                           // If a language is saved, set the language
@@ -77,28 +70,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
 //        }
 
         // Set the notification button listener
-        toNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openActivity(SettingsNotificationTime.class);
-            }
-        });
-
-        // Set the dark mode switch listener
-        darkModeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            getDelegate().applyDayNight();
-            if (isChecked) {
-                // Enable dark mode
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            } else {
-                // Disable dark mode
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }
-
-            // Save the dark mode setting
-            editor.putBoolean("dark_mode", isChecked);
-            editor.apply();
-        });
+        toNotification.setOnClickListener(view -> openActivity(SettingsNotificationTime.class));
     }
 
     // Method to do something when an item is selected
@@ -124,7 +96,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
             else {
                 Toast.makeText(this, "This would set the language to: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
-            // Save the dark mode setting
+            // Save the language setting
             editor.putString("language", selectedItem);
             editor.apply();
         }
