@@ -27,9 +27,23 @@ public class IntroductoryActivity extends AppCompatActivity {
 
         animationView.animate().translationX(2000).setDuration(2000).setStartDelay(2900);
 
-        new Handler().postDelayed(() -> {
-            Intent intent = new Intent(IntroductoryActivity.this, MainActivity.class);
-            startActivity(intent);
-        },3900);
+        // Check if app was opened from notification
+        if (getIntent().hasExtra("runFunction")) {
+            String functionName = getIntent().getStringExtra("runFunction");
+            // if app was opened from notification, open the questionnaire
+            if (functionName.equals("openQuestionnaire")) {
+                new Handler().postDelayed(() -> {
+                    Intent intent = new Intent(IntroductoryActivity.this, Questionnaire.class);
+                    startActivity(intent);
+                },3900);
+            }
+        }
+        // if app was opened normally, open the main activity
+        else {
+            new Handler().postDelayed(() -> {
+                Intent intent = new Intent(IntroductoryActivity.this, MainActivity.class);
+                startActivity(intent);
+            },3900);
+        }
     }
 }

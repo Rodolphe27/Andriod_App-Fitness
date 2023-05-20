@@ -61,10 +61,10 @@ public class MyApplication extends Application {
     }
 
     private void insertMockSportData() {
-        // if this is the firsttime open the phone, insert the mock data into database
+        // if this is the first time open the phone, insert the mock data into database
         boolean isFirst = SharedPreferencesUtil.getInstance(this).readBoolean("first", true);
         if(isFirst) {
-            Utils.showToast(this, "Welcome to first use this App");
+            Utils.showToast(this, "Welcome to Fit Mood!");
             // first get SportDao:
             SportDao mySportDao = sportDatabase.sportDao();
             // write 2 mock data into database
@@ -72,6 +72,9 @@ public class MyApplication extends Application {
             for(SportEntity item : list) {
                 mySportDao.insert(item);
             }
+
+            //! todo: The user is asked to consent to the data privacy policy - Issue: #10
+            // add here
 
             // set first open app to false
             SharedPreferencesUtil.getInstance(this).writeBoolean("first", false);
