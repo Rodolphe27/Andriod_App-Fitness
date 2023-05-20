@@ -21,6 +21,11 @@ public class Utils {
         return simpleDateFormat.format(new Date());
     }
 
+    public static String getCurrentDate() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd:MM:YYYY");
+        return simpleDateFormat.format(new Date());
+    }
+
     public static String getCurrentDateAndTime() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd:MM:YYYY HH:mm:ss");
         return simpleDateFormat.format(new Date());

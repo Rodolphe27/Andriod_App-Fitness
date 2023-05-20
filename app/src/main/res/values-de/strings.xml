@@ -48,4 +48,11 @@
     <string name="the_selected_time">Die ausgewählte Uhrzeit:</string>
     <string name="return_settings">Zurück zu den Einstellungen</string>
     <string name="set_notification_time">Benachrichtigungszeit einstellen</string>
+    <string name="choose_your_sport_activity">Choose your sport activity</string>
+    <string name="stop">STOP</string>
+    <string name="start">START</string>
+    <string name="add_the_finish_activity">Add the finish activity</string>
+    <string name="add">ADD</string>
+    <string name="track_the_sport_duration">Track the sport duration</string>
+    <string name="the_date_of_today">The date of today:</string>
 </resources>

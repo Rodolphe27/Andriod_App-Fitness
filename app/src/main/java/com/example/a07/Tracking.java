@@ -1,18 +1,239 @@
 package com.example.a07;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Chronometer;
+import android.widget.SeekBar;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Tracking extends AppCompatActivity {
+import com.example.a07.dao.SportDao;
+import com.example.a07.entity.SportEntity;
+import com.example.a07.utils.SharedPreferencesUtil;
+import com.example.a07.utils.Utils;
+
+import java.util.Calendar;
+import java.util.List;
+
+public class Tracking extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+
+    private SportDao sportDao;
+
+    //declare attributes for sportpage
+    private Spinner sportTypeSpinner;
+    private TextView currentDate;
+    private Calendar calendar;
+    private Chronometer chronometer;
+
+
+    //for the chronometer
+    private double timeRecorded = 0;
+    private double timeRecordedMinute = 0;
+    private boolean isRunning = false;
+
+
+    //for the spinner
+    private String sportName;
+
+    //the mood score
+    private int myMoodScore; // moodscore after sport
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sport_tracking);
+        findViewById(R.id.btn_sport_queryAll).setOnClickListener(this);
+        findViewById(R.id.btn_reset_firstopen).setOnClickListener(this);
+        // get sportDao
+        sportDao = MyApplication.getInstance().getSportDatabase().sportDao();
+
+
+        // Minhua
+        //connect attributes with layout elements
+        sportTypeSpinner = findViewById(R.id.spinnerSportType);
+        currentDate = findViewById(R.id.tvShowCurrentDate);
+
+
+        //set current date
+        calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        currentDate.setText(day + "." + month + "." + year);
+
+        //set buttons with onClickListeners
+        findViewById(R.id.btnSportStart).setOnClickListener(this);
+        findViewById(R.id.btnSportStop).setOnClickListener(this);
+//        findViewById(R.id.btnAddSport).setOnClickListener(this);
+
+        //set chronometer
+        chronometer = findViewById(R.id.chronometerSport);
+
+
+        //set listener for the sport type spinner
+        sportTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String content = parent.getItemAtPosition(position).toString();
+                sportName = content;
+//                Utils.showToast(Tracking.this, "The selected sport is: " + content);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+
+
     }
+
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.btn_sport_queryAll:
+                Log.d("divider", "############################");
+                try {
+                    int recordsNr = 0;
+                    List<SportEntity> list = sportDao.queryAll();
+                    for (SportEntity item : list) {
+                        recordsNr++;
+                        Log.d("query_all_tag", item.toString());
+                    }
+                    Utils.showToast(this, "recordsNr = " + recordsNr);
+                }catch (Exception e) {
+                    Utils.showToast(this, e.getMessage());
+                }
+                break;
+
+            case R.id.btn_reset_firstopen:
+                SharedPreferencesUtil.getInstance(this).writeBoolean("first", true);
+                Utils.showToast(this, "reset first open to true");
+                break;
+
+            case R.id.btnSportStart:
+                if (!isRunning) {
+                    chronometer.setBase(SystemClock.elapsedRealtime());
+                    /*
+                     * setBase(): set from what time to start to count
+                     * SystemClock.elapsedRealtime() = real time right now
+                     */
+                    chronometer.start();    //start the chronometer
+                    isRunning = true;       //update the status boolean (on)
+                }
+                break;
+
+            case R.id.btnSportStop:
+                if (isRunning){
+                    timeRecorded = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;   //the recorded time
+                    timeRecordedMinute = timeRecorded / 60;
+                    chronometer.stop();
+                    isRunning = false;
+                    chronometer.setBase(SystemClock.elapsedRealtime()); //set clock to 0
+                    Toast toast = Toast.makeText(Tracking.this, "The recorded time (minute) is " + timeRecordedMinute, Toast.LENGTH_SHORT);
+                    toast.show();
+                    showDialogSeekBar();
+                }
+                break;
+
+        }
+    }
+
+    //sport result dialog
+    private void showDialogRecordResult(){
+        AlertDialog.Builder dialogResult = new AlertDialog.Builder(this);
+        dialogResult.setTitle("The recorded sport");
+        dialogResult.setMessage("Sport type: " + sportName + ",\n duration(minute): " + String.format("%.2f", timeRecordedMinute) + ",\n mood score: " + myMoodScore);
+        dialogResult.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //todo here?
+            }
+        });
+        dialogResult.show();
+    }
+
+
+    private void showDialogSeekBar() {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_seekbar, null);
+        // mySeekBar
+        SeekBar mySeekBar = mView.findViewById(R.id.myMoodScoreSeekBar);
+        mySeekBar.setOnSeekBarChangeListener(this);
+        mBuilder.setTitle(R.string.after_sport_seekbar);
+        //put the seekbar into the dialog
+        mBuilder.setView(mView);
+
+        mBuilder.setPositiveButton(R.string.btn_after_sport_dialog_positive, (dialog, which) -> {
+            // save to datebase;
+            saveSportDataToDB();
+
+            //show result dialog
+            showDialogRecordResult();
+            // todo? start questionaire?
+
+        });
+
+        mBuilder.setNegativeButton(R.string.btn_after_sport_dialog_negative, (dialog, which) -> {
+           // back ot main page
+            Intent intent = new Intent(Tracking.this, MainActivity.class);
+            startActivity(intent);
+        });
+
+
+        //show the AlertDialog using show() method
+        AlertDialog alertDialog2 = mBuilder.create();
+        alertDialog2.show();
+    }
+
+
+    /*here is for mySeekBar.setOnSeekBarChangeListener(this)*/
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        myMoodScore = seekBar.getProgress();
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+
+    private void saveSportDataToDB() {
+        // create SportEntity
+        SportEntity sportEntity = new SportEntity();
+        sportEntity.setTimeAndDateStamp(Utils.getCurrentDateAndTime());
+        sportEntity.setName(sportName);
+        sportEntity.setDuration(String.format("%.2f", timeRecordedMinute));
+        sportEntity.setMoodScore(myMoodScore);
+
+        sportDao.insert(sportEntity);
+        Utils.showToast(Tracking.this, "Sport Saved");
+    }
+
+
+
+
 
     // Methods to switch activity
     public void switchActivity(View view) {
@@ -30,4 +251,6 @@ public class Tracking extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
+
+
 }
