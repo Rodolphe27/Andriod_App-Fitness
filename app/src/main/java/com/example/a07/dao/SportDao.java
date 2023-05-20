@@ -4,24 +4,25 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.a07.entity.QuestionaireEntity;
+
 import com.example.a07.entity.SportEntity;
 
 import java.util.List;
 
 @Dao
-public interface QuesDao {
+public interface SportDao {
 
     @Insert
-    void insert(QuestionaireEntity... quesEntity);
+    void insert(SportEntity... sportEntity);
+
 
     // query All Questionaires(Default:   table name = entity name)
-    @Query("SELECT * FROM QuestionaireEntity")
-    List<QuestionaireEntity> queryAll();
+    @Query("SELECT * FROM SportEntity")
+    List<SportEntity> queryAll();
 
 
     // clear the "QuestionaireEntity" table
-    @Query("DELETE FROM QuestionaireEntity")
+    @Query("DELETE FROM SportEntity")
     void deleteAll();
 
 }
