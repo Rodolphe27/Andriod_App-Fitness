@@ -177,7 +177,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                     openActivity(SettingsNotificationTime.class);
                 } else {
                     // permission denied
-                    Toast.makeText(this, "Notification permission denied", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Notification permission denied. Please allow Notifications to receive a reminder for the questionnaire.", Toast.LENGTH_SHORT).show();
                 }
             }
         }

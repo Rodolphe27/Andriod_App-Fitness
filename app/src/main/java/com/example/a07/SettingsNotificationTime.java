@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -73,19 +74,34 @@ public class SettingsNotificationTime extends AppCompatActivity implements View.
     public void onClick(View view) {
         int id = view.getId();
         if (id  == R.id.btn_timeOK1){
-            String desc = String.format(Locale.getDefault(), "%d:%s",timePicker.getHour(), String.format(Locale.getDefault(), "%02d",timePicker.getMinute()));
-            timePicker_result1.setText(desc);
-            saveTime(desc, 1);
+            if ((timePicker.getHour() >= 7 && timePicker.getHour() < 11) || (timePicker.getHour() == 11 && timePicker.getMinute() == 0)) {
+                String desc = String.format(Locale.getDefault(), "%s:%s", String.format(Locale.getDefault(), "%02d", timePicker.getHour()), String.format(Locale.getDefault(), "%02d",timePicker.getMinute()));
+                timePicker_result1.setText(desc);
+                saveTime(desc, 1);
+            }
+            else{
+                Toast.makeText(this, "Please choose a time between 7:00 and 11:00 for the first Notification!", Toast.LENGTH_SHORT).show();
+            }
         }
-        if (id  == R.id.btn_timeOk2){
-            String desc = String.format(Locale.getDefault(), "%d:%s",timePicker.getHour(), String.format(Locale.getDefault(), "%02d",timePicker.getMinute()));
-            timePicker_result2.setText(desc);
-            saveTime(desc, 2);
+        if (id  == R.id.btn_timeOk2) {
+            if ((timePicker.getHour() >= 12 && timePicker.getHour() < 14) || (timePicker.getHour() == 14 && timePicker.getMinute() == 0)) {
+                String desc = String.format(Locale.getDefault(), "%s:%s", String.format(Locale.getDefault(), "%02d", timePicker.getHour()), String.format(Locale.getDefault(), "%02d", timePicker.getMinute()));
+                timePicker_result2.setText(desc);
+                saveTime(desc, 2);
+            }
+            else{
+                Toast.makeText(this, "Please choose a time between 12:00 and 14:00 for the second Notification!", Toast.LENGTH_SHORT).show();
+            }
         }
         if (id  == R.id.btn_timeOK3){
-            String desc = String.format(Locale.getDefault(), "%d:%s",timePicker.getHour(), String.format(Locale.getDefault(), "%02d",timePicker.getMinute()));
-            timePicker_result3.setText(desc);
-            saveTime(desc, 3);
+            if ((timePicker.getHour() >= 17 && timePicker.getHour() < 19) || (timePicker.getHour() == 19 && timePicker.getMinute() == 0)) {
+                String desc = String.format(Locale.getDefault(), "%s:%s", String.format(Locale.getDefault(), "%02d", timePicker.getHour()), String.format(Locale.getDefault(), "%02d", timePicker.getMinute()));
+                timePicker_result3.setText(desc);
+                saveTime(desc, 3);
+            }
+            else{
+                Toast.makeText(this, "Please choose a time between 17:00 and 19:00 for the third Notification!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
