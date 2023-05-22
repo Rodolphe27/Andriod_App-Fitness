@@ -5,6 +5,8 @@ import android.app.Application;
 import androidx.room.Room;
 
 import com.example.a07.database.AppDatabase;
+import com.example.a07.database.GpsDatabase;
+import com.example.a07.database.SensorDatabase;
 
 public class MyApplication extends Application {
 
@@ -13,6 +15,8 @@ public class MyApplication extends Application {
 
     // create AppDatabase immediately after starting the APP
     private AppDatabase appDatabase;
+    private SensorDatabase sensorDatabase;
+    private GpsDatabase gpsDatabase;
 
     @Override
     public void onCreate() {
