@@ -8,6 +8,8 @@ import androidx.room.Room;
 import com.example.a07.dao.QuesDao;
 import com.example.a07.dao.SportDao;
 import com.example.a07.database.AppDatabase;
+import com.example.a07.database.GpsDatabase;
+import com.example.a07.database.SensorDatabase;
 import com.example.a07.database.SportDatabase;
 import com.example.a07.entity.SportEntity;
 import com.example.a07.utils.SharedPreferencesUtil;
@@ -27,6 +29,10 @@ public class MyApplication extends Application {
     private SportDatabase sportDatabase;
 
 
+    private SensorDatabase sensorDatabase;
+    private GpsDatabase gpsDatabase;
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -39,6 +45,10 @@ public class MyApplication extends Application {
                 .build();
 
         sportDatabase = Room.databaseBuilder(this, SportDatabase.class, "sportdb")
+                .addMigrations()
+                .allowMainThreadQueries()
+                .build();
+        sensorDatabase = Room.databaseBuilder(this, SensorDatabase.class, "sensordb")
                 .addMigrations()
                 .allowMainThreadQueries()
                 .build();
@@ -58,6 +68,14 @@ public class MyApplication extends Application {
 
     public SportDatabase getSportDatabase() {
         return sportDatabase;
+    }
+
+    public SensorDatabase getSensorDatabase() {
+        return sensorDatabase;
+    }
+
+    public GpsDatabase getGpsDatabase() {
+        return gpsDatabase;
     }
 
     private void insertMockSportData() {

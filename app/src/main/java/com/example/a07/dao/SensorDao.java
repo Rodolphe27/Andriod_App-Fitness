@@ -15,7 +15,7 @@ import java.util.List;
 @Dao
 public interface SensorDao {
     @Insert
-    void insert(SensorEntity sensor);
+    void insert(SensorEntity...  sensorEntity);
 
     @Query("SELECT * FROM sensorentity")
     List<SensorEntity> queryAll();

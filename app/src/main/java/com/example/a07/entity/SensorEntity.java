@@ -37,10 +37,6 @@ public class SensorEntity {
     public Integer getStepCount() {
         return stepCount;
     }
-
-
-
-
     public void setId(int id) {
         this.id = id;
     }
@@ -49,7 +45,7 @@ public class SensorEntity {
         this.timeAndDateStamp = timeAndDateStamp;
     }
 
-    public void setX(double x) {
+    public void setStepCount(Integer stepCount) {
         this.stepCount = stepCount;
     }
 

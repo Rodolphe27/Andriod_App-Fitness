@@ -11,8 +11,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.content.SharedPreferences;
 
-public class Sensors extends AppCompatActivity {
+import com.example.a07.dao.SensorDao;
+import com.example.a07.entity.SensorEntity;
+
+import com.example.a07.utils.Utils;
+
+public class Sensors extends AppCompatActivity implements View.OnClickListener {
     private SensorManager sensorManager;
     private Sensor sensor;
     private boolean isCounterSensorPresent;
@@ -23,15 +29,22 @@ public class Sensors extends AppCompatActivity {
     private SensorEventListener stepDetector;
     TextView textViewStepCounter;
 
+    SensorDao sensorDao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
         Button backToSetting = findViewById(R.id.btn_Tosetting);
+        findViewById(R.id.btn_tosave).setOnClickListener(this);
+
+
 
         textViewStepCounter = findViewById(R.id.txt_stepCounter);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+        sensorDao = MyApplication.getInstance().getSensorDatabase().sensorDoa();
 
         stepDetector = new SensorEventListener() {
             @Override
@@ -85,5 +98,22 @@ public class Sensors extends AppCompatActivity {
         super.onPause();
         sensorManager.unregisterListener(stepDetector);
     }
+    private void sensorDataToDB() {
+        // create SensorEntity
+        SensorEntity sensorEntity= new SensorEntity();
+        sensorEntity.setTimeAndDateStamp(Utils.getCurrentDateAndTime());
+        sensorEntity.setStepCount(stepCount);
 
+
+        sensorDao.insert(sensorEntity);
+        Utils.showToast(Sensors.this, "Data Saved");
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.btn_tosave) {
+            sensorDataToDB();
+        }
+
+    }
 }
