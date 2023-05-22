@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- questionaire strings-->
+
+    <string name="ques1_left">unsatisfied</string>
+    <string name="ques1_right">satisfied</string>
+
+
+
+</resources>
