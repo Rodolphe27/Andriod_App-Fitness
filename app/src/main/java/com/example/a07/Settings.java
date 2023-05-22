@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -66,17 +67,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         fontSizeSpinner.setAdapter(fontSizeAdapter);
         fontSizeSpinner.setOnItemSelectedListener(this);
 
-        // set the gps switch to the saved value
-        if (ContextCompat.checkSelfPermission(this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            gpsSwitch.setChecked(sharedPreferences.getBoolean("gps", false));
-        }
-        else {
-            gpsSwitch.setChecked(false);
-            editor.putBoolean("gps", gpsSwitch.isChecked());
-            editor.apply();
-        }
-
 //        // Retrieve the saved language Todo - doesn't work yet
 //        String language = sharedPreferences.getString("language", ""); // Retrieve the saved language
 //        if (!language.isEmpty()) {                                           // If a language is saved, set the language
@@ -89,6 +79,43 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
 //                Toast.makeText(this, "This would set the language to: " + language, Toast.LENGTH_SHORT).show();
 //            }
 //        }
+
+
+        // set the gps switch to the saved value
+        if (ContextCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            gpsSwitch.setChecked(sharedPreferences.getBoolean("gps", false));
+        }
+        else {
+            gpsSwitch.setChecked(false);
+            editor.putBoolean("gps", gpsSwitch.isChecked());
+            editor.apply();
+            Log.d("GPS", "Updated Shared Preferences - GPS Status: " + sharedPreferences.getBoolean("gps", false));
+        }
+
+        // Set the gps switch listener
+        gpsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            // Check for ACCESS_FINE_LOCATION permission
+            if (ContextCompat.checkSelfPermission(this,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED && isChecked) {
+
+                // Permission is not granted
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                        android.Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    Toast.makeText(this, "We need your location to provide better service", Toast.LENGTH_LONG).show();
+                }
+                // Request permission
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+            } else {
+                // If permission has already been granted save the gps setting in shared preferences
+                editor.putBoolean("gps", isChecked);
+                editor.apply();
+                Log.d("GPS", "Updated Shared Preferences - GPS Status: " + sharedPreferences.getBoolean("gps", false));
+            }
+        });
 
         // Set the notification button listener
         toNotification.setOnClickListener(view -> {
@@ -114,31 +141,8 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 }
             }
             else {
+                // SDK 32 and below don't need POST_NOTIFICATIONS permission - just open the activity
                 openActivity(SettingsNotificationTime.class);
-            }
-        });
-
-        // Set the gps switch listener
-        gpsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            // Check for location permission
-            if (ContextCompat.checkSelfPermission(this,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-
-                // Permission is not granted
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                        android.Manifest.permission.ACCESS_FINE_LOCATION)) {
-                    Toast.makeText(this, "We need your location to provide better service", Toast.LENGTH_LONG).show();
-                }
-                // Request permission
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                        MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-            } else {
-                // If permission has already been granted save the dark mode setting in shared preferences
-                editor.putBoolean("gps", isChecked);
-                editor.apply();
-                System.out.println("gpsSwitch.isChecked() = " + isChecked);
             }
         });
     }
@@ -153,14 +157,16 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // permission was granted
                     Toast.makeText(this, "Location permission granted", Toast.LENGTH_SHORT).show();
-                    editor.putBoolean("gps", gpsSwitch.isChecked());
-                    editor.apply();
-                    System.out.println("gpsSwitch.isChecked() = " + gpsSwitch.isChecked());
-                } else {
+                }
+                else {
                     // permission denied
                     Toast.makeText(this, "Location permission denied. Please enable exact position for the app in the settings.", Toast.LENGTH_SHORT).show();
                     gpsSwitch.setChecked(false);
                 }
+                editor.putBoolean("gps", gpsSwitch.isChecked());
+                editor.apply();
+                Log.d("GPS", "Updated Shared Preferences - GPS Status: " + sharedPreferences.getBoolean("gps", false));
+
                 return;
             }
             case MY_PERMISSIONS_REQUEST_POST_NOTIFICATIONS: {
@@ -168,6 +174,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // permission was granted
                     Toast.makeText(this, "Notification permission granted", Toast.LENGTH_SHORT).show();
+                    openActivity(SettingsNotificationTime.class);
                 } else {
                     // permission denied
                     Toast.makeText(this, "Notification permission denied", Toast.LENGTH_SHORT).show();
