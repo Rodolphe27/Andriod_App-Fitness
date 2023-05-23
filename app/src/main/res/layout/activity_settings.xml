@@ -53,6 +53,8 @@
                 app:layout_constraintTop_toBottomOf="@id/gpsSwitch" />
 
             <!--color spinner-->
+
+            <!--fontsize spinner-->
             <Spinner
                 android:id="@+id/colorSpinner"
                 android:layout_width="match_parent"
@@ -63,7 +65,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/languageSpinner" />
 
-            <!--fontsize spinner-->
             <Spinner
                 android:id="@+id/fontSizeSpinner"
                 android:layout_width="match_parent"
@@ -74,9 +75,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/colorSpinner" />
 
+            <!--sensor spinner-->
             <!--notification button-->
+
+            <Spinner
+                android:id="@+id/sensorSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner"/>
+
             <Button
-                android:id="@+id/btn_save"
+                android:id="@+id/btn_setNotification"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
@@ -88,11 +101,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner" />
             <!--sensor button -->
-            <Button
-                android:id="@+id/toSensors"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/sensor_data" />
+
         </LinearLayout>
     </ScrollView>
 
@@ -158,6 +167,7 @@
                 android:onClick="switchActivity"
                 android:src="@drawable/ic_settings"
                 android:tag="Settings" />
+
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

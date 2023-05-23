@@ -9,11 +9,15 @@ public class GpsEntity {
     private int id;
     private String timeAndDateStamp;
 
-    private float longitude;
+    private double longitude;
 
-    private float latitude;
+    private double latitude;
 
-    public GpsEntity(float longitude, float latitude, String timeAndDateStamp) {
+    public GpsEntity(){
+
+    }
+
+    public GpsEntity(long longitude, long latitude, String timeAndDateStamp) {
         this.longitude = longitude;
         this.timeAndDateStamp = timeAndDateStamp;
         this.latitude = latitude;
@@ -32,11 +36,19 @@ public class GpsEntity {
     public void setTimeAndDateStamp(String timeAndDateStamp) {
         this.timeAndDateStamp = timeAndDateStamp;
     }
-    public float getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public float getLatitude() {
+    public double getLatitude() {
         return latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 }

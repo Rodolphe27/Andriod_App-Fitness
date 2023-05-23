@@ -52,6 +52,10 @@ public class MyApplication extends Application {
                 .addMigrations()
                 .allowMainThreadQueries()
                 .build();
+        gpsDatabase = Room.databaseBuilder(this, GpsDatabase.class, "gpsdb")
+                .addMigrations()
+                .allowMainThreadQueries()
+                .build();
 
         // insert some mock data;
         insertMockSportData();
