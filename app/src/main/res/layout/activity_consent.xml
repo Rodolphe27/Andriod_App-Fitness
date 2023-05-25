@@ -39,6 +39,7 @@
         android:id="@+id/consentCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:buttonTint="@color/purple_500"
         android:text="@string/i_have_read_and_agree_to_fit_mood_s_user_consent_and_data_privacy_policy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
