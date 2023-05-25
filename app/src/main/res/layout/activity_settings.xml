@@ -23,8 +23,9 @@
                 android:id="@+id/gpsSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:textSize="16sp"
                 android:text="@string/gpsSwitch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -51,7 +52,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/languageSpinner" />
 
-            <!--fontsize spinner-->
+            <!--fontSize spinner-->
             <Spinner
                 android:id="@+id/fontSizeSpinner"
                 android:layout_width="match_parent"
@@ -65,7 +66,7 @@
             <!--notification button-->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_setNotification"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="8dp"

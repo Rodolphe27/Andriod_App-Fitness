@@ -54,6 +54,10 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         languageSpinner.setAdapter(adapter);                                                    // Apply the adapter to the spinner
         languageSpinner.setSelection(0);
         languageSpinner.setOnItemSelectedListener(this);
+        // Set the language spinner to the saved language
+        String selectedLanguage = sharedPreferences.getString("language", "English");
+        int languagePosition = adapter.getPosition(selectedLanguage);
+        languageSpinner.setSelection(languagePosition);
 
         ArrayAdapter<CharSequence> colorAdapter = ArrayAdapter.createFromResource(this,
                 R.array.color_array, android.R.layout.simple_spinner_item);
@@ -79,7 +83,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
 //                Toast.makeText(this, "This would set the language to: " + language, Toast.LENGTH_SHORT).show();
 //            }
 //        }
-
 
         // set the gps switch to the saved value
         if (ContextCompat.checkSelfPermission(this,
@@ -203,9 +206,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 setLocale(this, "en");
                 recreate();
             }
-            else {
-                Toast.makeText(this, "This would set the language to: " + selectedItem, Toast.LENGTH_SHORT).show();
-            }
             // Save the language setting
             editor.putString("language", selectedItem);
             editor.apply();
@@ -215,7 +215,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
     // Implement the onNothingSelected method to do something when no item is selected
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        Toast.makeText(this, "No item selected", Toast.LENGTH_SHORT).show();
+        // Do nothing
     }
 
     // Method to set the language
