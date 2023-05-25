@@ -1,6 +1,7 @@
 package com.example.a07;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -15,6 +16,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SA.finish();
         setContentView(R.layout.activity_main);
+
+        // Check if the user has already given consent
+        SharedPreferences sharedPreferences;
+        sharedPreferences = getSharedPreferences("my_app_preferences", MODE_PRIVATE);
+        if (!sharedPreferences.getBoolean("hasUserGivenConsent", false)) {
+            Intent intent = new Intent(this, ConsentActivity.class);
+            startActivity(intent);
+        }
     }
 
     private long backKeyPressedTime = 0;

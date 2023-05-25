@@ -29,21 +29,21 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:orientation="horizontal">
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_timeOK1"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="48dp"
                 android:text="@string/confirm"
                 style="?android:attr/buttonBarButtonStyle"/>
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_timeOk2"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="48dp"
                 android:text="@string/confirm"
                 style="?android:attr/buttonBarButtonStyle"/>
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_timeOK3"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -88,7 +88,7 @@
                 android:textSize="16sp"/>
         </LinearLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_returnSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

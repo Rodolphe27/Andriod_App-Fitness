@@ -17,18 +17,18 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         int notificationId = intent.getIntExtra("notification_id", 0);  // Get id from Intent
 
-        notificationText = "Click to start the Questionnaire."; //! TODO: Change this to a string resource
-//        switch (notificationId) {
-//            case 1:
-//                notificationText = "Notification Text for ID 1";
-//                break;
-//            case 2:
-//                notificationText = "Notification Text for ID 2";
-//                break;
-//            case 3:
-//                notificationText = "Notification Text for ID 3";
-//                break;
-//        }
+        notificationText = "";
+        switch (notificationId) {
+            case 1:
+                notificationText = "Click to start the morning Questionnaire.";
+                break;
+            case 2:
+                notificationText = "Click to start the noon Questionnaire.";
+                break;
+            case 3:
+                notificationText = "Click to start the late noon Questionnaire.";
+                break;
+        }
 
         // Intent to launch activity
         Intent activityIntent = new Intent(context, IntroductoryActivity.class);

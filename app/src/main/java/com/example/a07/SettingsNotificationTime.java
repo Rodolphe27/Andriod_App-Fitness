@@ -11,12 +11,13 @@ import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.button.MaterialButton;
 
 import java.util.Locale;
 
@@ -46,7 +47,7 @@ public class SettingsNotificationTime extends AppCompatActivity implements View.
         timePicker_result3 = findViewById(R.id.text_timePicker_result3);
         timePicker_result3.setText(sharedPreferences.getString("time3", ""));
 
-        Button returnSettings = findViewById(R.id.btn_returnSettings);
+        MaterialButton returnSettings = findViewById(R.id.btn_returnSettings);
 
         //set onClickListeners for buttons
         findViewById(R.id.btn_timeOK1).setOnClickListener(this);

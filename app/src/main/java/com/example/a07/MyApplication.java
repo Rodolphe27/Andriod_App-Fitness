@@ -73,9 +73,6 @@ public class MyApplication extends Application {
                 mySportDao.insert(item);
             }
 
-            //! todo: The user is asked to consent to the data privacy policy - Issue: #10
-            // add here
-
             // set first open app to false
             SharedPreferencesUtil.getInstance(this).writeBoolean("first", false);
         }
