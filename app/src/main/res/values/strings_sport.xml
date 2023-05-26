@@ -9,5 +9,10 @@
     <string name="after_sport_seekbar">what is your mood score now</string>
     <string name="btn_after_sport_dialog_positive">send</string>
     <string name="btn_after_sport_dialog_negative">cancel</string>
+    <string name="sport_archive_title">Sport Archiv</string>
+
+    <string name="sport_dialog_yes">yes</string>
+    <string name="sport_dialog_no">no</string>
+    <string name="sport_dialog_delete">delete</string>
 
 </resources>
