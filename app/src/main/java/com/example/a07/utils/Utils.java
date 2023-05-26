@@ -42,7 +42,7 @@ public class Utils {
     }
 
     public static void showToast(Context ctx, String desc) {
-        Toast.makeText(ctx, desc, Toast.LENGTH_SHORT).show();
+        Toast.makeText(ctx, desc, Toast.LENGTH_LONG).show();
     }
 
 }
