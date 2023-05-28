@@ -34,8 +34,10 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner languageSpinner = findViewById(R.id.languageSpinner);
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         Spinner fontSizeSpinner = findViewById(R.id.fontSizeSpinner);
+        Spinner sensorSpinner= findViewById(R.id.sensorSpinner);
         SwitchMaterial darkModeSwitch = findViewById(R.id.darkModeSwitch);
         Button toNotification = findViewById(R.id.btn_setNotification);
+
 
         sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -59,6 +61,11 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         fontSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fontSizeSpinner.setAdapter(fontSizeAdapter);
         fontSizeSpinner.setOnItemSelectedListener(this);
+        ArrayAdapter<CharSequence> sensorAdapter = ArrayAdapter.createFromResource(this,
+                R.array.sensor_array, android.R.layout.simple_spinner_item);
+        sensorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sensorSpinner.setAdapter(sensorAdapter);
+        sensorSpinner.setOnItemSelectedListener(this);
 
         // set the dark mode switch to the saved value
         darkModeSwitch.setChecked(sharedPreferences.getBoolean("dark_mode", false));
@@ -83,6 +90,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 openActivity(SettingsNotificationTime.class);
             }
         });
+
 
         // Set the dark mode switch listener
         darkModeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -127,6 +135,17 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
             // Save the dark mode setting
             editor.putString("language", selectedItem);
             editor.apply();
+        } else if (parent.getId() == R.id.sensorSpinner) {
+            if (selectedItem.equals("Choose Sensor")) {
+
+            } else if (selectedItem.equals("SensorData")) {
+                openActivity(Sensors.class);
+            } else if (selectedItem.equals("GpsData")) {
+                openActivity(GPS.class);
+            } else {
+                Toast.makeText(this, "This would open the respective sensor view for: " + selectedItem, Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 
