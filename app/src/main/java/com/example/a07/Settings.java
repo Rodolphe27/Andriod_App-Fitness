@@ -41,8 +41,10 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner languageSpinner = findViewById(R.id.languageSpinner);
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         Spinner fontSizeSpinner = findViewById(R.id.fontSizeSpinner);
+        Spinner sensorSpinner= findViewById(R.id.sensorSpinner);
+        Button toNotification = findViewById(R.id.btn_setNotification);
         SwitchMaterial gpsSwitch = findViewById(R.id.gpsSwitch);
-        MaterialButton toNotification = findViewById(R.id.btn_setNotification);
+
 
         sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -70,6 +72,11 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         fontSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fontSizeSpinner.setAdapter(fontSizeAdapter);
         fontSizeSpinner.setOnItemSelectedListener(this);
+        ArrayAdapter<CharSequence> sensorAdapter = ArrayAdapter.createFromResource(this,
+                R.array.sensor_array, android.R.layout.simple_spinner_item);
+        sensorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sensorSpinner.setAdapter(sensorAdapter);
+        sensorSpinner.setOnItemSelectedListener(this);
 
 //        // Retrieve the saved language Todo - doesn't work yet
 //        String language = sharedPreferences.getString("language", ""); // Retrieve the saved language
@@ -149,7 +156,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
             }
         });
     }
-
+  
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -169,7 +176,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 editor.putBoolean("gps", gpsSwitch.isChecked());
                 editor.apply();
                 Log.d("GPS", "Updated Shared Preferences - GPS Status: " + sharedPreferences.getBoolean("gps", false));
-
                 return;
             }
             case MY_PERMISSIONS_REQUEST_POST_NOTIFICATIONS: {
@@ -209,6 +215,17 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
             // Save the language setting
             editor.putString("language", selectedItem);
             editor.apply();
+        } else if (parent.getId() == R.id.sensorSpinner) {
+            if (selectedItem.equals("Choose Sensor")) {
+
+            } else if (selectedItem.equals("SensorData")) {
+                openActivity(Sensors.class);
+            } else if (selectedItem.equals("GpsData")) {
+                openActivity(GPS.class);
+            } else {
+                Toast.makeText(this, "This would open the respective sensor view for: " + selectedItem, Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 

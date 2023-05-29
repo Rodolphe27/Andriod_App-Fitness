@@ -16,6 +16,7 @@
     <string name="return_settings">Return to settings</string>
     <string name="confirm">Confirm</string>
     <string name="set_notification_time">Set notification time</string>
+    <string name="sensor_data">Sensor Data</string>
 
     <string name="darkmodeSwitch">Darkmode</string>
     <string name="gpsSwitch">GPS</string>
