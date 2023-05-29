@@ -26,6 +26,10 @@
     <string name="add">ADD</string>
     <string name="track_the_sport_duration">Track the sport duration</string>
     <string name="the_date_of_today">The date of today:</string>
+    <string name="user_consent_and_data_privacy_policy_agreement">User Consent and Data Privacy Policy Agreement</string>
+    <string name="i_have_read_and_agree_to_fit_mood_s_user_consent_and_data_privacy_policy">I have read and agree to Fit Mood\'s User Consent and Data Privacy Policy.</string>
+    <string name="accept_privacy_policy_continue">Continue</string>
+    <string name="privacy_policy">" <![CDATA[ <h3>Data Privacy Policy:</h3> <p> <b>1. Data Collection:</b> We collect mood questionnaire responses, physical activity data (manually entered and via step counter), and in the future, GPS data for walked distances. <br/> <b>2. Pseudonymization:</b> All data collected is pseudonymized to ensure your privacy and confidentiality. <br/> <b>3. Data Usage:</b> The data collected is used for research purposes only. It may help us understand mood patterns and how physical activity can impact them. <br/> <b>4. Data Storage:</b> Your data is securely stored and protected by state-of-the-art security measures. <br/> <b>5. Data Sharing:</b> We will not sell, rent or share your personal data with third-parties without your explicit consent. </p> <h3>User Consent Agreement:</h3> <p> By using FitMood, you agree that: <br/> <b>1.</b> You consent to the collection and use of your data as described in our Data Privacy Policy. <br/> <b>2.</b> You understand that the data you provide will be pseudonymized and used for research purposes. <br/> <b>3.</b> You will complete the mood questionnaire three times a day, enter your physical activity data, and engage with our mood-boosting interventions when prompted. <br/> <b>4.</b> You understand that we will occasionally show you sportive activity videos as an intervention to improve your mood. <br/> <b>5.</b> You will contact us if you wish to withdraw your consent and have your data deleted. </p> ]]>     "</string>
 
     <string-array name="language_array">
         <item>English</item>
