@@ -38,8 +38,8 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
 
 
     //for the chronometer
-    private long timeRecorded = 0;
-    private long timeRecordedMinute = 0;
+    private double timeRecorded = 0;
+    private double timeRecordedMinute = 0;
     private boolean isRunning = false;
 
 
@@ -77,7 +77,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         //set buttons with onClickListeners
         findViewById(R.id.btnSportStart).setOnClickListener(this);
         findViewById(R.id.btnSportStop).setOnClickListener(this);
-//        findViewById(R.id.btnAddSport).setOnClickListener(this);
+//      findViewById(R.id.btnAddSport).setOnClickListener(this);
 
         //set chronometer
         chronometer = findViewById(R.id.chronometerSport);
@@ -140,14 +140,13 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
             case R.id.btnSportStop:
                 if (isRunning){
                     timeRecorded = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;   //the recorded time
-                    timeRecordedMinute = (int) (timeRecorded / 60);
+                    timeRecordedMinute = timeRecorded / 60;
                     chronometer.stop();
                     isRunning = false;
                     chronometer.setBase(SystemClock.elapsedRealtime()); //set clock to 0
                     Toast toast = Toast.makeText(Tracking.this, "The recorded time (minute) is " + timeRecordedMinute, Toast.LENGTH_SHORT);
                     toast.show();
                     showDialogSeekBar();
-
                 }
                 break;
 
@@ -158,7 +157,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     private void showDialogRecordResult(){
         AlertDialog.Builder dialogResult = new AlertDialog.Builder(this);
         dialogResult.setTitle("The recorded sport");
-        dialogResult.setMessage("Sport type: " + sportName + ",\n duration(minute): " + timeRecordedMinute + ",\n mood score: " + myMoodScore);
+        dialogResult.setMessage("Sport type: " + sportName + ",\n duration(minute): " + String.format("%.2f", timeRecordedMinute) + ",\n mood score: " + myMoodScore);
         dialogResult.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -225,7 +224,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         SportEntity sportEntity = new SportEntity();
         sportEntity.setTimeAndDateStamp(Utils.getCurrentDateAndTime());
         sportEntity.setName(sportName);
-        sportEntity.setDuration(Long.toString(timeRecordedMinute));
+        sportEntity.setDuration(String.format("%.2f", timeRecordedMinute));
         sportEntity.setMoodScore(myMoodScore);
 
         sportDao.insert(sportEntity);
