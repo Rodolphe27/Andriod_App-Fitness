@@ -44,4 +44,9 @@
         <item>Medio</item>
         <item>Grande</item>
     </string-array>
+    <string-array name="sensor_array">
+        <item>choose_Sensor</item>
+        <item>SensorData</item>
+        <item>GpsData</item>
+    </string-array>
 </resources>

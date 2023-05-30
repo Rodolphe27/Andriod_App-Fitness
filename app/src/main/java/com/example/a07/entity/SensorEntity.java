@@ -11,24 +11,19 @@ public class SensorEntity {
 
     private String timeAndDateStamp;
 
-    private double x;
+    private Integer stepCount;
 
-    private double y;
 
-    private double z;
-
-    private String source;
 
     public SensorEntity() {
     }
 
-    public SensorEntity(int id, String timeAndDateStamp, double x, double y, double z, String source) {
+    public SensorEntity(int id, String timeAndDateStamp, Integer stepCount) {
         this.id = id;
         this.timeAndDateStamp = timeAndDateStamp;
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.source = source;
+        this.stepCount = stepCount;
+
+
     }
 
     public int getId() {
@@ -39,22 +34,9 @@ public class SensorEntity {
         return timeAndDateStamp;
     }
 
-    public double getX() {
-        return x;
+    public Integer getStepCount() {
+        return stepCount;
     }
-
-    public double getY() {
-        return y;
-    }
-
-    public double getZ() {
-        return z;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -63,19 +45,11 @@ public class SensorEntity {
         this.timeAndDateStamp = timeAndDateStamp;
     }
 
-    public void setX(double x) {
-        this.x = x;
+    public void setStepCount(Integer stepCount) {
+        this.stepCount = stepCount;
     }
 
-    public void setY(double y) {
-        this.y = y;
-    }
 
-    public void setZ(double z) {
-        this.z = z;
-    }
 
-    public void setSource(String source) {
-        this.source = source;
-    }
+
 }
