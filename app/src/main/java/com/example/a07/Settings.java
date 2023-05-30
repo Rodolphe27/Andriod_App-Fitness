@@ -42,7 +42,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         Spinner fontSizeSpinner = findViewById(R.id.fontSizeSpinner);
         Spinner sensorSpinner= findViewById(R.id.sensorSpinner);
-        Button toNotification = findViewById(R.id.btn_setNotification);
+        MaterialButton toNotification = findViewById(R.id.btn_setNotification);
         SwitchMaterial gpsSwitch = findViewById(R.id.gpsSwitch);
 
 
