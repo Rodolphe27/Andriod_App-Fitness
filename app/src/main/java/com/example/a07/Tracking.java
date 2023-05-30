@@ -77,7 +77,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         //set buttons with onClickListeners
         findViewById(R.id.btnSportStart).setOnClickListener(this);
         findViewById(R.id.btnSportStop).setOnClickListener(this);
-//        findViewById(R.id.btnAddSport).setOnClickListener(this);
+//      findViewById(R.id.btnAddSport).setOnClickListener(this);
 
         //set chronometer
         chronometer = findViewById(R.id.chronometerSport);

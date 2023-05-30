@@ -54,6 +54,11 @@
         <item>Medium</item>
         <item>Large</item>
     </string-array>
+    <string-array name="sensor_array">
+        <item>choose_sensor</item>
+        <item>SensorData</item>
+        <item>GpsData</item>
+    </string-array>
 
     <!--  string-array for sport type choosing spinner -->
     <string-array name="sportTypeArray">
