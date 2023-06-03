@@ -3,10 +3,14 @@ package com.example.a07;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +18,8 @@ import java.util.Calendar;
 
 public class Sport_extra extends AppCompatActivity {
 
+    String[] activities = getResources().getStringArray(R.array.activity_array);
+    Spinner activity_spinner;
     TextView datePickertxt;
     DatePickerDialog datePickerDialog;
     TimePicker time_picker1;
@@ -25,6 +31,25 @@ public class Sport_extra extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sport_extra);
+
+        activity_spinner = findViewById(R.id.activity_spinner);
+
+        ArrayAdapter<CharSequence> activity_adapter = new ArrayAdapter<>(
+          this, android.R.layout.simple_spinner_item, activities
+        );
+        activity_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        activity_spinner.setAdapter(activity_adapter);
+        activity_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(Sport_extra.this, activities[position] + " selected", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         datePickertxt = findViewById(R.id.date_picker_text);
         Button datePickerbtn = findViewById(R.id.date_picker_btn);
