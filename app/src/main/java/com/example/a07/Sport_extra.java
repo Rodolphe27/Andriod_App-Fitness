@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -20,12 +21,16 @@ public class Sport_extra extends AppCompatActivity {
 
     String[] activities = getResources().getStringArray(R.array.activity_array);
     Spinner activity_spinner;
+
     TextView datePickertxt;
     DatePickerDialog datePickerDialog;
+
     TimePicker time_picker1;
     TimePicker time_picker2;
     TextView time_picker_txt1;
     TextView time_picker_txt2;
+
+    SeekBar moodSeekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +96,24 @@ public class Sport_extra extends AppCompatActivity {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 time_picker_txt2.setText(hourOfDay + ":" + minute + " selected");
+            }
+        });
+
+        moodSeekBar = findViewById(R.id.moodSeekbar);
+        moodSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }
