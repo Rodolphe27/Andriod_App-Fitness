@@ -39,11 +39,12 @@ public class QuestionaireEntity {
 
     private float ques19;
     private float ques20;
+    private String ques21;
 
     public QuestionaireEntity() {
     }
 
-    public QuestionaireEntity(int id, String timeAndDateStamp, float ques1, float ques2, float ques3, float ques4, float ques5, float ques6, float ques7, float ques8, String ques9, float ques10, String ques11, String ques12, float ques13, float ques14, float ques15, float ques16, float ques17, float ques18, float ques19, float ques20) {
+    public QuestionaireEntity(int id, String timeAndDateStamp, float ques1, float ques2, float ques3, float ques4, float ques5, float ques6, float ques7, float ques8, String ques9, float ques10, String ques11, String ques12, float ques13, float ques14, float ques15, float ques16, float ques17, float ques18, float ques19, float ques20, String ques21) {
         this.id = id;
         this.timeAndDateStamp = timeAndDateStamp;
         this.ques1 = ques1;
@@ -66,6 +67,7 @@ public class QuestionaireEntity {
         this.ques18 = ques18;
         this.ques19 = ques19;
         this.ques20 = ques20;
+        this.ques21 = ques21;
     }
 
     public int getId() {
@@ -156,6 +158,11 @@ public class QuestionaireEntity {
         return ques20;
     }
 
+    public String getQues21() {
+        return ques21;
+    }
+
+
     public void setId(int id) {
         this.id = id;
     }
@@ -244,6 +251,10 @@ public class QuestionaireEntity {
         this.ques20 = ques20;
     }
 
+    public void setQues21(String ques21) {
+        this.ques21 = ques21;
+    }
+
     @Override
     public String toString() {
         return "QuestionaireEntity{" +
@@ -269,6 +280,7 @@ public class QuestionaireEntity {
                 ", ques18=" + ques18 +
                 ", ques19=" + ques19 +
                 ", ques20=" + ques20 +
+                ", ques21='" + ques21 + '\'' +
                 '}';
     }
 }

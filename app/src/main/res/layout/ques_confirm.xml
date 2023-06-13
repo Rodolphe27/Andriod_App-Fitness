@@ -5,8 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Questionaire_confirm"
-    android:gravity="center"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/item_layout_height"
+        >
+
+        <!-- question 21, free text   -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Do you have anything else to say? Add some notes to this questionaire"
+            android:textColor="@color/light_red"
+            android:textSize="@dimen/small_font_size"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/ques21_editText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_layout_height"
+            android:background="@drawable/edittext_selector"
+            android:layout_marginTop="5dp"
+            android:hint="input your notes here"
+            android:inputType="text"
+            android:maxLength="100"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
