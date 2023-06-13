@@ -32,6 +32,9 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
     // ques 21
     private EditText ques21_editText;
 
+    // the Entity to be saved in DB
+    QuestionaireEntity quesEntity = new QuestionaireEntity();
+
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
     private QuesDao quesDao;
@@ -50,15 +53,15 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
         preferences = getSharedPreferences("ques_data", Context.MODE_PRIVATE);
         editor = preferences.edit();
 
-        findViewById(R.id.btn_drop_ques).setOnClickListener(this);
         findViewById(R.id.btn_save_ques).setOnClickListener(this);
         findViewById(R.id.btn_query_all_ques).setOnClickListener(this);
-        findViewById(R.id.btn_clear_table).setOnClickListener(this);
 
         quesDao = MyApplication.getInstance().getAppDatebase().quesDao();
 
     }
 
+
+    // as soon as the user enter this page, do onResume()
     @Override
     protected void onResume() {
         super.onResume();
@@ -88,16 +91,8 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
-            case R.id.btn_drop_ques:
-                // back to Questionaire page so that user can modify the Ques again
-                Intent intent_back_to_ques = new Intent(this, Questionnaire.class);
-                intent_back_to_ques.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent_back_to_ques);
-                break;
             case R.id.btn_save_ques:
 //                System.out.println(myClickMap);
-                // create a new QuestionaireEntity instance
-                QuestionaireEntity quesEntity = new QuestionaireEntity();
 
                 quesEntity.setTimeAndDateStamp(Utils.getCurrentDateAndTime());
 
@@ -143,6 +138,10 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                 }catch (Exception e) {
                     Utils.showToast(this, e.getMessage());
                 }
+
+                // TODO: apply the algorithm
+
+
                 break;
             case R.id.btn_query_all_ques:
                 Log.d("divider", "############################");
@@ -154,14 +153,6 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                         Log.d("query_all_tag", ques.toString());
                     }
                     Utils.showToast(this, "recordsNr = " + recordsNr);
-                }catch (Exception e) {
-                    Utils.showToast(this, e.getMessage());
-                }
-                break;
-            case R.id.btn_clear_table:
-                try {
-                    quesDao.deleteAll();
-                    Utils.showToast(this, "table cleared");
                 }catch (Exception e) {
                     Utils.showToast(this, e.getMessage());
                 }
