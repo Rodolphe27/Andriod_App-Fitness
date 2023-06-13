@@ -40,37 +40,18 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/btn_drop_ques"
+            android:id="@+id/btn_query_all_ques"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="modify"/>
+            android:text="All"/>
         <Button
             android:id="@+id/btn_save_ques"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="8"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="Save Ques"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btn_query_all_ques"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="10dp"
-            android:layout_height="wrap_content"
-            android:text="query all"/>
-        <Button
-            android:id="@+id/btn_clear_table"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="10dp"
-            android:layout_height="wrap_content"
-            android:text="delete all recordes"/>
+            android:text="Save And Proceed"/>
     </LinearLayout>
 </LinearLayout>

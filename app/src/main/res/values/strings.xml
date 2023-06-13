@@ -60,15 +60,4 @@
         <item>GpsData</item>
     </string-array>
 
-    <!--  string-array for sport type choosing spinner -->
-    <string-array name="sportTypeArray">
-        <item>Wandering</item>
-        <item>Jogging</item>
-        <item>Swimming</item>
-        <item>Ball sports</item>
-        <item>Weight training</item>
-        <item>Yoga</item>
-        <item>Climbing/Bouldering</item>
-        <item>Others</item>
-    </string-array>
 </resources>

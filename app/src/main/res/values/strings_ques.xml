@@ -3,8 +3,61 @@
 
     <!-- questionaire strings-->
 
+    <!-- Group 1  -->
+
+    <!--question 1-->
+    <string name="ques1_name">question1</string>
     <string name="ques1_left">unsatisfied</string>
     <string name="ques1_right">satisfied</string>
+
+    <!--question 1-->
+    <string name="ques2_name">question2</string>
+    <string name="ques2_left">restless</string>
+    <string name="ques2_right">calm</string>
+
+    <!--question 1-->
+    <string name="ques3_name">question3</string>
+    <string name="ques3_left">unwell</string>
+    <string name="ques3_right">well</string>
+
+    <!--question 1-->
+    <string name="ques4_name">question4</string>
+    <string name="ques4_left">tense</string>
+    <string name="ques4_right">relaxed</string>
+
+    <!--question 1-->
+    <string name="ques5_name">question5</string>
+    <string name="ques5_left">0 energy</string>
+    <string name="ques5_right">100 energy</string>
+
+    <!--question 1-->
+    <string name="ques6_name">question6</string>
+    <string name="ques6_left">tired</string>
+    <string name="ques6_right">awake</string>
+
+
+
+    <!-- Group 2  -->
+
+    <!--question 7-->
+    <string name="ques7_name">question7</string>
+    <string name="ques7_desc">Since the last questionnaire, did you have one or more negative experiences?</string>
+    <string name="ques7_left">no event</string>
+    <string name="ques7_right">very intense</string>
+
+    <!--question 8-->
+    <string name="ques8_name">question8</string>
+    <string name="ques8_left">restless</string>
+    <string name="ques8_right">calm</string>
+
+
+
+
+
+
+
+
+
 
 
 
