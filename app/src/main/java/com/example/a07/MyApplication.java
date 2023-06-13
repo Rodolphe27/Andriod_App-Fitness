@@ -15,11 +15,16 @@ import com.example.a07.entity.SportEntity;
 import com.example.a07.utils.SharedPreferencesUtil;
 import com.example.a07.utils.Utils;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class MyApplication extends Application {
 
-    public int sportCount;
+    // record the total sport time
+    public int sportTotalTime;
+
+    // recode if one item is clicked or not in the Questionaire
+    public HashMap<Integer, Boolean> clickMap = new HashMap<>();
 
 
     private static MyApplication mApp;
@@ -60,6 +65,11 @@ public class MyApplication extends Application {
         // insert some mock data;
         insertMockSportData();
 
+        // initialize the click list to indicate which question is modified
+        for(int i = 1; i <= 21; i++) {
+            clickMap.put(i, false);
+        }
+
     }
 
     public static MyApplication getInstance() {
@@ -82,6 +92,7 @@ public class MyApplication extends Application {
         return gpsDatabase;
     }
 
+    // at the first start of the app, 2 mock values is always inserted into the database
     private void insertMockSportData() {
         // if this is the firsttime open the phone, insert the mock data into database
         boolean isFirst = SharedPreferencesUtil.getInstance(this).readBoolean("first", true);
