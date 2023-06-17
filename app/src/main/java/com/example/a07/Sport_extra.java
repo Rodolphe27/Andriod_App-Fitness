@@ -1,6 +1,7 @@
 package com.example.a07;
 
 import android.app.DatePickerDialog;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,9 +20,10 @@ import java.util.Calendar;
 
 public class Sport_extra extends AppCompatActivity {
 
-    String[] activities = getResources().getStringArray(R.array.activity_array);
+    Resources res;
     Spinner activity_spinner;
 
+    Button datePickerbtn;
     TextView datePickertxt;
     DatePickerDialog datePickerDialog;
 
@@ -37,11 +39,12 @@ public class Sport_extra extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sport_extra);
 
+        res = getResources();
+        String[] activities = res.getStringArray(R.array.sportTypeArray);
+
         activity_spinner = findViewById(R.id.activity_spinner);
 
-        ArrayAdapter<CharSequence> activity_adapter = new ArrayAdapter<>(
-          this, android.R.layout.simple_spinner_item, activities
-        );
+        ArrayAdapter<CharSequence> activity_adapter = ArrayAdapter.createFromResource(this, R.array.sportTypeArray, android.R.layout.simple_spinner_dropdown_item);
         activity_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         activity_spinner.setAdapter(activity_adapter);
         activity_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -57,7 +60,7 @@ public class Sport_extra extends AppCompatActivity {
         });
 
         datePickertxt = findViewById(R.id.date_picker_text);
-        Button datePickerbtn = findViewById(R.id.date_picker_btn);
+        datePickerbtn = findViewById(R.id.date_picker_btn);
 
         datePickerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
