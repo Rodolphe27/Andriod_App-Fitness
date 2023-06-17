@@ -1,14 +1,14 @@
 package com.example.a07;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -49,7 +49,12 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     //the mood score
     private int myMoodScore; // moodscore after sport
 
+    // Daeun - for providing reward
+    private float timeLimit = 10.00f;
 
+    // Daeun - for rewarding
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +102,9 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
             }
         });
 
-
-
+        // Daeun - for rewarding
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
     }
 
 
@@ -186,6 +192,8 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
             showDialogRecordResult();
             // todo? start questionaire?
 
+            // Daeun
+            provideReward();
         });
 
         mBuilder.setNegativeButton(R.string.btn_after_sport_dialog_negative, (dialog, which) -> {
@@ -231,9 +239,27 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         Utils.showToast(Tracking.this, "Sport Saved");
     }
 
+    // Daeun
+    private void provideReward(){
+        // if we want set several limits
+        /*
+        if(sharedPref.getBoolean(sportName, false)){
+            return;
+        }
+        */
 
+        float totalTime = 0;
+        for(String duration : sportDao.queryAllDuration(sportName)){
+            float sportTime = Float.parseFloat(duration.replace(',','.'));
+            totalTime += sportTime;
+        }
 
-
+        if(totalTime>timeLimit){
+            Utils.showToast(Tracking.this, "Congratulations. You did " + sportName + " for " + timeLimit + " min");
+            editor.putBoolean(sportName, true);
+            editor.apply();
+        }
+    }
 
     // Methods to switch activity
     public void switchActivity(View view) {
