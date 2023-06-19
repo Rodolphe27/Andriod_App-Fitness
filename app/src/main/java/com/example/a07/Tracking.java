@@ -50,9 +50,10 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     private int myMoodScore; // moodscore after sport
 
     // Daeun - for providing reward
-    private float timeLimit = 10.00f;
+    private float milestone = 0.03f;
+    private int healthCoin = 0;
 
-    // Daeun - for rewarding
+    // Daeun - for recording reward
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
 
@@ -102,7 +103,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
             }
         });
 
-        // Daeun - for rewarding
+        // Daeun
         sharedPref = getPreferences(Context.MODE_PRIVATE);
         editor = sharedPref.edit();
     }
@@ -193,7 +194,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
             // todo? start questionaire?
 
             // Daeun
-            provideReward();
+            showDialogReward();
         });
 
         mBuilder.setNegativeButton(R.string.btn_after_sport_dialog_negative, (dialog, which) -> {
@@ -240,8 +241,8 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     }
 
     // Daeun
-    private void provideReward(){
-        // if we want set several limits
+    private void showDialogReward(){
+        // * if we don't want set several milestones
         /*
         if(sharedPref.getBoolean(sportName, false)){
             return;
@@ -254,10 +255,24 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
             totalTime += sportTime;
         }
 
-        if(totalTime>timeLimit){
-            Utils.showToast(Tracking.this, "Congratulations. You did " + sportName + " for " + timeLimit + " min");
-            editor.putBoolean(sportName, true);
+        if(totalTime>milestone){
+            healthCoin = sharedPref.getInt("healthCoin", 0);
+            healthCoin++;
+            editor.putInt("healthCoin", healthCoin);
             editor.apply();
+
+            AlertDialog.Builder reward = new AlertDialog.Builder(this);
+            reward.setTitle("Your health coins");
+            reward.setMessage("Congratulations!\nYou did " + sportName + " for " + milestone + " minutes.\nYour health conins: " + healthCoin);
+            reward.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
+            reward.show();
+
+            // * editor.putBoolean(sportName, true);
+            // * editor.apply();
         }
     }
 
