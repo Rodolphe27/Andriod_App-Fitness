@@ -19,6 +19,8 @@ import android.widget.EditText;
 
 import com.example.a07.dao.QuesDao;
 import com.example.a07.entity.QuestionaireEntity;
+import com.example.a07.utils.TriggerAlgo;
+import com.example.a07.utils.TriggerAlgo01;
 import com.example.a07.utils.Utils;
 
 import java.util.HashMap;
@@ -139,10 +141,22 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                     Utils.showToast(this, e.getMessage());
                 }
 
-                // TODO: apply the algorithm
+                //apply the algorithm
+                //todo: make it easy to change the algorithm, not enough?
+                TriggerAlgo triggerAlgo = new TriggerAlgo01();
+                //logging algo result
+                boolean algoResult = triggerAlgo.algo(quesEntity);
+                Log.d("triggerAlgo", String.valueOf(algoResult));
 
-
+                //if algo result = true, change to the video page
+                if (algoResult){
+                //if (triggerAlgo.algo(quesEntity)){        //if not logging algo result, delete comment
+                    Intent intent = new Intent();
+                    intent.setClass(Questionaire_confirm.this, ExerciseVideoActivity.class);
+                    startActivity(intent);
+                }
                 break;
+
             case R.id.btn_query_all_ques:
                 Log.d("divider", "############################");
                 try {
