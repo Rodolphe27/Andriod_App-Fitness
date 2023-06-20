@@ -10,6 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.a07.dao.DigitSpanTaskDao;
+
+import com.example.a07.entity.DigitSpanTaskEntity;
+
+import com.example.a07.utils.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -27,13 +33,15 @@ public class DigitSpanTask extends AppCompatActivity {
 
     private long startTime;
     private long endTime;
-
+    private long responseTime;
+    private DigitSpanTaskDao digitSpanTaskDao;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.digit_span_task);
+        digitSpanTaskDao = MyApplication.getInstance().getDigitSpanTaskDatabase().digitSpanTaskDao();
 
         sequenceTextView = findViewById(R.id.sequenceTextView);
         userInputEditText = findViewById(R.id.userInputEditText);
@@ -50,6 +58,7 @@ public class DigitSpanTask extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkUserInput();
+                saveLoctationToDB();
             }
         });
 
@@ -72,7 +81,7 @@ public class DigitSpanTask extends AppCompatActivity {
         String userInput = userInputEditText.getText().toString().trim();
 
         endTime = System.currentTimeMillis();
-        long responseTime = endTime - startTime;
+        responseTime = endTime - startTime;
 
         if (userInput.isEmpty()) {
             Toast.makeText(this, "Please enter a digit sequence.", Toast.LENGTH_SHORT).show();
@@ -147,5 +156,17 @@ public class DigitSpanTask extends AppCompatActivity {
         }
 
         return sequence;
+    }
+    private void saveLoctationToDB() {
+        // Create a new GpsEntity and set the latitude, longitude, and timestamp
+        DigitSpanTaskEntity digitSpanTaskEntity = new DigitSpanTaskEntity();
+        digitSpanTaskEntity.setSequenceLength(sequenceLength);
+        digitSpanTaskEntity.setResponseTime(responseTime);
+        digitSpanTaskEntity.setTimeAndDateStamp(Utils.getCurrentDateAndTime());
+
+        // Insert the GpsEntity into the database using the gpsDao
+        digitSpanTaskDao.insert(digitSpanTaskEntity);
+
+        Utils.showToast(DigitSpanTask.this, " Data saved to database");
     }
 }
