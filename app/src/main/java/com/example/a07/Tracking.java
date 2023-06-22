@@ -161,7 +161,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         dialogResult.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //todo here?
+                //todo here? you can jump to archive
             }
         });
         dialogResult.show();
