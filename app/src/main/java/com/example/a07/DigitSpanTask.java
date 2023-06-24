@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class DigitSpanTask extends AppCompatActivity {
+public class DigitSpanTask extends AppCompatActivity implements View.OnClickListener{
 
     private TextView sequenceTextView;
     private EditText userInputEditText;
@@ -46,6 +46,7 @@ public class DigitSpanTask extends AppCompatActivity {
         sequenceTextView = findViewById(R.id.sequenceTextView);
         userInputEditText = findViewById(R.id.userInputEditText);
         submitButton = findViewById(R.id.submitButton);
+        findViewById(R.id.clearTable).setOnClickListener(this);
 
         sequenceLength = 3; // Initial sequence length
         digitSequence = generateDigitSequence(sequenceLength);
@@ -58,7 +59,7 @@ public class DigitSpanTask extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkUserInput();
-                saveLoctationToDB();
+
             }
         });
 
@@ -110,6 +111,7 @@ public class DigitSpanTask extends AppCompatActivity {
         if (isCorrect) {
             Toast.makeText(this, "Congratulations! You entered the correct sequence.", Toast.LENGTH_SHORT).show();
             handleSequenceSuccess(responseTime);
+
         } else {
             handleSequenceFailure();
         }
@@ -127,6 +129,7 @@ public class DigitSpanTask extends AppCompatActivity {
 
         Toast.makeText(this, "Response Time: " + responseTime + " ms", Toast.LENGTH_SHORT).show();
         displaySequence();
+        saveLoctationToDB();
     }
 
     private void handleSequenceFailure() {
@@ -168,5 +171,18 @@ public class DigitSpanTask extends AppCompatActivity {
         digitSpanTaskDao.insert(digitSpanTaskEntity);
 
         Utils.showToast(DigitSpanTask.this, " Data saved to database");
+    }
+
+    @Override
+    public void onClick(View view) {
+        if( view.getId()==R.id.clearTable){
+        try {
+            digitSpanTaskDao.deletAll();
+            Utils.showToast(this, "table cleared");
+        }catch (Exception e) {
+            Utils.showToast(this, e.getMessage());
+        }
+      }
+
     }
 }

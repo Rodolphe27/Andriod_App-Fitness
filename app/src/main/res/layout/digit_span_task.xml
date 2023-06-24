@@ -59,6 +59,12 @@
             android:paddingBottom="12dp"
             android:text="Submit" />
 
+        <Button
+            android:id="@+id/clearTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear_Table"/>
+
     </LinearLayout>
 
 
