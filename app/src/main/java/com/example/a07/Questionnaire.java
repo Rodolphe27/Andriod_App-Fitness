@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,7 +22,13 @@ import com.example.a07.utils.Utils;
 import java.util.Calendar;
 import java.util.Date;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, RadioGroup.OnCheckedChangeListener, View.OnClickListener {
+
+    private HashMap<Integer, Boolean> map = new HashMap<>();
+
 
     // group1
     private SeekBar ques1_seekBar;
@@ -72,9 +80,16 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
     private SharedPreferences.Editor editor;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // initialize the click list to indicate which question is modified
+        for(int i = 1; i <= 21; i++) {
+            map.put(i, false);
+        }
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
 
@@ -130,6 +145,7 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
         ques11_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                map.put(11, true);
                 // check if user selected "others"
                 if(position == Ques11Array.length-1) {
                     findViewById(R.id.ques11_others_layout).setVisibility(View.VISIBLE);
@@ -161,6 +177,7 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
         ques12_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                map.put(12, true);
                 // check if user selected "others"
                 if(position == Ques12Array.length-1) {
                     findViewById(R.id.ques12_others_layout).setVisibility(View.VISIBLE);
@@ -215,19 +232,13 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
         findViewById(R.id.btn_ques_backToMain).setOnClickListener(this);
         findViewById(R.id.btn_icon_back).setOnClickListener(this);
 
-
     }
 
-
-
-
-
-
-
-
-
-
-
+    // everytime when
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     /* seekbar lisener*/
 
@@ -235,86 +246,103 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
     public void onStopTrackingTouch(SeekBar seekBar) {
         switch(seekBar.getId()) {
             case R.id.ques1_seekbar:
+                map.put(1, true);
                 int progress1 = seekBar.getProgress();
                 editor.putInt("ques1", progress1);
                 editor.commit();
                 break;
             case R.id.ques2_seekbar:
+                map.put(2, true);
                 int progress2 = seekBar.getProgress();
                 editor.putInt("ques2", progress2);
                 editor.commit();
                 break;
             case R.id.ques3_seekbar:
+                map.put(3, true);
                 int progress3 = seekBar.getProgress();
                 editor.putInt("ques3", progress3);
                 editor.commit();
                 break;
             case R.id.ques4_seekbar:
+                map.put(4, true);
                 int progress4 = seekBar.getProgress();
                 editor.putInt("ques4", progress4);
                 editor.commit();
                 break;
             case R.id.ques5_seekbar:
+                map.put(5, true);
                 int progress5 = seekBar.getProgress();
                 editor.putInt("ques5", progress5);
                 editor.commit();
                 break;
             case R.id.ques6_seekbar:
+                map.put(6, true);
                 int progress6 = seekBar.getProgress();
                 editor.putInt("ques6", progress6);
                 editor.commit();
                 break;
             case R.id.ques7_seekbar:
+                map.put(7, true);
                 int progress7 = seekBar.getProgress();
                 editor.putInt("ques7", progress7);
                 editor.commit();
                 break;
             case R.id.ques8_seekbar:
+                map.put(8, true);
                 int progress8 = seekBar.getProgress();
                 editor.putInt("ques8", progress8);
                 editor.commit();
                 break;
             case R.id.ques10_seekbar:
+                map.put(10, true);
                 int progress10 = seekBar.getProgress();
                 editor.putInt("ques10", progress10);
                 editor.commit();
                 break;
             case R.id.ques13_seekbar:
+                map.put(13, true);
                 int progress13 = seekBar.getProgress();
                 editor.putInt("ques13", progress13);
                 editor.commit();
                 break;
             case R.id.ques14_seekbar:
+                map.put(14, true);
                 int progress14 = seekBar.getProgress();
                 editor.putInt("ques14", progress14);
                 editor.commit();
                 break;
             case R.id.ques15_seekbar:
+                map.put(15, true);
                 int progress15 = seekBar.getProgress();
                 editor.putInt("ques15", progress15);
                 editor.commit();
                 break;
             case R.id.ques16_seekbar:
+                map.put(16, true);
                 int progress16 = seekBar.getProgress();
                 editor.putInt("ques16", progress16);
                 editor.commit();
                 break;
             case R.id.ques17_seekbar:
+                map.put(17, true);
                 int progress17 = seekBar.getProgress();
                 editor.putInt("ques17", progress17);
                 editor.commit();
                 break;
             case R.id.ques18_seekbar:
+                map.put(18, true);
                 int progress18 = seekBar.getProgress();
                 editor.putInt("ques18", progress18);
                 editor.commit();
                 break;
             case R.id.ques19_seekbar:
+                map.put(19, true);
                 int progress19 = seekBar.getProgress();
                 editor.putInt("ques19", progress19);
                 editor.commit();
                 break;
             case R.id.ques20_seekbar:
+                map.put(20, true);
                 int progress20 = seekBar.getProgress();
                 editor.putInt("ques20", progress20);
                 editor.commit();
@@ -338,6 +366,7 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
     // ques10  RadioGroup
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+        map.put(9, true);
         switch (checkedId) {
             case R.id.ques9_radioBtn_alone:
                 editor.putString("ques9", "alone");
@@ -373,6 +402,9 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
                     findViewById(R.id.ques12_others_layout).setVisibility(View.GONE);
                 break;
             case R.id.btn_ques_finish:
+                // update the global variable "clickMap"
+                MyApplication.getInstance().clickMap = map;
+                // take the map to new page
                 Intent intent_ques_jump_to_confirm = new Intent(this, Questionaire_confirm.class);
                 intent_ques_jump_to_confirm.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent_ques_jump_to_confirm);
@@ -414,7 +446,6 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
 
 
 
-
     // Methods to switch activity
     public void switchActivity(View view) {
         String tag = view.getTag().toString();
@@ -432,6 +463,11 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
         startActivity(intent);
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 }
