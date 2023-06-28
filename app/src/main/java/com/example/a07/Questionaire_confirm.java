@@ -5,9 +5,11 @@ package com.example.a07;
 *
 * */
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.a07.dao.QuesDao;
@@ -41,6 +44,13 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
     private SharedPreferences.Editor editor;
     private QuesDao quesDao;
 
+    // the questionaire id(this id should be delivered into ExerciseVideoActivity)
+    private int quesId = -1;
+
+
+    // save button:
+    private Button saveButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +65,8 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
         preferences = getSharedPreferences("ques_data", Context.MODE_PRIVATE);
         editor = preferences.edit();
 
-        findViewById(R.id.btn_save_ques).setOnClickListener(this);
+        saveButton = findViewById(R.id.btn_save_ques);
+        saveButton.setOnClickListener(this);
         findViewById(R.id.btn_query_all_ques).setOnClickListener(this);
 
         quesDao = MyApplication.getInstance().getAppDatebase().quesDao();
@@ -130,8 +141,13 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                 quesEntity.setQues20(checkAndSaveInt(preferences, 20, 3));
                 quesEntity.setQues21(checkAndSaveString(preferences, 21, "the user does not have comment"));
 
+                // set default values for the exercise evaluation
+                quesEntity.setEx_trigger(false);
+                quesEntity.setEx_materialNr(1);
+                quesEntity.setEx_rating(50);
+                quesEntity.setEx_comment("the user does not comment this exercise");
 
-//                Log.d("test_tag", quesEntity.toString());
+//              Log.d("test_tag", quesEntity.toString());
 
                 // save into database
                 try {
@@ -141,6 +157,9 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                     Utils.showToast(this, e.getMessage());
                 }
 
+                // set "save button" disable
+                saveButton.setEnabled(false);
+
                 //apply the algorithm
                 //todo: make it easy to change the algorithm, not enough?
                 TriggerAlgo triggerAlgo = new TriggerAlgo01();
@@ -148,13 +167,43 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                 boolean algoResult = triggerAlgo.algo(quesEntity);
                 Log.d("triggerAlgo", String.valueOf(algoResult));
 
-                //if algo result = true, change to the video page
-                if (algoResult){
-                //if (triggerAlgo.algo(quesEntity)){        //if not logging algo result, delete comment
-                    Intent intent = new Intent();
-                    intent.setClass(Questionaire_confirm.this, ExerciseVideoActivity.class);
-                    startActivity(intent);
+                quesId = quesDao.getLastQuestionnaire();
+
+                // test to get the quesEntity.id
+                // Log.d("ques id", String.valueOf(quesId));
+
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                if(algoResult) {
+
+                    dialog.setTitle("you seem fell unwell");
+                    dialog.setMessage("a random exercise is assigned to you");
+                    dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // show videos
+                            Intent intent = new Intent();
+                            intent.setClass(Questionaire_confirm.this, ExerciseVideoActivity.class);
+                            // deliver with the questionaire number
+                            intent.putExtra("quesId", quesId);
+                            startActivity(intent);
+                        }
+                    });
+                    dialog.show();
+                } else {
+                    //show a dialog and go back to main page
+                    dialog.setTitle("The Questionaire is saved into database");
+                    dialog.setMessage("now let's go back to main page");
+                    dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent();
+                            intent.setClass(Questionaire_confirm.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                    dialog.show();
                 }
+
                 break;
 
             case R.id.btn_query_all_ques:
@@ -166,7 +215,7 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                         recordsNr++;
                         Log.d("query_all_tag", ques.toString());
                     }
-                    Utils.showToast(this, "recordsNr = " + recordsNr);
+                    Utils.showToast(this, "you have finished " + recordsNr + " questionairs");
                 }catch (Exception e) {
                     Utils.showToast(this, e.getMessage());
                 }
