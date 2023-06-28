@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="ques_dialog_title">leave a comment to this ramdom exercise</string>
+    <string name="ques_dialog_yes">done</string>
+    <string name="ques_dialog_default_comment">I have nothing to say</string>
+    <string name="ques_update_and_save_btn">save and go to main</string>
+
+
+
+
     <!-- questionaire strings-->
 
     <!-- Group 1  -->

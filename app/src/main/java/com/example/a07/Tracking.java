@@ -47,7 +47,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     private String sportName;
 
     //the mood score
-    private int myMoodScore; // moodscore after sport
+    private int myMoodScore = 50; // moodscore after sport
 
 
 

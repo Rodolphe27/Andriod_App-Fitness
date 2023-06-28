@@ -44,6 +44,9 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
     private SharedPreferences.Editor editor;
     private QuesDao quesDao;
 
+    // the questionaire id(this id should be delivered into ExerciseVideoActivity)
+    private int quesId = -1;
+
 
     // save button:
     private Button saveButton;
@@ -138,8 +141,13 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                 quesEntity.setQues20(checkAndSaveInt(preferences, 20, 3));
                 quesEntity.setQues21(checkAndSaveString(preferences, 21, "the user does not have comment"));
 
+                // set default values for the exercise evaluation
+                quesEntity.setEx_trigger(false);
+                quesEntity.setEx_materialNr(1);
+                quesEntity.setEx_rating(50);
+                quesEntity.setEx_comment("the user does not comment this exercise");
 
-//                Log.d("test_tag", quesEntity.toString());
+//              Log.d("test_tag", quesEntity.toString());
 
                 // save into database
                 try {
@@ -159,8 +167,14 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                 boolean algoResult = triggerAlgo.algo(quesEntity);
                 Log.d("triggerAlgo", String.valueOf(algoResult));
 
+                quesId = quesDao.getLastQuestionnaire();
+
+                // test to get the quesEntity.id
+                // Log.d("ques id", String.valueOf(quesId));
+
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                 if(algoResult) {
+
                     dialog.setTitle("you seem fell unwell");
                     dialog.setMessage("a random exercise is assigned to you");
                     dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -169,6 +183,8 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                             // show videos
                             Intent intent = new Intent();
                             intent.setClass(Questionaire_confirm.this, ExerciseVideoActivity.class);
+                            // deliver with the questionaire number
+                            intent.putExtra("quesId", quesId);
                             startActivity(intent);
                         }
                     });
@@ -199,7 +215,7 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                         recordsNr++;
                         Log.d("query_all_tag", ques.toString());
                     }
-                    Utils.showToast(this, "recordsNr = " + recordsNr);
+                    Utils.showToast(this, "you have finished " + recordsNr + " questionairs");
                 }catch (Exception e) {
                     Utils.showToast(this, e.getMessage());
                 }

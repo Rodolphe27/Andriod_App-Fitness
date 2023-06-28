@@ -25,8 +25,10 @@ public interface QuesDao {
     @Query("DELETE FROM QuestionaireEntity")
     void deleteAll();
 
-//    @Update("")
-//    void updateQues(QuestionaireEntity... quesEntity);
+    @Query("SELECT id FROM QuestionaireEntity ORDER BY id DESC LIMIT 1")
+    Integer getLastQuestionnaire();
 
+    @Query("UPDATE QuestionaireEntity SET ex_trigger = :newValue1, ex_materialNr = :newValue2, ex_rating = :newValue3, ex_comment = :newValue4 WHERE id = :questionnaireId")
+    void updateQuestionnaire(int questionnaireId, Boolean newValue1, int newValue2, int newValue3, String newValue4);
 
 }
