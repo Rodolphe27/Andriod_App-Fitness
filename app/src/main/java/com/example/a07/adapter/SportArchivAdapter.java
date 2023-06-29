@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.example.a07.R;
 import com.example.a07.entity.SportEntity;
 
@@ -53,6 +55,13 @@ public class SportArchivAdapter extends BaseAdapter {
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
+        }
+
+        // set the background color based on position
+        if (position % 2 == 0) {
+            convertView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.white));
+        } else {
+            convertView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.gray));
         }
 
         SportEntity sportEntity = sportList.get(position);
