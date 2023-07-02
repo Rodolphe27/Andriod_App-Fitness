@@ -57,13 +57,13 @@
             android:layout_marginBottom="16dp"
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
-            android:text="Submit" />
+            android:text="@string/submit" />
 
         <Button
             android:id="@+id/clearTable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clear_Table"/>
+            android:text="@string/clear_table" />
 
     </LinearLayout>
 
