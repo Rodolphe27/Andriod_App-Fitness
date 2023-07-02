@@ -34,6 +34,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Get references to UI elements
         setContentView(R.layout.activity_sensor);
         Button backToSetting = findViewById(R.id.btn_Tosetting);
         findViewById(R.id.btn_tosave).setOnClickListener(this);
@@ -41,40 +42,52 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
 
 
         textViewStepCounter = findViewById(R.id.txt_stepCounter);
+        //Intialize Sensor manager and sensor
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        //Initialize the DAO
 
         sensorDao = MyApplication.getInstance().getSensorDatabase().sensorDoa();
 
+        //Initialise step Detector
         stepDetector = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null) {
+                    //Retrieve acceleration values
                     float xAcceleration = sensorEvent.values[0];
                     float yAcceleration = sensorEvent.values[1];
                     float zAcceleration = sensorEvent.values[2];
 
+                    //Calculate magnitude and magnitude delta
                     double magnitude = Math.sqrt(xAcceleration * xAcceleration + yAcceleration * yAcceleration + zAcceleration * zAcceleration);
                     double magnitudeDelta = magnitude - previousAcceleration;
                     previousAcceleration = magnitude;
 
+                    // Detect step based on magnitude delta and threshold
                     if (magnitudeDelta > threshold && !isStepDetected) {
                         stepCount++;
                         isStepDetected = true;
                     } else if (magnitudeDelta < threshold) {
                         isStepDetected = false;
                     }
+
+                    //Update step counter text view
                     textViewStepCounter.setText(stepCount.toString());
                 }
             }
 
             @Override
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
+                //Empty implementation
             }
         };
+
+        //// Set onClickListener for backToSetting button
         backToSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Navigate back to Settings activity
                 Intent intent = new Intent();
                 intent.setClass(Sensors.this, Settings.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -82,7 +95,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
             }
         });
 
-
+        // Register step detector listener
         sensorManager.registerListener(stepDetector, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
@@ -90,12 +103,14 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
+        // Resume step detector listener
         sensorManager.registerListener(stepDetector, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        // Unregister step detector listener
         sensorManager.unregisterListener(stepDetector);
     }
     private void sensorDataToDB() {
@@ -104,7 +119,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
         sensorEntity.setTimeAndDateStamp(Utils.getCurrentDateAndTime());
         sensorEntity.setStepCount(stepCount);
 
-
+        // Insert SensorEntity into the database
         sensorDao.insert(sensorEntity);
         Utils.showToast(Sensors.this, "Data Saved");
     }
@@ -112,6 +127,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btn_tosave) {
+            // Call method to save sensor data to database
             sensorDataToDB();
         }
 
