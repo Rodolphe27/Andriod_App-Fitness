@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -23,10 +22,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
-import java.util.Locale;
-
 public class Settings extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private boolean languageSelected = false;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
@@ -38,58 +34,18 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Spinner languageSpinner = findViewById(R.id.languageSpinner);
-        Spinner colorSpinner = findViewById(R.id.colorSpinner);
-        Spinner fontSizeSpinner = findViewById(R.id.fontSizeSpinner);
         Spinner sensorSpinner= findViewById(R.id.sensorSpinner);
         MaterialButton toNotification = findViewById(R.id.btn_setNotification);
         SwitchMaterial gpsSwitch = findViewById(R.id.gpsSwitch);
 
-
         sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.language_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);         // Specify the layout to use when the list of choices appears
-        languageSpinner.setAdapter(adapter);                                                    // Apply the adapter to the spinner
-        languageSpinner.setSelection(0);
-        languageSpinner.setOnItemSelectedListener(this);
-        // Set the language spinner to the saved language
-        String selectedLanguage = sharedPreferences.getString("language", "English");
-        int languagePosition = adapter.getPosition(selectedLanguage);
-        languageSpinner.setSelection(languagePosition);
-
-        ArrayAdapter<CharSequence> colorAdapter = ArrayAdapter.createFromResource(this,
-                R.array.color_array, android.R.layout.simple_spinner_item);
-        colorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        colorSpinner.setAdapter(colorAdapter);
-        colorSpinner.setOnItemSelectedListener(this);
-
-        ArrayAdapter<CharSequence> fontSizeAdapter = ArrayAdapter.createFromResource(this,
-                R.array.fontsize_array, android.R.layout.simple_spinner_item);
-        fontSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        fontSizeSpinner.setAdapter(fontSizeAdapter);
-        fontSizeSpinner.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> sensorAdapter = ArrayAdapter.createFromResource(this,
                 R.array.sensor_array, android.R.layout.simple_spinner_item);
         sensorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sensorSpinner.setAdapter(sensorAdapter);
         sensorSpinner.setOnItemSelectedListener(this);
-
-//        // Retrieve the saved language Todo - doesn't work yet
-//        String language = sharedPreferences.getString("language", ""); // Retrieve the saved language
-//        if (!language.isEmpty()) {                                           // If a language is saved, set the language
-//            if (language.equals("German")) {                                 // If the language is German, set the locale to German
-//                setLocale(this, "de");
-//            } else if (language.equals("English")) {
-//                setLocale(this, "en");
-//            }
-//            else {
-//                Toast.makeText(this, "This would set the language to: " + language, Toast.LENGTH_SHORT).show();
-//            }
-//        }
 
         // set the gps switch to the saved value
         if (ContextCompat.checkSelfPermission(this,
@@ -158,7 +114,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
     }
   
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         SwitchMaterial gpsSwitch = findViewById(R.id.gpsSwitch);
         switch (requestCode) {
@@ -195,37 +151,19 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
     // Method to do something when an item is selected
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (!languageSelected) {
-            // Don't apply the language when the activity is first loaded
-            languageSelected = true;
-            return;
-        }
         String selectedItem = parent.getItemAtPosition(position).toString();
 
         // Change app language based on selection
-        if (parent.getId() == R.id.languageSpinner) {
-            if (selectedItem.equals("German")){
-                setLocale(this, "de");
-                recreate();
-            }
-            else if (selectedItem.equals("Englisch")){
-                setLocale(this, "en");
-                recreate();
-            }
-            // Save the language setting
-            editor.putString("language", selectedItem);
-            editor.apply();
-        } else if (parent.getId() == R.id.sensorSpinner) {
-            if (selectedItem.equals("Choose Sensor")) {
-
-            } else if (selectedItem.equals("SensorData")) {
+        switch (selectedItem) {
+            case "SensorData":
                 openActivity(Sensors.class);
-            } else if (selectedItem.equals("GpsData")) {
+                break;
+            case "GpsData":
                 openActivity(GPS.class);
-            } else {
-                Toast.makeText(this, "This would open the respective sensor view for: " + selectedItem, Toast.LENGTH_SHORT).show();
-            }
-
+                break;
+            default:
+                // Do nothing
+                break;
         }
     }
 
@@ -235,15 +173,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         // Do nothing
     }
 
-    // Method to set the language
-    public void setLocale (Activity activity, String languageCode) {
-        Locale locale = new Locale(languageCode);
-        Locale.setDefault(locale);
-        Resources resources = activity.getResources();
-        Configuration configuration = resources.getConfiguration();
-        configuration.setLocale(locale);
-        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-    }
 
     // Methods to switch activity
     public void switchActivity(View view) {
