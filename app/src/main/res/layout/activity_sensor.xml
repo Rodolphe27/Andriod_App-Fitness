@@ -21,20 +21,40 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="201dp"
-                    android:layout_height="wrap_content"
-                    android:text="stepCount" />
-
-                <TextView
-                    android:id="@+id/txt_stepCounter"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="bottom|center"
-                    android:text="step_counter" />
+                    android:layout_height="64dp">
+
+                    <EditText
+                        android:id="@+id/editTextInterval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter the frequency  in seconds"
+                        android:inputType="number" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_stepCounter"
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom|center"
+                        android:text="step_counter" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="stepCount" />
+                </LinearLayout>
+
             </LinearLayout>
 
 

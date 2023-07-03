@@ -8,14 +8,15 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.content.SharedPreferences;
+import android.widget.Toast;
 
 import com.example.a07.dao.SensorDao;
 import com.example.a07.entity.SensorEntity;
-
 import com.example.a07.utils.Utils;
 
 public class Sensors extends AppCompatActivity implements View.OnClickListener {
@@ -27,39 +28,43 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
     private double previousAcceleration = 0.0;
     private boolean isStepDetected = false;
     private SensorEventListener stepDetector;
-    TextView textViewStepCounter;
+    private TextView textViewStepCounter;
+    private EditText editTextInterval;
 
-    SensorDao sensorDao;
+    private SensorDao sensorDao;
+    private Handler handler;
+    private Runnable dataStorageRunnable;
+    private long storageInterval = 0; // Interval in milliseconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Get references to UI elements
         setContentView(R.layout.activity_sensor);
+
         Button backToSetting = findViewById(R.id.btn_Tosetting);
         findViewById(R.id.btn_tosave).setOnClickListener(this);
 
-
-
         textViewStepCounter = findViewById(R.id.txt_stepCounter);
-        //Intialize Sensor manager and sensor
+        editTextInterval = findViewById(R.id.editTextInterval); // Add the EditText field in your layout
+
+        // Initialize SensorManager and Accelerometer Sensor
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        //Initialize the DAO
 
+        // Initialize the SensorDao
         sensorDao = MyApplication.getInstance().getSensorDatabase().sensorDoa();
 
-        //Initialise step Detector
+        // Initialize the Step Detector
         stepDetector = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null) {
-                    //Retrieve acceleration values
+                    // Retrieve acceleration values
                     float xAcceleration = sensorEvent.values[0];
                     float yAcceleration = sensorEvent.values[1];
                     float zAcceleration = sensorEvent.values[2];
 
-                    //Calculate magnitude and magnitude delta
+                    // Calculate magnitude and magnitude delta
                     double magnitude = Math.sqrt(xAcceleration * xAcceleration + yAcceleration * yAcceleration + zAcceleration * zAcceleration);
                     double magnitudeDelta = magnitude - previousAcceleration;
                     previousAcceleration = magnitude;
@@ -72,18 +77,18 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
                         isStepDetected = false;
                     }
 
-                    //Update step counter text view
+                    // Update step counter text view
                     textViewStepCounter.setText(stepCount.toString());
                 }
             }
 
             @Override
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
-                //Empty implementation
+                // Empty implementation
             }
         };
 
-        //// Set onClickListener for backToSetting button
+        // Set onClickListener for the backToSetting button
         backToSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +104,6 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
         sensorManager.registerListener(stepDetector, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -113,23 +117,61 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
         // Unregister step detector listener
         sensorManager.unregisterListener(stepDetector);
     }
+
     private void sensorDataToDB() {
-        // create SensorEntity
-        SensorEntity sensorEntity= new SensorEntity();
+        // Create SensorEntity
+        SensorEntity sensorEntity = new SensorEntity();
         sensorEntity.setTimeAndDateStamp(Utils.getCurrentDateAndTime());
         sensorEntity.setStepCount(stepCount);
 
         // Insert SensorEntity into the database
         sensorDao.insert(sensorEntity);
-        Utils.showToast(Sensors.this, "Data Saved");
+        showToast("Data Saved");
     }
 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btn_tosave) {
-            // Call method to save sensor data to database
-            sensorDataToDB();
-        }
+            // Read the storage interval from the EditText field
+            String intervalText = editTextInterval.getText().toString().trim();
+            if (!intervalText.isEmpty()) {
+                try {
+                    // Convert the interval to milliseconds
+                    storageInterval = Long.parseLong(intervalText) * 1000; // Convert seconds to milliseconds
 
+                    if (handler != null && dataStorageRunnable != null) {
+                        // If there's an existing handler and runnable, remove callbacks
+                        handler.removeCallbacks(dataStorageRunnable);
+                    }
+
+                    // Create a new Handler and Runnable for data storage
+                    handler = new Handler();
+                    dataStorageRunnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            // Store step count data in the database
+                            sensorDataToDB();
+                            // Display toast message
+                            showToast("Step count data stored in the database.");
+                            // Schedule the next data storage after the storage interval
+                            handler.postDelayed(this, storageInterval);
+                        }
+                    };
+
+                    // Start the data storage process
+                    handler.postDelayed(dataStorageRunnable, storageInterval);
+
+                } catch (NumberFormatException e) {
+                    showToast("Invalid interval format. Please enter a valid number.");
+                }
+            } else {
+                showToast("Please enter an interval.");
+            }
+        }
+    }
+
+    // Display toast message
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
