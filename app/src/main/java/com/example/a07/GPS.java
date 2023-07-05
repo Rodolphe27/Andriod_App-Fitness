@@ -39,7 +39,7 @@ public class GPS extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gps);
-        Button returnToSetting= findViewById(R.id.btn_returnSetting);
+        Button returnToSetting= findViewById(R.id.btn_returnTracking);
         findViewById(R.id.btn_saveGps).setOnClickListener(this);
         gpsDao = MyApplication.getInstance().getGpsDatabase().gpsDao();
 
@@ -48,7 +48,7 @@ public class GPS extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(GPS.this, Settings.class);
+                intent.setClass(GPS.this, Tracking.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }

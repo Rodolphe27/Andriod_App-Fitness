@@ -1,5 +1,7 @@
 package com.example.a07;
 
+import static com.example.a07.R.id.btn_Totracking;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -41,7 +43,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
 
-        Button backToSetting = findViewById(R.id.btn_Tosetting);
+        Button backToSetting = findViewById(btn_Totracking);
         findViewById(R.id.btn_tosave).setOnClickListener(this);
 
         textViewStepCounter = findViewById(R.id.txt_stepCounter);
@@ -94,7 +96,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
             public void onClick(View view) {
                 // Navigate back to Settings activity
                 Intent intent = new Intent();
-                intent.setClass(Sensors.this, Settings.class);
+                intent.setClass(Sensors.this, Tracking.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }

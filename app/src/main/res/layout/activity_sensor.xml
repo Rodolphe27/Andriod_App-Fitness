@@ -72,13 +72,13 @@
                 app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner" />
 
             <Button
-                android:id="@+id/btn_Tosetting"
+                android:id="@+id/btn_Totracking"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/purple_500"
-                android:text="@string/back_to_setting"
+                android:text="@string/back_to_tracking"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

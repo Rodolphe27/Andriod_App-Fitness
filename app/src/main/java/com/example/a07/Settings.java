@@ -41,7 +41,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         Spinner languageSpinner = findViewById(R.id.languageSpinner);
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         Spinner fontSizeSpinner = findViewById(R.id.fontSizeSpinner);
-        Spinner sensorSpinner= findViewById(R.id.sensorSpinner);
+
         MaterialButton toNotification = findViewById(R.id.btn_setNotification);
         SwitchMaterial gpsSwitch = findViewById(R.id.gpsSwitch);
 
@@ -67,16 +67,12 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         colorSpinner.setAdapter(colorAdapter);
         colorSpinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<CharSequence> fontSizeAdapter = ArrayAdapter.createFromResource(this,
+       /* ArrayAdapter<CharSequence> fontSizeAdapter = ArrayAdapter.createFromResource(this,
                 R.array.fontsize_array, android.R.layout.simple_spinner_item);
         fontSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fontSizeSpinner.setAdapter(fontSizeAdapter);
-        fontSizeSpinner.setOnItemSelectedListener(this);
-        ArrayAdapter<CharSequence> sensorAdapter = ArrayAdapter.createFromResource(this,
-                R.array.sensor_array, android.R.layout.simple_spinner_item);
-        sensorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sensorSpinner.setAdapter(sensorAdapter);
-        sensorSpinner.setOnItemSelectedListener(this);
+        fontSizeSpinner.setOnItemSelectedListener(this);*/
+
 
 //        // Retrieve the saved language Todo - doesn't work yet
 //        String language = sharedPreferences.getString("language", ""); // Retrieve the saved language
@@ -215,7 +211,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
             // Save the language setting
             editor.putString("language", selectedItem);
             editor.apply();
-        } else if (parent.getId() == R.id.sensorSpinner) {
+        } /*else if (parent.getId() == R.id.sensorSpinner) {
             if (selectedItem.equals("Choose Sensor")) {
 
             } else if (selectedItem.equals("SensorData")) {
@@ -226,7 +222,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 Toast.makeText(this, "This would open the respective sensor view for: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
 
-        }
+        }*/
     }
 
     // Implement the onNothingSelected method to do something when no item is selected

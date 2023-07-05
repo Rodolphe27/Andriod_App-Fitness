@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources><string name="save_gps">Save_gps</string>
-    <string name="return_to_setting">Return_to_setting</string>
+    <string name="return_to_tracking">Return_to_Tracking</string>
     <string name="gps_data">GPS_Data</string>
 </resources>

@@ -20,6 +20,7 @@
     <string name="return_settings">Return to settings</string>
     <string name="set_notification_time">Set notification time</string>
     <string name="choose_your_sport_activity">Choose your sport activity</string>
+    <string name="choose_your_sensor">Choose your sensor</string>
     <string name="stop">STOP</string>
     <string name="start">START</string>
     <string name="add_the_finish_activity">Add a finished activity from the past</string>
@@ -60,7 +61,7 @@
         <item>Large</item>
     </string-array>
     <string-array name="sensor_array">
-        <item>choose_sensor</item>
+        <item>Choose_sensor</item>
         <item>SensorData</item>
         <item>GpsData</item>
     </string-array>
