@@ -66,17 +66,7 @@
         <item>GpsData</item>
     </string-array>
 
-    <!--  string-array for sport type choosing spinner -->
-    <string-array name="sportTypeArray">
-        <item>Wandering</item>
-        <item>Jogging</item>
-        <item>Swimming</item>
-        <item>Ball sports</item>
-        <item>Weight training</item>
-        <item>Yoga</item>
-        <item>Climbing/Bouldering</item>
-        <item>Others</item>
-    </string-array>
+    <!--  Remove string-array for sport type choosing spinner because of duplicate in strings_sport.xml -->
 
     <string name="health_coin">Your health coin:</string>
     <string name="health_coin_amount"> </string>
