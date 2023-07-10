@@ -175,9 +175,9 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                 if(algoResult) {
 
-                    dialog.setTitle("you seem fell unwell");
-                    dialog.setMessage("a random exercise is assigned to you");
-                    dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    dialog.setTitle(getString(R.string.after_ques_dialog_gotoexercise_title));
+                    dialog.setMessage(getString(R.string.after_ques_dialog_gotoexercise_content));
+                    dialog.setPositiveButton(getString(R.string.after_ques_dialog_ok), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             // show videos
@@ -191,9 +191,9 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                     dialog.show();
                 } else {
                     //show a dialog and go back to main page
-                    dialog.setTitle("The Questionaire is saved into database");
-                    dialog.setMessage("now let's go back to main page");
-                    dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    dialog.setTitle(getString(R.string.after_ques_dialog_title));
+                    dialog.setMessage(getString(R.string.after_ques_dialog_content));
+                    dialog.setPositiveButton(getString(R.string.after_ques_dialog_ok), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             Intent intent = new Intent();

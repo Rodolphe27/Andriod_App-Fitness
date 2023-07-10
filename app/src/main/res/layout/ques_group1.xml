@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question1"
+        android:text="@string/ques1_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -55,7 +55,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question2"
+        android:text="@string/ques2_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -73,7 +73,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="restless"
+            android:text="@string/ques2_left"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="start"/>
 
@@ -93,7 +93,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="calm"
+            android:text="@string/ques2_right"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="end"/>
     </LinearLayout>
@@ -103,7 +103,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question3"
+        android:text="@string/ques3_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -121,7 +121,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="unwell"
+            android:text="@string/ques3_left"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="start"/>
 
@@ -141,7 +141,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="well"
+            android:text="@string/ques3_right"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="end"/>
     </LinearLayout>
@@ -150,7 +150,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question4"
+        android:text="@string/ques4_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -169,7 +169,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="tense"
+            android:text="@string/ques4_left"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="start"/>
 
@@ -189,7 +189,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="relaxed"
+            android:text="@string/ques4_right"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="end"/>
     </LinearLayout>
@@ -199,7 +199,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question5"
+        android:text="@string/ques5_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -217,7 +217,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="0 energy"
+            android:text="@string/ques5_left"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="start"/>
 
@@ -237,7 +237,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="100 energy"
+            android:text="@string/ques5_right"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="end"/>
     </LinearLayout>
@@ -246,7 +246,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question6"
+        android:text="@string/ques6_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -264,7 +264,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="tired"
+            android:text="@string/ques6_left"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="start"/>
 
@@ -284,7 +284,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="awake"
+            android:text="@string/ques6_right"
             android:textSize="@dimen/common_font_size"
             android:layout_gravity="end"/>
     </LinearLayout>
