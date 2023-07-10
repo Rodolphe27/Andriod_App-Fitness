@@ -50,7 +50,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     private int myMoodScore; // moodscore after sport
 
     // Daeun - for providing reward
-    private float milestone = 0.03f;
+    private int goal = 0;
     private int healthCoin = 0;
 
     // Daeun - for recording reward
@@ -104,7 +104,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         });
 
         // Daeun
-        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        sharedPref = getSharedPreferences("healthCoin", Context.MODE_PRIVATE);
         editor = sharedPref.edit();
     }
 
@@ -242,20 +242,14 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
 
     // Daeun
     private void showDialogReward(){
-        // * if we don't want set several milestones
-        /*
-        if(sharedPref.getBoolean(sportName, false)){
-            return;
-        }
-        */
-
         float totalTime = 0;
         for(String duration : sportDao.queryAllDuration(sportName)){
             float sportTime = Float.parseFloat(duration.replace(',','.'));
             totalTime += sportTime;
         }
 
-        if(totalTime>milestone){
+        goal = sharedPref.getInt(sportName, 0);
+        if(totalTime>goal){
             healthCoin = sharedPref.getInt("healthCoin", 0);
             healthCoin++;
             editor.putInt("healthCoin", healthCoin);
@@ -263,17 +257,19 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
 
             AlertDialog.Builder reward = new AlertDialog.Builder(this);
             reward.setTitle("Your health coins");
-            reward.setMessage("Congratulations!\nYou did " + sportName + " for " + milestone + " minutes.\nYour health conins: " + healthCoin);
+            reward.setMessage("Congratulations!\nYou did " + sportName + " for " + goal + " minutes.\nYour health coins: " + healthCoin);
             reward.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                 }
             });
             reward.show();
-
-            // * editor.putBoolean(sportName, true);
-            // * editor.apply();
         }
+
+        ((MainActivity)MainActivity.context).updateHealthCoin();
+        editor.putFloat(sportName + "_time", totalTime);
+        editor.apply();
+        ((MainActivity)MainActivity.context).updateSportTotalTime();
     }
 
     // Methods to switch activity

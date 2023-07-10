@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Fit Mood</string>
-    <string name="greeting">Hello User How are you feeling today? Ready for sport?</string>
+    <string name="greeting">Hello User\nHow are you feeling today?\nReady for sport?</string>
     <string name="home">Home</string>
     <string name="questionnaire">Questionnaire</string>
     <string name="tracking">Tracking</string>
@@ -71,4 +71,28 @@
         <item>Climbing/Bouldering</item>
         <item>Others</item>
     </string-array>
+
+    <string name="health_coin">Your health coin:</string>
+    <string name="health_coin_amount"> </string>
+    <string name="goal_setting">Set your goal</string>
+    <string name="goal_setting_min">min</string>
+    <string name="goal_setting_btn">set</string>
+    <string name="sport_total_time">Your sport total time</string>
+
+    <string name="wandering">Wandering</string>
+    <string name="jogging">Jogging</string>
+    <string name="ball_sports">Ball sports</string>
+    <string name="weight_training">Weight training</string>
+    <string name="yoga">Yoga</string>
+    <string name="climbing_bouldering">Climbing/Bouldering</string>
+    <string name="ohters">Others</string>
+
+    <string name="wandering_total_time">0 min</string>
+    <string name="jogging_total_time">0 min</string>
+    <string name="swimming_total_time">0 min</string>
+    <string name="ball_sports_total_time">0 min</string>
+    <string name="weight_training_total_time">0 min</string>
+    <string name="yoga_total_time">0 min</string>
+    <string name="climbing_bouldering_total_time">0 min</string>
+    <string name="others_total_time">0 min</string>
 </resources>
