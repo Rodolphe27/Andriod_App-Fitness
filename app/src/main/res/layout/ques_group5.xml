@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question12"
+        android:text="@string/ques12_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Where are you right now?"
+            android:text="@string/ques12_desc"
             />
 
         <Spinner
@@ -47,21 +47,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:text="you have chosen others: please define who"
+            android:text="@string/ques11_others_question"
             android:textColor="@color/light_blue"
             />
         <EditText
             android:id="@+id/ques12_others_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="who are others?"
+            android:hint="@string/ques11_others_editText_hint"
             android:inputType="text"
             android:background="@drawable/editbox_structure_selector"/>
         <Button
             android:id="@+id/ques12_others_confirm_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="confirm"
+            android:text="@string/ques11_others_confirm"
             android:textColor="@color/black"
             android:backgroundTint="@color/gray"/>
     </LinearLayout>

@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question9"
+        android:text="@string/ques9_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="are you alone now?"
+            android:text="@string/ques19_desc"
             />
 
         <RadioGroup
@@ -41,7 +41,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="alone"
+                android:text="@string/ques9_alone"
                 android:textColor="@color/black"
                 android:textSize="@dimen/common_font_size"
                 android:checked="true"
@@ -51,7 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="not alone"
+                android:text="@string/ques9_not_alone"
                 android:textSize="@dimen/common_font_size"
                 />
         </RadioGroup>
@@ -64,7 +64,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question10"
+        android:text="@string/ques10_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="10dp"
-            android:text="When you think of the people you are surround, how does the following statement apply? I do not like these people!"
+            android:text="@string/ques10_desc"
             android:textSize="@dimen/small_font_size"/>
 
         <LinearLayout
@@ -96,7 +96,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="not all"
+                android:text="@string/ques10_left"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="start"/>
 
@@ -116,7 +116,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="very intense"
+                android:text="@string/ques10_right"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="end"/>
         </LinearLayout>

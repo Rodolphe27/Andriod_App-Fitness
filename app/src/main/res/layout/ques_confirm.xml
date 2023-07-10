@@ -5,28 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Questionaire_confirm"
-    android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btn_drop_ques"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="10dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/item_layout_height"
+        >
+
+        <!-- question 21, free text   -->
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="modify"/>
-        <Button
-            android:id="@+id/btn_save_ques"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="10dp"
-            android:layout_height="wrap_content"
-            android:text="Save Ques"/>
+            android:text="@string/ques21_question"
+            android:textColor="@color/light_red"
+            android:textSize="@dimen/small_font_size"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/ques21_editText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_layout_height"
+            android:background="@drawable/edittext_selector"
+            android:layout_marginTop="5dp"
+            android:hint="@string/ques21_editText_hint"
+            android:inputType="text"
+            android:maxLength="100"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,16 +42,18 @@
         <Button
             android:id="@+id/btn_query_all_ques"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="query all"/>
+            android:text="All"
+            android:visibility="gone"
+            />
         <Button
-            android:id="@+id/btn_clear_table"
+            android:id="@+id/btn_save_ques"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="delete all recordes"/>
+            android:text="@string/after_ques_finish_btn"/>
     </LinearLayout>
 </LinearLayout>

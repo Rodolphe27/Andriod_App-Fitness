@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question7"
+        android:text="@string/ques7_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Since the last questionnaire, did you have one or more negative experiences?"
+            android:text="@string/ques7_desc"
             android:paddingLeft="30dp"
             android:textSize="@dimen/small_font_size"/>
 
@@ -43,7 +43,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="no event"
+                android:text="@string/ques7_left"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="start"/>
 
@@ -63,7 +63,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="very intense"
+                android:text="@string/ques7_right"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="end"/>
         </LinearLayout>
@@ -75,7 +75,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question8"
+        android:text="@string/ques8_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -92,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Since the last questionnaire, did you have one or more positive experiences?"
+            android:text="@string/ques8_desc"
             android:paddingLeft="30dp"
             android:textSize="@dimen/small_font_size"/>
 
@@ -108,7 +108,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="no event"
+                android:text="@string/ques7_left"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="start"/>
 
@@ -128,7 +128,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="very intense"
+                android:text="@string/ques7_right"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="end"/>
         </LinearLayout>

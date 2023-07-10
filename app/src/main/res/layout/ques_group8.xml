@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question19"
+        android:text="@string/ques19_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="10dp"
-            android:text="Since the last questionnaire, I reacted impulsive–meaning I acted without thinking about potential consequences."
+            android:text="@string/ques20_desc"
             android:textSize="@dimen/small_font_size"/>
 
         <LinearLayout
@@ -41,7 +41,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="not apply"
+                android:text="@string/group7_left"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="start"/>
 
@@ -62,7 +62,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="fully apply"
+                android:text="@string/group7_right"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="end"/>
         </LinearLayout>
@@ -73,7 +73,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question20"
+        android:text="@string/ques20_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="10dp"
-            android:text="Since the last questionnaire, I have been angry or aggressive to another person, which I regretted later on."
+            android:text="@string/ques20_desc"
             android:textSize="@dimen/small_font_size"/>
 
         <LinearLayout
@@ -105,7 +105,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="not apply"
+                android:text="@string/group7_left"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="start"/>
 
@@ -126,7 +126,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="fully apply"
+                android:text="@string/group7_right"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="end"/>
         </LinearLayout>

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0794161b6b0a9b6120a7a78f89564be4",
+    "identityHash": "534dfd2b36d62c898bdedd83b2929303",
     "entities": [
       {
         "tableName": "QuestionaireEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `timeAndDateStamp` TEXT, `ques1` REAL NOT NULL, `ques2` REAL NOT NULL, `ques3` REAL NOT NULL, `ques4` REAL NOT NULL, `ques5` REAL NOT NULL, `ques6` REAL NOT NULL, `ques7` REAL NOT NULL, `ques8` REAL NOT NULL, `ques9` TEXT, `ques10` REAL NOT NULL, `ques11` TEXT, `ques12` TEXT, `ques13` REAL NOT NULL, `ques14` REAL NOT NULL, `ques15` REAL NOT NULL, `ques16` REAL NOT NULL, `ques17` REAL NOT NULL, `ques18` REAL NOT NULL, `ques19` REAL NOT NULL, `ques20` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `timeAndDateStamp` TEXT, `ques1` REAL NOT NULL, `ques2` REAL NOT NULL, `ques3` REAL NOT NULL, `ques4` REAL NOT NULL, `ques5` REAL NOT NULL, `ques6` REAL NOT NULL, `ques7` REAL NOT NULL, `ques8` REAL NOT NULL, `ques9` TEXT, `ques10` REAL NOT NULL, `ques11` TEXT, `ques12` TEXT, `ques13` REAL NOT NULL, `ques14` REAL NOT NULL, `ques15` REAL NOT NULL, `ques16` REAL NOT NULL, `ques17` REAL NOT NULL, `ques18` REAL NOT NULL, `ques19` REAL NOT NULL, `ques20` REAL NOT NULL, `ques21` TEXT, `ex_trigger` INTEGER, `ex_materialNr` INTEGER, `ex_rating` INTEGER, `ex_comment` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -139,6 +139,36 @@
             "columnName": "ques20",
             "affinity": "REAL",
             "notNull": true
+          },
+          {
+            "fieldPath": "ques21",
+            "columnName": "ques21",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ex_trigger",
+            "columnName": "ex_trigger",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ex_materialNr",
+            "columnName": "ex_materialNr",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ex_rating",
+            "columnName": "ex_rating",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ex_comment",
+            "columnName": "ex_comment",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -154,7 +184,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0794161b6b0a9b6120a7a78f89564be4')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '534dfd2b36d62c898bdedd83b2929303')"
     ]
   }
 }

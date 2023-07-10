@@ -47,7 +47,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     private String sportName;
 
     //the mood score
-    private int myMoodScore; // moodscore after sport
+    private int myMoodScore = 50; // moodscore after sport
 
     // Daeun - for providing reward
     private int goal = 0;
@@ -168,7 +168,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         dialogResult.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //todo here?
+                //todo here? you can jump to archive
             }
         });
         dialogResult.show();

@@ -1,5 +1,6 @@
 package com.example.a07;
 
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +17,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
     IntroductoryActivity SA = (IntroductoryActivity) IntroductoryActivity.SplashActivity;
@@ -42,13 +42,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         SA.finish();
         setContentView(R.layout.activity_main);
 
-        // set darkmode according to the saved setting
-        SharedPreferences sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
-        boolean isDarkModeEnabled = sharedPreferences.getBoolean("dark_mode", false);
-        if (isDarkModeEnabled) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        // Check if the user has already given consent
+        SharedPreferences sharedPreferences;
+        sharedPreferences = getSharedPreferences("my_app_preferences", MODE_PRIVATE);
+        if (!sharedPreferences.getBoolean("hasUserGivenConsent", false)) {
+            Intent intent = new Intent(this, ConsentActivity.class);
+            startActivity(intent);
         }
 
         sharedPref = getSharedPreferences("healthCoin", Context.MODE_PRIVATE);
@@ -94,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-
         if (System.currentTimeMillis() > backKeyPressedTime + 2500) {
             backKeyPressedTime = System.currentTimeMillis();
             Toast toast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_LONG);
