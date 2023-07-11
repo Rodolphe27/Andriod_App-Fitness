@@ -26,6 +26,10 @@
     <string name="others_total_time">0 min</string>
 
 
+    <!--sport-->
+
+
+
     <string name="app_name">A07</string>
     <string name="greeting">Hallo Benutzer\nWie geht es Ihnen heute?\nBereit für etwas Sport?</string>
     <string name="home">"Hauptseite"</string>
@@ -219,14 +223,14 @@
 
     <!--  string-array for sport type choosing spinner -->
     <string-array name="sportTypeArray">
-        <item>Wandering</item>
-        <item>Jogging</item>
-        <item>Swimming</item>
-        <item>Ball sports</item>
-        <item>Weight training</item>
+        <item>Wandern</item>
+        <item>Joggen</item>
+        <item>Schwimmen</item>
+        <item>Ballsport</item>
+        <item>Krafttraining</item>
         <item>Yoga</item>
-        <item>Climbing/Bouldering</item>
-        <item>Others</item>
+        <item>Klettern/Bouldern</item>
+        <item>Anderes</item>
     </string-array>
 
     <string-array name="sensor_array">

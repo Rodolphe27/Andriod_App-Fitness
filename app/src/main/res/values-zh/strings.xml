@@ -26,6 +26,20 @@
     <string name="others_total_time">0 分钟</string>
 
 
+    <!-- sports array-->
+    <!--  string-array for sport type choosing spinner -->
+    <string-array name="sportTypeArray">
+        <item>徒步</item>
+        <item>跑步</item>
+        <item>游泳</item>
+        <item>球类运动</item>
+        <item>力量训练</item>
+        <item>瑜伽</item>
+        <item>攀崖</item>
+        <item>其他</item>
+    </string-array>
+
+
 
 
     <string name="app_name">Fit Mood</string>
@@ -73,17 +87,7 @@
     <string name="sport_dialog_no">否</string>
     <string name="sport_dialog_delete">删除</string>
 
-    <!--  string-array for sport type choosing spinner -->
-    <string-array name="sportTypeArray">
-        <item>Wandering</item>
-        <item>Jogging</item>
-        <item>Swimming</item>
-        <item>Ball sports</item>
-        <item>Weight training</item>
-        <item>Yoga</item>
-        <item>Climbing/Bouldering</item>
-        <item>Others</item>
-    </string-array>
+
 
 
     <string name="ques1_name">问题1</string>

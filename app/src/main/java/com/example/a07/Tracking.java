@@ -58,6 +58,9 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
 
+    private final static String[] MySportArray = {"Wandering", "Jogging", "Swimming", "Ball sports", "Weight training", "Yoga", "Climbing/Bouldering","Others" };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,7 +105,8 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         sportTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String content = parent.getItemAtPosition(position).toString();
+//                String content = parent.getItemAtPosition(position).toString();
+                String content = MySportArray[position];
                 sportName = content;
 //                Utils.showToast(Tracking.this, "The selected sport is: " + content);
             }
