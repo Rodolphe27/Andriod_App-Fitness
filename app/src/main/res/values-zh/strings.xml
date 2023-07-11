@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
-    <!--added by shipan-->
+    <!--heath coin-->
     <string name="health_coin">您的健康币数量:</string>
     <string name="health_coin_amount"> </string>
     <string name="goal_setting">设置您的目标</string>
@@ -26,10 +24,6 @@
     <string name="yoga_total_time">0 分钟</string>
     <string name="climbing_bouldering_total_time">0 分钟</string>
     <string name="others_total_time">0 分钟</string>
-
-
-
-
 
 
 
@@ -78,16 +72,17 @@
     <string name="sport_dialog_yes">是</string>
     <string name="sport_dialog_no">否</string>
     <string name="sport_dialog_delete">删除</string>
+
     <!--  string-array for sport type choosing spinner -->
     <string-array name="sportTypeArray">
-        <item>徒步</item>
-        <item>跑步</item>
-        <item>游泳</item>
-        <item>球类运动</item>
-        <item>力量训练</item>
-        <item>瑜伽</item>
-        <item>攀崖</item>
-        <item>其他</item>
+        <item>Wandering</item>
+        <item>Jogging</item>
+        <item>Swimming</item>
+        <item>Ball sports</item>
+        <item>Weight training</item>
+        <item>Yoga</item>
+        <item>Climbing/Bouldering</item>
+        <item>Others</item>
     </string-array>
 
 
@@ -231,5 +226,10 @@
     </string-array>
 
     <string name="notification_permission_denied_please_allow_notifications_to_receive_a_reminder_for_the_questionnaire">通知权限被拒绝。 请允许通知接收调查问卷提醒。</string>
+    <string name="archive_header_name">名字</string>
+    <string name="archive_header_duration">时长</string>
+    <string name="archive_header_mood">心情</string>
+
+
 
 </resources>

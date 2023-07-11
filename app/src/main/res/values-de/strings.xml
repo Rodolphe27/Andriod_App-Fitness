@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--heath coin-->
+    <string name="health_coin">Die Anzahl Ihrer Gesundheitsmünzen:</string>
+    <string name="health_coin_amount"> </string>
+    <string name="goal_setting">Setzen Sie Ihre Ziele</string>
+    <string name="goal_setting_min">Minuten</string>
+    <string name="goal_setting_btn">Einstellen</string>
+    <string name="sport_total_time">Ihre gesamte Trainingszeit</string>
+
+    <string name="wandering">Wandeln</string>
+    <string name="jogging">Joggen</string>
+    <string name="ball_sports">Ballspiele</string>
+    <string name="weight_training">Krafttraining</string>
+    <string name="yoga">Joga</string>
+    <string name="climbing_bouldering">Klettern/Bouldern</string>
+    <string name="ohters">Andere</string>
+
+    <string name="wandering_total_time">0 min</string>
+    <string name="jogging_total_time">0 min</string>
+    <string name="swimming_total_time">0 min</string>
+    <string name="ball_sports_total_time">0 min</string>
+    <string name="weight_training_total_time">0 min</string>
+    <string name="yoga_total_time">0 min</string>
+    <string name="climbing_bouldering_total_time">0 min</string>
+    <string name="others_total_time">0 min</string>
+
 
     <string name="app_name">A07</string>
     <string name="greeting">Hallo Benutzer\nWie geht es Ihnen heute?\nBereit für etwas Sport?</string>
@@ -194,14 +219,14 @@
 
     <!--  string-array for sport type choosing spinner -->
     <string-array name="sportTypeArray">
-        <item>Wandern</item>
-        <item>Joggen</item>
-        <item>Schwimmen</item>
-        <item>Ballsport</item>
-        <item>Krafttraining</item>
+        <item>Wandering</item>
+        <item>Jogging</item>
+        <item>Swimming</item>
+        <item>Ball sports</item>
+        <item>Weight training</item>
         <item>Yoga</item>
-        <item>Klettern/Bouldern</item>
-        <item>Anderes</item>
+        <item>Climbing/Bouldering</item>
+        <item>Others</item>
     </string-array>
 
     <string-array name="sensor_array">
@@ -209,4 +234,10 @@
         <item>SensorData</item>
         <item>GpsData</item>
     </string-array>
+
+    <string name="archive_header_name">Name</string>
+    <string name="archive_header_duration">Dauern</string>
+    <string name="archive_header_mood">Laune</string>
+
+
 </resources>
