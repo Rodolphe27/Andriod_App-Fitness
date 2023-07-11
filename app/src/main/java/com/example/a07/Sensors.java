@@ -9,6 +9,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,8 @@ import android.widget.Toast;
 import com.example.a07.dao.SensorDao;
 import com.example.a07.entity.SensorEntity;
 import com.example.a07.utils.Utils;
+
+import java.util.List;
 
 public class Sensors extends AppCompatActivity implements View.OnClickListener {
     private SensorManager sensorManager;
@@ -47,6 +50,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
        // Button backToSetting = findViewById(btn_Totracking);
         findViewById(R.id.btn_setfrequency).setOnClickListener(this);
         findViewById(R.id.btn_stopfrequency).setOnClickListener(this);
+        findViewById(R.id.showFuckingSportDatabase).setOnClickListener(this);
 
         textViewStepCounter = findViewById(R.id.txt_stepCounter);
         editTextInterval = findViewById(R.id.editTextInterval); // Add the EditText field in your layout
@@ -155,10 +159,12 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
                         public void run() {
                             // Store step count data in the database
                             sensorDataToDB();
+//                            fuck();
                             // Display toast message
                             showToast("Step count data stored every " + storageInterval + " in the database.");
                             // Schedule the next data storage after the storage interval
                             handler.postDelayed(this, storageInterval);
+
                         }
                     };
 
@@ -186,6 +192,34 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
                 }
             }
 
+            else if(view.getId() == R.id.showFuckingSportDatabase) {
+                try {
+                    List<SensorEntity> list = sensorDao.queryAll();
+                    if(list == null) {
+                        System.out.println("fucking leer");
+                    }
+                    for (SensorEntity item : list) {
+                        Log.d("query_all_tag", item.getTimeAndDateStamp());
+                    }
+                }catch (Exception e) {
+                    Utils.showToast(this, e.getMessage());
+                }
+        }
+
+    }
+
+    private void fuck() {
+        try {
+            List<SensorEntity> list = sensorDao.queryAll();
+            if(list == null) {
+                System.out.println("fucking leer");
+            }
+            for (SensorEntity item : list) {
+                Log.d("query_all_tag", item.getTimeAndDateStamp());
+            }
+        }catch (Exception e) {
+            Utils.showToast(this, e.getMessage());
+        }
     }
 
     // Display toast message
