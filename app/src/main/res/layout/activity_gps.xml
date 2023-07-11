@@ -71,12 +71,12 @@
         tools:layout_editor_absoluteX="-16dp" />
 
     <Button
-        android:id="@+id/btn_returnSetting"
+        android:id="@+id/btn_returnTracking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="356dp"
         android:layout_weight="1"
-        android:text="@string/return_to_setting"
+        android:text="@string/return_to_tracking"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 

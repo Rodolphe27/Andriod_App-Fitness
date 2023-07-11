@@ -9,6 +9,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Chronometer;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -26,7 +27,7 @@ import com.example.a07.utils.Utils;
 import java.util.Calendar;
 import java.util.List;
 
-public class Tracking extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+public class Tracking extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, AdapterView.OnItemSelectedListener {
 
     private SportDao sportDao;
 
@@ -57,6 +58,9 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
 
+    private final static String[] MySportArray = {"Wandering", "Jogging", "Swimming", "Ball sports", "Weight training", "Yoga", "Climbing/Bouldering","Others" };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +75,14 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         //connect attributes with layout elements
         sportTypeSpinner = findViewById(R.id.spinnerSportType);
         currentDate = findViewById(R.id.tvShowCurrentDate);
+
+        //sensorspinner
+        Spinner sensorSpinner= findViewById(R.id.sensorSpinner);
+        ArrayAdapter<CharSequence> sensorAdapter = ArrayAdapter.createFromResource(this,
+                R.array.sensor_array, android.R.layout.simple_spinner_item);
+        sensorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sensorSpinner.setAdapter(sensorAdapter);
+        sensorSpinner.setOnItemSelectedListener(this);
 
 
         //set current date
@@ -93,7 +105,8 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         sportTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String content = parent.getItemAtPosition(position).toString();
+//                String content = parent.getItemAtPosition(position).toString();
+                String content = MySportArray[position];
                 sportName = content;
 //                Utils.showToast(Tracking.this, "The selected sport is: " + content);
             }
@@ -290,4 +303,25 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+        String selectedItem = parent.getItemAtPosition(position).toString();
+        if (parent.getId() == R.id.sensorSpinner) {
+            if (selectedItem.equals("Choose Sensor")) {
+
+            } else if (selectedItem.equals("SensorData")) {
+                openActivity(Sensors.class);
+            } else if (selectedItem.equals("GpsData")) {
+                openActivity(GPS.class);
+            } else {
+                Toast.makeText(this, "This would open the respective sensor view for: " + selectedItem, Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }
