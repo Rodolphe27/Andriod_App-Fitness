@@ -150,7 +150,7 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
                 // check if user selected "others"
                 if(position == Ques11Array.length-1) {
                     findViewById(R.id.ques11_others_layout).setVisibility(View.VISIBLE);
-                    Utils.showToast(Questionnaire.this, "please input others");
+                    Utils.showToast(Questionnaire.this, getString(R.string.please_input_others));
                 } else {
                     editor.putString("ques11", Ques11Array[position]);
                     editor.commit();
@@ -182,7 +182,7 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
                 // check if user selected "others"
                 if(position == Ques12Array.length-1) {
                     findViewById(R.id.ques12_others_layout).setVisibility(View.VISIBLE);
-                    Utils.showToast(Questionnaire.this, "please input others");
+                    Utils.showToast(Questionnaire.this, getString(R.string.please_input_others));
                 } else {
                     editor.putString("ques12", Ques12Array[position]);
                     editor.commit();

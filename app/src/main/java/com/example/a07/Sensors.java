@@ -106,7 +106,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
 
 
         sensorDao.insert(sensorEntity);
-        Utils.showToast(Sensors.this, "Data Saved");
+        Utils.showToast(Sensors.this, getString(R.string.data_saved));
     }
 
     @Override

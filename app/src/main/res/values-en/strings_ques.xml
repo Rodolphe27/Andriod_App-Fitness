@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="ques_dialog_title">Leave a comment to this random exercise</string>
-    <string name="ques_dialog_yes">Done</string>
+    <string name="ques_dialog_title">leave a comment to this ramdom exercise</string>
+    <string name="ques_dialog_yes">done</string>
     <string name="ques_dialog_default_comment">I have nothing to say</string>
-    <string name="ques_update_and_save_btn">Save and go to main page</string>
+    <string name="ques_update_and_save_btn">save and go to main</string>
 
 
 
 
     <!-- questionaire strings-->
+
+
     <string-array name="ques11_stringsArr">
         <item>Partner</item>
         <item>Family</item>
@@ -139,8 +141,8 @@
 
     <string name="ques17_name">question17</string>
     <string name="ques17_desc">Currently I\'m satisfied with myself</string>
-    <string name="group7_left">Not apply</string>
-    <string name="group7_right">Fully apply</string>
+    <string name="group7_left">not apply</string>
+    <string name="group7_right">fully apply</string>
 
 
     <string name="ques18_name">question18</string>
@@ -161,15 +163,15 @@
     <!--strings in questionaire_confirm-->
 
     <string name="ques21_question">Do you have anything else to say? Add some notes to this questionnaire.</string>
-    <string name="ques21_editText_hint">Input your notes here</string>
+    <string name="ques21_editText_hint">input your notes here</string>
 
 
-    <string name="after_ques_finish_btn">Save and proceed</string>
-    <string name="after_ques_dialog_title">The questionnaire is saved into database</string>
-    <string name="after_ques_dialog_content">Now back to main page</string>
+    <string name="after_ques_finish_btn">Save And Proceed</string>
+    <string name="after_ques_dialog_title">the questionaire is saved into database</string>
+    <string name="after_ques_dialog_content">now go back to main page</string>
 
-    <string name="after_ques_dialog_gotoexercise_title">You seem feel unwell</string>
-    <string name="after_ques_dialog_gotoexercise_content">A random exercise is assigned to you</string>
+    <string name="after_ques_dialog_gotoexercise_title">you seem fell unwell</string>
+    <string name="after_ques_dialog_gotoexercise_content">a random exercise is assigned to you</string>
 
     <string name="after_ques_dialog_ok">ok</string>
 

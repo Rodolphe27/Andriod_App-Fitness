@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //super.onBackPressed();
         if (System.currentTimeMillis() > backKeyPressedTime + 2500) {
             backKeyPressedTime = System.currentTimeMillis();
-            Toast toast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, R.string.press_back_again_to_exit, Toast.LENGTH_LONG);
             toast.show();
             return;
         }
