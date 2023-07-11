@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="archive_header_name">Name</string>
+    <string name="archive_header_duration">Duration</string>
+    <string name="archive_header_mood">Mood</string>
+</resources>
