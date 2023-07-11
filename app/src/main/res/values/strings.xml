@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Fit Mood</string>
-    <string name="greeting">Hello User How are you feeling today? Ready for sport?</string>
+    <string name="greeting">Hello User\nHow are you feeling today?\nReady for sport?</string>
     <string name="home">Home</string>
     <string name="questionnaire">Questionnaire</string>
     <string name="tracking">Tracking</string>
@@ -27,6 +27,7 @@
     <string name="add">ADD</string>
     <string name="track_the_sport_duration">Track the sport duration</string>
     <string name="the_date_of_today">The date of today:</string>
+    <string name="finish">finish</string>
     <string name="return_to_main_page">Return to main page</string>
     <string name="user_consent_and_data_privacy_policy_agreement">User Consent and Data Privacy Policy Agreement</string>
     <string name="i_have_read_and_agree_to_fit_mood_s_user_consent_and_data_privacy_policy">I have read and agree to Fit Mood\'s User Consent and Data Privacy Policy.</string>
@@ -66,4 +67,29 @@
         <item>GpsData</item>
     </string-array>
 
+    <!--  Remove string-array for sport type choosing spinner because of duplicate in strings_sport.xml -->
+
+    <string name="health_coin">Your health coin:</string>
+    <string name="health_coin_amount"> </string>
+    <string name="goal_setting">Set your goal</string>
+    <string name="goal_setting_min">min</string>
+    <string name="goal_setting_btn">set</string>
+    <string name="sport_total_time">Your sport total time</string>
+
+    <string name="wandering">Wandering</string>
+    <string name="jogging">Jogging</string>
+    <string name="ball_sports">Ball sports</string>
+    <string name="weight_training">Weight training</string>
+    <string name="yoga">Yoga</string>
+    <string name="climbing_bouldering">Climbing/Bouldering</string>
+    <string name="ohters">Others</string>
+
+    <string name="wandering_total_time">0 min</string>
+    <string name="jogging_total_time">0 min</string>
+    <string name="swimming_total_time">0 min</string>
+    <string name="ball_sports_total_time">0 min</string>
+    <string name="weight_training_total_time">0 min</string>
+    <string name="yoga_total_time">0 min</string>
+    <string name="climbing_bouldering_total_time">0 min</string>
+    <string name="others_total_time">0 min</string>
 </resources>

@@ -41,10 +41,13 @@
                 app:layout_constraintTop_toBottomOf="@id/fontSizeSpinner"/>
 
             <!--here is some testing button, to be deleted-->
+            <!--these 2 button is for testing, so android:visibility="invisible"-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="invisible"
+                >
                 <Button
                     android:id="@+id/btn_sport_queryAll"
                     android:layout_width="match_parent"
@@ -172,30 +175,6 @@
                         tools:ignore="ButtonStyle"/>
 
                 </LinearLayout>
-
-
-                <TextView
-                    android:id="@+id/tvAddFinishSport"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/add_the_finish_activity"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"/>
-
-                <Button
-                    android:id="@+id/btnAddSport"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/add"
-                    android:textColor="@color/white"
-                    android:background="@color/purple_500"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"/>
-                <!--place the button in the center-->
-
             </LinearLayout>
 
 

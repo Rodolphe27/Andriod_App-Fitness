@@ -31,9 +31,6 @@
             android:name=".Sensors"
             android:exported="false" />
         <activity
-            android:name=".ChartTest"
-            android:exported="true" />
-        <activity
             android:name=".ConsentActivity"
             android:exported="false" />
         <activity

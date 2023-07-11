@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Do you have anything else to say? Add some notes to this questionaire"
+            android:text="@string/ques21_question"
             android:textColor="@color/light_red"
             android:textSize="@dimen/small_font_size"
             android:gravity="center"
@@ -30,7 +30,7 @@
             android:layout_height="@dimen/item_layout_height"
             android:background="@drawable/edittext_selector"
             android:layout_marginTop="5dp"
-            android:hint="input your notes here"
+            android:hint="@string/ques21_editText_hint"
             android:inputType="text"
             android:maxLength="100"/>
     </LinearLayout>
@@ -42,16 +42,18 @@
         <Button
             android:id="@+id/btn_query_all_ques"
             android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_weight="0"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="All"/>
+            android:text="All"
+            android:visibility="gone"
+            />
         <Button
             android:id="@+id/btn_save_ques"
             android:layout_width="0dp"
-            android:layout_weight="8"
+            android:layout_weight="1"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="Save And Proceed"/>
+            android:text="@string/after_ques_finish_btn"/>
     </LinearLayout>
 </LinearLayout>

@@ -48,14 +48,16 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
 
     // group4
     private Spinner ques11_spinner;
-    private final static String[] Ques11Array = {"Partner", "Family", "Friends", "Coworkers", "Strangers", "Others"};
+//    private final static String[] Ques11Array = {"Partner", "Family", "Friends", "Coworkers", "Strangers", "Others"};
+    private String[] Ques11Array;
     private EditText ques11_edittext;
     private Button ques11_confirm_btn;
 
     // group5
     private Spinner ques12_spinner;
-    private final static String[] Ques12Array = {"At home", "School/University", "Work", "Sport", "other recreational Activity",
-                                                "Shopping", "Visiting", "Others"};
+    //private final static String[] Ques12Array = {"At home", "School/University", "Work", "Sport", "other recreational Activity",
+                                                //"Shopping", "Visiting", "Others"};
+    private String[] Ques12Array;
     private EditText ques12_edittext;
     private Button ques12_confirm_btn;
 
@@ -88,7 +90,8 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
             map.put(i, false);
         }
 
-
+        Ques11Array = getResources().getStringArray(R.array.ques11_stringsArr);
+        Ques12Array = getResources().getStringArray(R.array.ques12_stringsArr);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);

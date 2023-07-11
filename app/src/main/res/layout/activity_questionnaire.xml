@@ -69,14 +69,14 @@
                 android:layout_weight="1"
                 android:layout_marginHorizontal="10dp"
                 android:layout_height="wrap_content"
-                android:text="Back to Main"/>
+                android:text="@string/return_to_main_page"/>
             <Button
                 android:id="@+id/btn_ques_finish"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_marginHorizontal="10dp"
                 android:layout_height="wrap_content"
-                android:text="Finish"/>
+                android:text="@string/finish"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
