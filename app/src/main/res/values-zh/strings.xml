@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
+    <!--added by shipan-->
+    <string name="health_coin">您的健康币数量:</string>
+    <string name="health_coin_amount"> </string>
+    <string name="goal_setting">设置您的目标</string>
+    <string name="goal_setting_min">分钟</string>
+    <string name="goal_setting_btn">设置</string>
+    <string name="sport_total_time">您的总运动时间</string>
+
+    <string name="wandering">徒步</string>
+    <string name="jogging">跑步</string>
+    <string name="ball_sports">球类运动</string>
+    <string name="weight_training">力量训练</string>
+    <string name="yoga">瑜伽</string>
+    <string name="climbing_bouldering">攀岩</string>
+    <string name="ohters">其他</string>
+
+    <string name="wandering_total_time">0 分钟</string>
+    <string name="jogging_total_time">0 分钟</string>
+    <string name="swimming_total_time">0 分钟</string>
+    <string name="ball_sports_total_time">0 分钟</string>
+    <string name="weight_training_total_time">0 分钟</string>
+    <string name="yoga_total_time">0 分钟</string>
+    <string name="climbing_bouldering_total_time">0 分钟</string>
+    <string name="others_total_time">0 分钟</string>
+
+
+
+
+
+
+
+
     <string name="app_name">Fit Mood</string>
     <string name="greeting">你好用户！你今天感觉怎么样？准备好做点运动了吗？</string>
     <string name="home">主页</string>
