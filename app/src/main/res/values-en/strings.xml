@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--add by shipan-->
+    <!--heath coin-->
+    <string name="health_coin">Die Anzahl Ihrer Gesundheitsmünzen:</string>
+    <string name="health_coin_amount"> </string>
+    <string name="goal_setting">Setzen Sie Ihre Ziele</string>
+    <string name="goal_setting_min">Minute呢</string>
+    <string name="goal_setting_btn">Einstellen</string>
+    <string name="sport_total_time">Ihre gesamte Trainingszeit</string>
+
+    <string name="wandering">Wandeln</string>
+    <string name="jogging">Joggen</string>
+    <string name="ball_sports">Ballspiele</string>
+    <string name="weight_training">Krafttraining</string>
+    <string name="yoga">Joga</string>
+    <string name="climbing_bouldering">Klettern/Bouldern</string>
+    <string name="ohters">Andere</string>
+
+    <string name="wandering_total_time">0 Minuten</string>
+    <string name="jogging_total_time">0 Minuten</string>
+    <string name="swimming_total_time">0 Minuten</string>
+    <string name="ball_sports_total_time">0 Minuten</string>
+    <string name="weight_training_total_time">0 Minuten</string>
+    <string name="yoga_total_time">0 Minuten</string>
+    <string name="climbing_bouldering_total_time">0 Minuten</string>
+    <string name="others_total_time">0 Minuten</string>
+
+
+
+
     <string name="app_name">Fit Mood</string>
     <string name="greeting">Hello User How are you feeling today? Ready for sport?</string>
     <string name="home">Home</string>
