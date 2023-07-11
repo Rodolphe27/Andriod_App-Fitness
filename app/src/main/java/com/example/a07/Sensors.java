@@ -1,6 +1,6 @@
 package com.example.a07;
 
-import static com.example.a07.R.id.btn_Totracking;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,13 +38,17 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
     private Runnable dataStorageRunnable;
     private long storageInterval = 0; // Interval in milliseconds
 
+    private boolean isDataStorageRunning = false; // Flag to track data storage process
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
 
-        Button backToSetting = findViewById(btn_Totracking);
-        findViewById(R.id.btn_tosave).setOnClickListener(this);
+       // Button backToSetting = findViewById(btn_Totracking);
+        findViewById(R.id.btn_setfrequency).setOnClickListener(this);
+        findViewById(R.id.btn_stopfrequency).setOnClickListener(this);
 
         textViewStepCounter = findViewById(R.id.txt_stepCounter);
         editTextInterval = findViewById(R.id.editTextInterval); // Add the EditText field in your layout
@@ -91,7 +95,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
         };
 
         // Set onClickListener for the backToSetting button
-        backToSetting.setOnClickListener(new View.OnClickListener() {
+       /* backToSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Navigate back to Settings activity
@@ -100,7 +104,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
-        });
+        });*/
 
         // Register step detector listener
         sensorManager.registerListener(stepDetector, sensor, SensorManager.SENSOR_DELAY_NORMAL);
@@ -128,12 +132,12 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
 
         // Insert SensorEntity into the database
         sensorDao.insert(sensorEntity);
-        showToast("Data Saved");
+       // showToast("Data Saved");
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.btn_tosave) {
+        if (view.getId() == R.id.btn_setfrequency) {
             // Read the storage interval from the EditText field
             String intervalText = editTextInterval.getText().toString().trim();
             if (!intervalText.isEmpty()) {
@@ -154,7 +158,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
                             // Store step count data in the database
                             sensorDataToDB();
                             // Display toast message
-                            showToast("Step count data stored in the database.");
+                            showToast("Step count data stored every " + storageInterval + " in the database.");
                             // Schedule the next data storage after the storage interval
                             handler.postDelayed(this, storageInterval);
                         }
@@ -163,6 +167,11 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
                     // Start the data storage process
                     handler.postDelayed(dataStorageRunnable, storageInterval);
 
+                    Intent intent = new Intent();
+                    intent.setClass(Sensors.this, Tracking.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+
                 } catch (NumberFormatException e) {
                     showToast("Invalid interval format. Please enter a valid number.");
                 }
@@ -170,6 +179,15 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
                 showToast("Please enter an interval.");
             }
         }
+            else if (view.getId() == R.id.btn_stopfrequency) {
+                // Stop the data storage process and reset the flag
+                if (isDataStorageRunning) {
+                    handler.removeCallbacks(dataStorageRunnable);
+                    isDataStorageRunning = false;
+                    showToast("Recording stopped.");
+                }
+            }
+
     }
 
     // Display toast message
