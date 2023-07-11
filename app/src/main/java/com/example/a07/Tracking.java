@@ -151,7 +151,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
                     chronometer.stop();
                     isRunning = false;
                     chronometer.setBase(SystemClock.elapsedRealtime()); //set clock to 0
-                    Toast toast = Toast.makeText(Tracking.this, "The recorded time (minute) is " + timeRecordedMinute, Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(Tracking.this, getString(R.string.the_recorded_time_minute_is) + timeRecordedMinute, Toast.LENGTH_SHORT);
                     toast.show();
                     showDialogSeekBar();
                 }
@@ -163,9 +163,9 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     //sport result dialog
     private void showDialogRecordResult(){
         AlertDialog.Builder dialogResult = new AlertDialog.Builder(this);
-        dialogResult.setTitle("The recorded sport");
-        dialogResult.setMessage("Sport type: " + sportName + ",\n duration(minute): " + String.format("%.2f", timeRecordedMinute) + ",\n mood score: " + myMoodScore);
-        dialogResult.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        dialogResult.setTitle(R.string.the_recorded_sport);
+        dialogResult.setMessage(getString(R.string.sport_type) + sportName + getString(R.string.duration_minute) + String.format("%.2f", timeRecordedMinute) + getString(R.string.mood_score) + myMoodScore);
+        dialogResult.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 //todo here? you can jump to archive
@@ -237,7 +237,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         sportEntity.setMoodScore(myMoodScore);
 
         sportDao.insert(sportEntity);
-        Utils.showToast(Tracking.this, "Sport Saved");
+        Utils.showToast(Tracking.this, getString(R.string.sport_saved));
     }
 
     // Daeun

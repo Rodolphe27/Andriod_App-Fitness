@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="save_sensor">Save sensor</string>
+<resources><string name="save_sensor">Save sensor</string>
     <string name="back_to_setting">Back to setting page</string>
-    <string name="sensor_data">Sensor Data</string>
+    <string name="sensor_data">Sensor data</string>
+
 </resources>

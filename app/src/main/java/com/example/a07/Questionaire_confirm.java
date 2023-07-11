@@ -152,7 +152,7 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                 // save into database
                 try {
                     quesDao.insert(quesEntity);
-                    Utils.showToast(this, "insert with success");
+                    Utils.showToast(this, getString(R.string.insert_with_success));
                 }catch (Exception e) {
                     Utils.showToast(this, e.getMessage());
                 }
@@ -215,7 +215,7 @@ public class Questionaire_confirm extends AppCompatActivity implements View.OnCl
                         recordsNr++;
                         Log.d("query_all_tag", ques.toString());
                     }
-                    Utils.showToast(this, "you have finished " + recordsNr + " questionairs");
+                    Utils.showToast(this, getString(R.string.you_have_finished) + recordsNr + getString(R.string.questionnaires));
                 }catch (Exception e) {
                     Utils.showToast(this, e.getMessage());
                 }
