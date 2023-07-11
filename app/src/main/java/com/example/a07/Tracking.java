@@ -1,14 +1,14 @@
 package com.example.a07;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -49,7 +49,13 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
     //the mood score
     private int myMoodScore = 50; // moodscore after sport
 
+    // Daeun - for providing reward
+    private int goal = 0;
+    private int healthCoin = 0;
 
+    // Daeun - for recording reward
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +103,9 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
             }
         });
 
-
-
+        // Daeun
+        sharedPref = getSharedPreferences("healthCoin", Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
     }
 
 
@@ -186,6 +193,8 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
             showDialogRecordResult();
             // todo? start questionaire?
 
+            // Daeun
+            showDialogReward();
         });
 
         mBuilder.setNegativeButton(R.string.btn_after_sport_dialog_negative, (dialog, which) -> {
@@ -231,9 +240,37 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         Utils.showToast(Tracking.this, getString(R.string.sport_saved));
     }
 
+    // Daeun
+    private void showDialogReward(){
+        float totalTime = 0;
+        for(String duration : sportDao.queryAllDuration(sportName)){
+            float sportTime = Float.parseFloat(duration.replace(',','.'));
+            totalTime += sportTime;
+        }
 
+        goal = sharedPref.getInt(sportName, 0);
+        if(totalTime>goal){
+            healthCoin = sharedPref.getInt("healthCoin", 0);
+            healthCoin++;
+            editor.putInt("healthCoin", healthCoin);
+            editor.apply();
 
+            AlertDialog.Builder reward = new AlertDialog.Builder(this);
+            reward.setTitle("Your health coins");
+            reward.setMessage("Congratulations!\nYou did " + sportName + " for " + goal + " minutes.\nYour health coins: " + healthCoin);
+            reward.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
+            reward.show();
+        }
 
+        ((MainActivity)MainActivity.context).updateHealthCoin();
+        editor.putFloat(sportName + "_time", totalTime);
+        editor.apply();
+        ((MainActivity)MainActivity.context).updateSportTotalTime();
+    }
 
     // Methods to switch activity
     public void switchActivity(View view) {

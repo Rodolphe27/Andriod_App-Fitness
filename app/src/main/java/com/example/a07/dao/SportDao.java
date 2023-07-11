@@ -21,6 +21,9 @@ public interface SportDao {
     @Query("SELECT * FROM SportEntity")
     List<SportEntity> queryAll();
 
+    @Query("SELECT duration FROM SportEntity WHERE name = :sport_name")
+    List<String> queryAllDuration(String sport_name);
+
 
     // clear the "QuestionaireEntity" table
     @Query("DELETE FROM SportEntity")
