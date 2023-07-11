@@ -73,7 +73,7 @@
     </string-array>
 
 
-    <!--  Remove string-array for sport type choosing spinner because of duplicate in strings_sport.xml -->
+    <!--  health coin -->
 
     <string name="health_coin">Your health coin:</string>
     <string name="health_coin_amount"> </string>
@@ -98,5 +98,7 @@
     <string name="yoga_total_time">0 min</string>
     <string name="climbing_bouldering_total_time">0 min</string>
     <string name="others_total_time">0 min</string>
+
+
 
 </resources>

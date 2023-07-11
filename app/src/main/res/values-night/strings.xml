@@ -64,31 +64,6 @@
     <string name="notification_permission_granted">Notification permission granted</string>
     <string name="notification_permission_denied_please_allow_notifications_to_receive_a_reminder_for_the_questionnaire">Notification permission denied. Please allow Notifications to receive a reminder for the questionnaire.</string>
 
-    <string-array name="language_array">
-        <item>English</item>
-        <item>German</item>
-        <item>French</item>
-        <item>Italian</item>
-        <item>Spanish</item>
-        <item>Portuguese</item>
-        <item>Chinese</item>
-        <item>Japanese</item>
-        <item>Russian</item>
-    </string-array>
-    <string-array name="color_array">
-        <item>Purple</item>
-        <item>Red</item>
-        <item>Green</item>
-        <item>Blue</item>
-        <item>Yellow</item>
-        <item>Black</item>
-        <item>White</item>
-        <item>Gray</item>
-        <item>Orange</item>
-    </string-array>
-    <string-array name="fontsize_array">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
-    </string-array>
+
+
 </resources>
