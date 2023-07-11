@@ -19,6 +19,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.a07.utils.Utils;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -72,7 +75,6 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
     // group8
     private SeekBar ques19_seekBar;
     private SeekBar ques20_seekBar;
-
 
 
     // cache the questionaire
@@ -223,7 +225,6 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
 
         ques20_seekBar = findViewById(R.id.ques20_seekbar);
         ques20_seekBar.setOnSeekBarChangeListener(this);
-
 
 
         // finish button
@@ -412,10 +413,28 @@ public class Questionnaire extends AppCompatActivity implements SeekBar.OnSeekBa
                 startActivity(intent_ques_jump_to_confirm);
                 break;
             case R.id.btn_ques_backToMain:
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(new Date());
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+
+                // Check if the current time is between 12 PM and 2 PM
+                if (hour >= 12 && hour < 14) {
+                    // Redirect to the desired activity
+                    Intent intent = new Intent(this, DigitSpanTask.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                } else {
+                    Intent intent_ques_backMain = new Intent(this, MainActivity.class);
+                    intent_ques_backMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent_ques_backMain);
+                }
+                break;
             case R.id.btn_icon_back:
+
                 Intent intent_ques_backMain = new Intent(this, MainActivity.class);
                 intent_ques_backMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent_ques_backMain);
+
                 break;
         }
     }

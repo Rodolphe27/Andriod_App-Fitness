@@ -34,18 +34,12 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Spinner sensorSpinner= findViewById(R.id.sensorSpinner);
         MaterialButton toNotification = findViewById(R.id.btn_setNotification);
         SwitchMaterial gpsSwitch = findViewById(R.id.gpsSwitch);
 
         sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        ArrayAdapter<CharSequence> sensorAdapter = ArrayAdapter.createFromResource(this,
-                R.array.sensor_array, android.R.layout.simple_spinner_item);
-        sensorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sensorSpinner.setAdapter(sensorAdapter);
-        sensorSpinner.setOnItemSelectedListener(this);
 
         // set the gps switch to the saved value
         if (ContextCompat.checkSelfPermission(this,
@@ -148,7 +142,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         }
     }
 
-    // Method to do something when an item is selected
+    //Method to do something when an item is selected
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String selectedItem = parent.getItemAtPosition(position).toString();

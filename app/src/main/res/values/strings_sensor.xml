@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="save_sensor">Save sensor</string>
-    <string name="back_to_setting">Back to setting page</string>
-    <string name="sensor_data">Sensor Data</string>
+<resources><string name="set_frequency">Set_Frequency</string>
+    <string name="stop_frequency">Stop_Frequency</string>
+    <string name="sensor_data">Sensor_Data</string>
+    <string name="step_counter">Step_Couter</string>
+    <string name="step_count">Step_Count</string>
+
 </resources>
