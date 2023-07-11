@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
     IntroductoryActivity SA = (IntroductoryActivity) IntroductoryActivity.SplashActivity;
 
+    private final static String[] MySportArray = {"Wandering", "Jogging", "Swimming", "Ball sports", "Weight training", "Yoga", "Climbing/Bouldering","Others" };
     // Daeun: for showing the amount of user's health coin
     private TextView healthCoinAmount;
     private int healthCoin = 0;
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //super.onBackPressed();
         if (System.currentTimeMillis() > backKeyPressedTime + 2500) {
             backKeyPressedTime = System.currentTimeMillis();
-            Toast toast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, R.string.press_back_again_to_exit, Toast.LENGTH_LONG);
             toast.show();
             return;
         }
@@ -136,7 +137,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.goal_setting_btn){
-            String selectedSport = sportSpinner.getSelectedItem().toString();
+//            String selectedSport = sportSpinner.getSelectedItem().toString();
+            String selectedSport = MySportArray[sportSpinner.getSelectedItemPosition()];
 
             selectedTime = Integer.parseInt(String.valueOf(goalSetting.getText()));
             editor.putInt(selectedSport, selectedTime);

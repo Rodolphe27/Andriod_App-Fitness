@@ -3,11 +3,13 @@ package com.example.a07;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.room.Database;
 import androidx.room.Room;
 
 import com.example.a07.dao.QuesDao;
 import com.example.a07.dao.SportDao;
 import com.example.a07.database.AppDatabase;
+import com.example.a07.database.DigitSpanTaskDatabase;
 import com.example.a07.database.GpsDatabase;
 import com.example.a07.database.SensorDatabase;
 import com.example.a07.database.SportDatabase;
@@ -36,6 +38,7 @@ public class MyApplication extends Application {
 
     private SensorDatabase sensorDatabase;
     private GpsDatabase gpsDatabase;
+    private DigitSpanTaskDatabase digitSpanTaskDatabase;
 
 
     @Override
@@ -61,6 +64,11 @@ public class MyApplication extends Application {
                 .addMigrations()
                 .allowMainThreadQueries()
                 .build();
+        digitSpanTaskDatabase = Room.databaseBuilder(this ,DigitSpanTaskDatabase.class, "digitspantaskdb")
+                .addMigrations()
+                .allowMainThreadQueries()
+                .build();
+
 
         // insert some mock data;
         insertMockSportData();
@@ -91,13 +99,16 @@ public class MyApplication extends Application {
     public GpsDatabase getGpsDatabase() {
         return gpsDatabase;
     }
+    public DigitSpanTaskDatabase getDigitSpanTaskDatabase() {
+        return digitSpanTaskDatabase;
+    }
 
     // at the first start of the app, 2 mock values is always inserted into the database
     private void insertMockSportData() {
         // if this is the first time open the phone, insert the mock data into database
         boolean isFirst = SharedPreferencesUtil.getInstance(this).readBoolean("first", true);
         if(isFirst) {
-            Utils.showToast(this, "Welcome to Fit Mood!");
+            Utils.showToast(this, getString(R.string.welcome_to_fit_mood));
             // first get SportDao:
             SportDao mySportDao = sportDatabase.sportDao();
             // write 2 mock data into database

@@ -62,8 +62,8 @@ public class SettingsNotificationTime extends AppCompatActivity implements View.
         });
 
         // set up notification channel
-        CharSequence name = "Notification Channel";
-        String description = "Questionnaire Notifications";
+        CharSequence name = getString(R.string.notification_channel);
+        String description = getString(R.string.questionnaire_notifications);
         int importance = NotificationManager.IMPORTANCE_DEFAULT;
         NotificationChannel channel = new NotificationChannel("questionnaireNotification", name, importance);
         channel.setDescription(description);
@@ -81,7 +81,7 @@ public class SettingsNotificationTime extends AppCompatActivity implements View.
                 saveTime(desc, 1);
             }
             else{
-                Toast.makeText(this, "Please choose a time between 7:00 and 11:00 for the first Notification!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.please_choose_a_time_between_7_00_and_11_00_for_the_first_notification, Toast.LENGTH_SHORT).show();
             }
         }
         if (id  == R.id.btn_timeOk2) {
@@ -91,7 +91,7 @@ public class SettingsNotificationTime extends AppCompatActivity implements View.
                 saveTime(desc, 2);
             }
             else{
-                Toast.makeText(this, "Please choose a time between 12:00 and 14:00 for the second Notification!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.please_choose_a_time_between_12_00_and_14_00_for_the_second_notification, Toast.LENGTH_SHORT).show();
             }
         }
         if (id  == R.id.btn_timeOK3){
@@ -101,14 +101,14 @@ public class SettingsNotificationTime extends AppCompatActivity implements View.
                 saveTime(desc, 3);
             }
             else{
-                Toast.makeText(this, "Please choose a time between 17:00 and 19:00 for the third Notification!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.please_choose_a_time_between_17_00_and_19_00_for_the_third_notification, Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     // save time to shared preferences
     public void saveTime(String time, int id) {
-        editor.putString("time"+id, time);
+        editor.putString(getString(R.string.time)+id, time);
         editor.apply();
 
         // Parse hour and minute from the time string

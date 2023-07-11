@@ -34,18 +34,12 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Spinner sensorSpinner= findViewById(R.id.sensorSpinner);
         MaterialButton toNotification = findViewById(R.id.btn_setNotification);
         SwitchMaterial gpsSwitch = findViewById(R.id.gpsSwitch);
 
         sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        ArrayAdapter<CharSequence> sensorAdapter = ArrayAdapter.createFromResource(this,
-                R.array.sensor_array, android.R.layout.simple_spinner_item);
-        sensorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sensorSpinner.setAdapter(sensorAdapter);
-        sensorSpinner.setOnItemSelectedListener(this);
 
         // set the gps switch to the saved value
         if (ContextCompat.checkSelfPermission(this,
@@ -69,7 +63,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 // Permission is not granted
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                         android.Manifest.permission.ACCESS_FINE_LOCATION)) {
-                    Toast.makeText(this, "We need your location to provide better service", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.we_need_your_location_to_provide_better_service, Toast.LENGTH_LONG).show();
                 }
                 // Request permission
                 ActivityCompat.requestPermissions(this,
@@ -95,7 +89,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                     // Permission is not granted
                     if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) view.getContext(),
                             Manifest.permission.POST_NOTIFICATIONS)) {
-                        Toast.makeText(view.getContext(), "We need your permission to send notifications", Toast.LENGTH_LONG).show();
+                        Toast.makeText(view.getContext(), R.string.we_need_your_permission_to_send_notifications, Toast.LENGTH_LONG).show();
                     }
                     // Request permission
                     ActivityCompat.requestPermissions((Activity) view.getContext(),
@@ -122,11 +116,11 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // permission was granted
-                    Toast.makeText(this, "Location permission granted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.location_permission_granted, Toast.LENGTH_SHORT).show();
                 }
                 else {
                     // permission denied
-                    Toast.makeText(this, "Location permission denied. Please enable exact position for the app in the settings.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.location_permission_denied_please_enable_exact_position_for_the_app_in_the_settings, Toast.LENGTH_SHORT).show();
                     gpsSwitch.setChecked(false);
                 }
                 editor.putBoolean("gps", gpsSwitch.isChecked());
@@ -138,17 +132,17 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // permission was granted
-                    Toast.makeText(this, "Notification permission granted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.notification_permission_granted, Toast.LENGTH_SHORT).show();
                     openActivity(SettingsNotificationTime.class);
                 } else {
                     // permission denied
-                    Toast.makeText(this, "Notification permission denied. Please allow Notifications to receive a reminder for the questionnaire.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.notification_permission_denied_please_allow_notifications_to_receive_a_reminder_for_the_questionnaire, Toast.LENGTH_SHORT).show();
                 }
             }
         }
     }
 
-    // Method to do something when an item is selected
+    //Method to do something when an item is selected
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String selectedItem = parent.getItemAtPosition(position).toString();
