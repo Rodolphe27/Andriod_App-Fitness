@@ -1,7 +1,5 @@
 package com.example.a07;
 
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;

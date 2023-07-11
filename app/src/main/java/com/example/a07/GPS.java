@@ -101,7 +101,7 @@ public class GPS extends AppCompatActivity implements View.OnClickListener{
         // Insert the GpsEntity into the database using the gpsDao
         gpsDao.insert(gpsEntity);
 
-        Utils.showToast(GPS.this, "Location saved to database");
+        Utils.showToast(GPS.this, getString(R.string.location_saved_to_database));
     }
 
     @Override

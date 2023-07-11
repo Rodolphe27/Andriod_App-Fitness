@@ -108,7 +108,7 @@ public class MyApplication extends Application {
         // if this is the first time open the phone, insert the mock data into database
         boolean isFirst = SharedPreferencesUtil.getInstance(this).readBoolean("first", true);
         if(isFirst) {
-            Utils.showToast(this, "Welcome to Fit Mood!");
+            Utils.showToast(this, getString(R.string.welcome_to_fit_mood));
             // first get SportDao:
             SportDao mySportDao = sportDatabase.sportDao();
             // write 2 mock data into database
