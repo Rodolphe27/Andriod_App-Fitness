@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="how do you like this exercise"
+        android:text="@string/exercise_video_question1"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="anything else to add?"
+            android:text="@string/exercise_video_question2"
             android:textColor="@color/light_red"
             android:textSize="@dimen/small_font_size"
             android:gravity="center"

@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question13"
+        android:text="@string/ques13_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="10dp"
-            android:text="My attention is often focused on characteristics of myself that I don’t want to think about."
+            android:text="@string/ques13_desc"
             android:textSize="@dimen/small_font_size"/>
 
         <LinearLayout
@@ -43,7 +43,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="not agree"
+                android:text="@string/group6_left"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="start"/>
 
@@ -63,7 +63,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="fully agree"
+                android:text="@string/group6_right"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="end"/>
         </LinearLayout>
@@ -75,7 +75,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question14"
+        android:text="@string/ques14_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="10dp"
-            android:text="I often have the feeling that things resurface in my head that I have said or done in the past."
+            android:text="@string/ques14_desc"
             android:textSize="@dimen/small_font_size"/>
 
         <LinearLayout
@@ -107,7 +107,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="not agree"
+                android:text="@string/group6_left"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="start"/>
 
@@ -127,7 +127,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="fully agree"
+                android:text="@string/group6_right"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="end"/>
         </LinearLayout>
@@ -139,7 +139,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question15"
+        android:text="@string/ques15_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -156,7 +156,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="10dp"
-            android:text="Sometimes I have a hard time to stop thinking about myself. "
+            android:text="@string/ques15_desc"
             android:textSize="@dimen/small_font_size"/>
 
         <LinearLayout
@@ -171,7 +171,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="not agree"
+                android:text="@string/group6_left"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="start"/>
 
@@ -191,7 +191,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="fully agree"
+                android:text="@string/group6_right"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="end"/>
         </LinearLayout>
@@ -202,7 +202,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="question16"
+        android:text="@string/ques16_name"
         android:textColor="@color/light_red"
         android:textSize="@dimen/small_font_size"
         android:gravity="center"
@@ -219,7 +219,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="10dp"
-            android:text="For a long time after I got into a fight or a disagreement is settled, my thoughts about these events resurface."
+            android:text="@string/ques16_desc"
             android:textSize="@dimen/small_font_size"/>
 
         <LinearLayout
@@ -234,7 +234,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="not agree"
+                android:text="@string/group6_left"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="start"/>
 
@@ -254,7 +254,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="fully agree"
+                android:text="@string/group6_right"
                 android:textSize="@dimen/small_font_size"
                 android:layout_gravity="end"/>
         </LinearLayout>
