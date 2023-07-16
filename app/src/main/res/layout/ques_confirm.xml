@@ -42,11 +42,11 @@
         <Button
             android:id="@+id/btn_query_all_ques"
             android:layout_width="0dp"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
             android:text="All"
-            android:visibility="gone"
+            android:visibility="visible"
             />
         <Button
             android:id="@+id/btn_save_ques"

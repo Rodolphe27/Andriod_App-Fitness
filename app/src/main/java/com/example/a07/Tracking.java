@@ -19,7 +19,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.a07.dao.SensorDao;
 import com.example.a07.dao.SportDao;
+import com.example.a07.entity.QuestionaireEntity;
+import com.example.a07.entity.SensorEntity;
 import com.example.a07.entity.SportEntity;
 import com.example.a07.utils.SharedPreferencesUtil;
 import com.example.a07.utils.Utils;
@@ -30,6 +33,7 @@ import java.util.List;
 public class Tracking extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, AdapterView.OnItemSelectedListener {
 
     private SportDao sportDao;
+//    private SensorDao sensorDao;
 
     //declare attributes for sportpage
     private Spinner sportTypeSpinner;
@@ -67,8 +71,10 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
         setContentView(R.layout.activity_sport_tracking);
         findViewById(R.id.btn_sport_queryAll).setOnClickListener(this);
         findViewById(R.id.btn_reset_firstopen).setOnClickListener(this);
+//        findViewById(R.id.showFuckingSportDatabase).setOnClickListener(this);
         // get sportDao
         sportDao = MyApplication.getInstance().getSportDatabase().sportDao();
+//        sportDao = MyApplication.getInstance().getSportDatabase().();
 
 
         // Minhua
@@ -314,7 +320,7 @@ public class Tracking extends AppCompatActivity implements View.OnClickListener,
             } else if (selectedItem.equals("GpsData")) {
                 openActivity(GPS.class);
             } else {
-                Toast.makeText(this, "This would open the respective sensor view for: " + selectedItem, Toast.LENGTH_SHORT).show();
+                // do nothing
             }
 
         }
