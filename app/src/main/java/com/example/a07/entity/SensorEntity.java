@@ -21,10 +21,9 @@ public class SensorEntity {
 
     private Integer stepCount;
 
-
-
     public SensorEntity() {
     }
+
 
     public SensorEntity(int id, String timeAndDateStamp, Integer stepCount) {
         this.id = id;

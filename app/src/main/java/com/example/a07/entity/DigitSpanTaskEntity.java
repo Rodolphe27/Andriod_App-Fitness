@@ -14,6 +14,9 @@ import androidx.room.PrimaryKey;
 @Entity(tableName= "digitSpanTable")
 public class DigitSpanTaskEntity {
 
+    public DigitSpanTaskEntity() {
+    }
+
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -23,10 +26,6 @@ public class DigitSpanTaskEntity {
 
     private long responseTime;
 
-
-    public DigitSpanTaskEntity(){
-
-    }
 
 
     public DigitSpanTaskEntity(String timeAndDateStamp, int sequenceLength, long responseTime){

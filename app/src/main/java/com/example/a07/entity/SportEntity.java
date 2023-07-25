@@ -30,8 +30,6 @@ public class SportEntity {
 
     private int moodScore;
 
-    public SportEntity() {
-    }
 
     public SportEntity(int id, String timeAndDateStamp, String name, String duration, int moodScore) {
         this.id = id;
@@ -39,6 +37,9 @@ public class SportEntity {
         this.name = name;
         this.duration = duration;
         this.moodScore = moodScore;
+    }
+
+    public SportEntity() {
     }
 
     private static String[] timeAndDateStampArr = {

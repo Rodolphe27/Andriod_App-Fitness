@@ -21,15 +21,15 @@ public class GpsEntity {
 
     private double latitude;
 
-    public GpsEntity(){
-
-    }
-
     public GpsEntity(long longitude, long latitude, String timeAndDateStamp) {
         this.longitude = longitude;
         this.timeAndDateStamp = timeAndDateStamp;
         this.latitude = latitude;
     }
+
+    public GpsEntity() {
+    }
+
     public String getTimeAndDateStamp() {
         return timeAndDateStamp;
     }
