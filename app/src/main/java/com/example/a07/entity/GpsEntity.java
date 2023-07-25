@@ -1,3 +1,11 @@
+/*
+ * *
+ *  * Created by Shipan Liu, Ludovico Ferrara, Minhua Liu, Rodolphe Loic Souassi Tatang and Daeun Jung
+ *  * Copyright (c) 2023 . All rights reserved.
+ *  *  Last modified 13.06.23, 16:16
+ *
+ */
+
 package com.example.a07.entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
