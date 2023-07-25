@@ -1,3 +1,11 @@
+<!--
+  ~ /**
+  ~  * Created by Shipan Liu, Ludovico Ferrara, Minhua Liu, Rodolphe Loic Souassi Tatang and Daeun Jung
+  ~  * Copyright (c) 2023 . All rights reserved.
+  ~  *  Last modified 14.05.23, 14:03
+  ~  */
+  -->
+
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"

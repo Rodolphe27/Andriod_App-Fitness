@@ -1,3 +1,11 @@
+/*
+ * *
+ *  * Created by Shipan Liu, Ludovico Ferrara, Minhua Liu, Rodolphe Loic Souassi Tatang and Daeun Jung
+ *  * Copyright (c) 2023 . All rights reserved.
+ *  *  Last modified 30.05.23, 11:00
+ *
+ */
+
 package com.example.a07.utils;
 
 import android.app.Activity;

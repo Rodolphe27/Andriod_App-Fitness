@@ -1,3 +1,11 @@
+<!--
+  ~ /**
+  ~  * Created by Shipan Liu, Ludovico Ferrara, Minhua Liu, Rodolphe Loic Souassi Tatang and Daeun Jung
+  ~  * Copyright (c) 2023 . All rights reserved.
+  ~  *  Last modified 25.07.23, 22:38
+  ~  */
+  -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

@@ -1,3 +1,11 @@
+/*
+ * *
+ *  * Created by Shipan Liu, Ludovico Ferrara, Minhua Liu, Rodolphe Loic Souassi Tatang and Daeun Jung
+ *  * Copyright (c) 2023 . All rights reserved.
+ *  *  Last modified 15.05.23, 16:32
+ *
+ */
+
 package com.example.a07.entity;
 
 
@@ -22,8 +30,6 @@ public class SportEntity {
 
     private int moodScore;
 
-    public SportEntity() {
-    }
 
     public SportEntity(int id, String timeAndDateStamp, String name, String duration, int moodScore) {
         this.id = id;
@@ -31,6 +37,9 @@ public class SportEntity {
         this.name = name;
         this.duration = duration;
         this.moodScore = moodScore;
+    }
+
+    public SportEntity() {
     }
 
     private static String[] timeAndDateStampArr = {

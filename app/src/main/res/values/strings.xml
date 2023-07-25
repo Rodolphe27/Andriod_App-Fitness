@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Shipan Liu, Ludovico Ferrara, Minhua Liu, Rodolphe Loic Souassi Tatang and Daeun Jung
+  ~  * Copyright (c) 2023 . All rights reserved.
+  ~  *  Last modified 25.07.23, 15:01
+  ~  */
+  -->
+
 <resources>
     <string name="app_name">Fit Mood</string>
     <string name="greeting">Hello User\nHow are you feeling today?\nReady for sport?</string>
