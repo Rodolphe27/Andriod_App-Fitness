@@ -150,15 +150,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void showDialogSettingGoal(){
         AlertDialog.Builder user_goal = new AlertDialog.Builder(this);
-        user_goal.setTitle("Your goal");
-        user_goal.setMessage("Wandering: " + sharedPref.getInt("Wandering", 0) + " min\n" +
-                "Jogging: " + sharedPref.getInt("Jogging", 0) + " min\n" +
-                "Ball sports: " + sharedPref.getInt("Ball sports", 0) + " min\n" +
-                "Weight training: " + sharedPref.getInt("Weight training", 0) + " min\n" +
-                "Yoga: " + sharedPref.getInt("Yoga", 0) + " min\n" +
-                "Climbing/Bouldering: " + sharedPref.getInt("Climbing/Bouldering", 0) + " min\n" +
-                "Others: " + sharedPref.getInt("Others", 0) + " min");
-        user_goal.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        user_goal.setTitle(getString(R.string.daeun_dialog_yourgoal));
+        user_goal.setMessage(getString(R.string.wandering) + ": " + sharedPref.getInt("Wandering", 0) +  getString(R.string.daeun_dialog_mins)+ "\n" +
+                getString(R.string.jogging) + ": "  + sharedPref.getInt("Jogging", 0) + getString(R.string.daeun_dialog_mins)+ "\n" +
+                getString(R.string.ball_sports) + ": "  + sharedPref.getInt("Ball sports", 0) + getString(R.string.daeun_dialog_mins)+ "\n" +
+                getString(R.string.weight_training) + ": "  + sharedPref.getInt("Weight training", 0) + getString(R.string.daeun_dialog_mins)+ "\n" +
+                getString(R.string.yoga) + ": "  + sharedPref.getInt("Yoga", 0) + getString(R.string.daeun_dialog_mins) + "\n" +
+                getString(R.string.climbing_bouldering) + ": "  + sharedPref.getInt("Climbing/Bouldering", 0) + getString(R.string.daeun_dialog_mins) + "\n" +
+                getString(R.string.ohters) + ": "  + sharedPref.getInt("Others", 0) + getString(R.string.daeun_dialog_mins));
+
+//        user_goal.setMessage("Wandering: " + sharedPref.getInt("Wandering", 0) + " min\n" +
+//                "Jogging: " + sharedPref.getInt("Jogging", 0) + " min\n" +
+//                "Ball sports: " + sharedPref.getInt("Ball sports", 0) + " min\n" +
+//                "Weight training: " + sharedPref.getInt("Weight training", 0) + " min\n" +
+//                "Yoga: " + sharedPref.getInt("Yoga", 0) + " min\n" +
+//                "Climbing/Bouldering: " + sharedPref.getInt("Climbing/Bouldering", 0) + " min\n" +
+//                "Others: " + sharedPref.getInt("Others", 0) + " min");
+
+        user_goal.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
             }

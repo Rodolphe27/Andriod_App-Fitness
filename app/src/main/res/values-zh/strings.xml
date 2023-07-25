@@ -225,14 +225,23 @@
 
     <string-array name="sensor_array">
         <item>选择传感器</item>
-        <item>SensorData</item>
-        <item>GpsData</item>
+        <item>传感器数据</item>
+        <item>GPS 数据</item>
     </string-array>
 
     <string name="notification_permission_denied_please_allow_notifications_to_receive_a_reminder_for_the_questionnaire">通知权限被拒绝。 请允许通知接收调查问卷提醒。</string>
     <string name="archive_header_name">名字</string>
     <string name="archive_header_duration">时长</string>
     <string name="archive_header_mood">心情</string>
+
+    <string name="daeun_dialog_yourgoal">你的目标</string>
+    <string name="daeun_dialog_mins">分钟</string>
+    <string name="choose_your_sensor">选择您的传感器</string>
+
+    <string name="set_frequency">设置频率</string>
+    <string name="stop_frequency">停止频率</string>
+    <string name="step_counter">步数计数器</string>
+    <string name="step_count">步数</string>
 
 
 
