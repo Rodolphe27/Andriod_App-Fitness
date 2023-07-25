@@ -50,7 +50,7 @@ Fit Mood is a healthy lifestyle app designed to help users stay active and impro
 ### 6. Notifications Setting
 
 - Users can set notifications for reminders .
-- Navigate to the "Notifications" section to manage notification settings.
+- Navigate to the "Setting" section to manage notification settings.
 - Adjust the time and frequency of notifications according to your preferences.
 
 
