@@ -20,7 +20,6 @@
     <string name="return_settings">Return to settings</string>
     <string name="set_notification_time">Set notification time</string>
     <string name="choose_your_sport_activity">Choose your sport activity</string>
-    <string name="choose_your_sensor">Choose your sensor</string>
     <string name="stop">STOP</string>
     <string name="start">START</string>
     <string name="add_the_finish_activity">Add a finished activity from the past</string>
@@ -99,6 +98,16 @@
     <string name="yoga_total_time">0 min</string>
     <string name="climbing_bouldering_total_time">0 min</string>
     <string name="others_total_time">0 min</string>
+
+
+    <!--in activity_sport_tracking.xml -->
+    <string name="choose_your_sensor">Choose your sensor</string>
+
+    <!-- here is the strings for MainActivity.java -->
+    <string name="daeun_dialog_yourgoal">Your goal</string>
+    <string name="daeun_dialog_mins">mins</string>
+
+
 
 
 

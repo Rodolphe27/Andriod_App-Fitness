@@ -244,4 +244,14 @@
     <string name="archive_header_mood">Laune</string>
 
 
+    <string name="daeun_dialog_yourgoal">Dein Ziel</string>
+    <string name="daeun_dialog_mins">Min</string>
+    <string name="choose_your_sensor">Wähle deinen Sensor</string>
+
+    <string name="set_frequency">Frequenz_einstellen</string>
+    <string name="stop_frequency">Frequenz_stoppen</string>
+    <string name="step_counter">Schrittzähler</string>
+    <string name="step_count">Schrittanzahl</string>
+
+
 </resources>

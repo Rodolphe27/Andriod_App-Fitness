@@ -154,6 +154,7 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
 
                     // Create a new Handler and Runnable for data storage
                     handler = new Handler();
+                    showToast("Step count data stored every " + storageInterval + " in the database.");
                     dataStorageRunnable = new Runnable() {
                         @Override
                         public void run() {
@@ -161,7 +162,6 @@ public class Sensors extends AppCompatActivity implements View.OnClickListener {
                             sensorDataToDB();
 //                            fuck();
                             // Display toast message
-                            showToast("Step count data stored every " + storageInterval + " in the database.");
                             // Schedule the next data storage after the storage interval
                             handler.postDelayed(this, storageInterval);
 
