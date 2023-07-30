@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Shipan Liu, Ludovico Ferrara, Minhua Liu, Rodolphe Loic Souassi Tatang and Daeun Jung
+  ~  * Copyright (c) 2023 . All rights reserved.
+  ~  *  Last modified 25.07.23, 22:38
+  ~  */
+  -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -42,11 +50,11 @@
         <Button
             android:id="@+id/btn_query_all_ques"
             android:layout_width="0dp"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
             android:text="All"
-            android:visibility="gone"
+            android:visibility="visible"
             />
         <Button
             android:id="@+id/btn_save_ques"

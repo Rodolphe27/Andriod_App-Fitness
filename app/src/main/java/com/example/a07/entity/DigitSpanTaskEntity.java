@@ -1,3 +1,11 @@
+/*
+ * *
+ *  * Created by Shipan Liu, Ludovico Ferrara, Minhua Liu, Rodolphe Loic Souassi Tatang and Daeun Jung
+ *  * Copyright (c) 2023 . All rights reserved.
+ *  *  Last modified 11.07.23, 12:12
+ *
+ */
+
 package com.example.a07.entity;
 
 import androidx.room.Entity;
@@ -5,6 +13,9 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName= "digitSpanTable")
 public class DigitSpanTaskEntity {
+
+    public DigitSpanTaskEntity() {
+    }
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -15,10 +26,6 @@ public class DigitSpanTaskEntity {
 
     private long responseTime;
 
-
-    public DigitSpanTaskEntity(){
-
-    }
 
 
     public DigitSpanTaskEntity(String timeAndDateStamp, int sequenceLength, long responseTime){

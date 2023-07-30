@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Shipan Liu, Ludovico Ferrara, Minhua Liu, Rodolphe Loic Souassi Tatang and Daeun Jung
+  ~  * Copyright (c) 2023 . All rights reserved.
+  ~  *  Last modified 25.07.23, 15:09
+  ~  */
+  -->
+
 <resources>
     <!--heath coin-->
     <string name="health_coin">Die Anzahl Ihrer Gesundheitsmünzen:</string>
@@ -242,6 +250,16 @@
     <string name="archive_header_name">Name</string>
     <string name="archive_header_duration">Dauern</string>
     <string name="archive_header_mood">Laune</string>
+
+
+    <string name="daeun_dialog_yourgoal">Dein Ziel</string>
+    <string name="daeun_dialog_mins">Min</string>
+    <string name="choose_your_sensor">Wähle deinen Sensor</string>
+
+    <string name="set_frequency">Frequenz_einstellen</string>
+    <string name="stop_frequency">Frequenz_stoppen</string>
+    <string name="step_counter">Schrittzähler</string>
+    <string name="step_count">Schrittanzahl</string>
 
 
 </resources>
