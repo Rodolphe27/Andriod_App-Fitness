@@ -92,6 +92,7 @@
 
     <string name="wandering">Wandering</string>
     <string name="jogging">Jogging</string>
+    <string name="swimming">Swimming</string>
     <string name="ball_sports">Ball sports</string>
     <string name="weight_training">Weight training</string>
     <string name="yoga">Yoga</string>
