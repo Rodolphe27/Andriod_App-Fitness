@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void updateSportTotalTime(){
         ((TextView) findViewById(R.id.wandering_total_time)).setText(String.valueOf(sharedPref.getFloat("Wandering_time", 0.00f)) + " min");
         ((TextView) findViewById(R.id.jogging_total_time)).setText(String.valueOf(sharedPref.getFloat("Jogging_time", 0.00f)) + " min");
+        ((TextView) findViewById(R.id.swimming_total_time)).setText(String.valueOf(sharedPref.getFloat("Swimming_time", 0.00f)) + " min");
         ((TextView) findViewById(R.id.ball_sports_total_time)).setText(String.valueOf(sharedPref.getFloat("Ball sports_time", 0.00f)) + " min");
         ((TextView) findViewById(R.id.weight_training_total_time)).setText(String.valueOf(sharedPref.getFloat("Weight training_time", 0.00f)) + " min");
         ((TextView) findViewById(R.id.yoga_total_time)).setText(String.valueOf(sharedPref.getFloat("Yoga_time", 0.00f)) + " min");
@@ -161,6 +162,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         user_goal.setTitle(getString(R.string.daeun_dialog_yourgoal));
         user_goal.setMessage(getString(R.string.wandering) + ": " + sharedPref.getInt("Wandering", 0) +  getString(R.string.daeun_dialog_mins)+ "\n" +
                 getString(R.string.jogging) + ": "  + sharedPref.getInt("Jogging", 0) + getString(R.string.daeun_dialog_mins)+ "\n" +
+                getString(R.string.swimming) + ": "  + sharedPref.getInt("Swimming", 0) + getString(R.string.daeun_dialog_mins)+ "\n" +
                 getString(R.string.ball_sports) + ": "  + sharedPref.getInt("Ball sports", 0) + getString(R.string.daeun_dialog_mins)+ "\n" +
                 getString(R.string.weight_training) + ": "  + sharedPref.getInt("Weight training", 0) + getString(R.string.daeun_dialog_mins)+ "\n" +
                 getString(R.string.yoga) + ": "  + sharedPref.getInt("Yoga", 0) + getString(R.string.daeun_dialog_mins) + "\n" +
